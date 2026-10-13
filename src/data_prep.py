@@ -190,46 +190,135 @@ def clean(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
     return df
 
 
-def make_features(df):
+# --- Features, split, label, scaling ----------------------------------------
+CITY_CENTRE = (40.3714, 49.8378)   # Fountain Square, Baku (lat, lng)
+MIN_LOCATION_COUNT = 200           # rarer districts are grouped as "other"
+NUMERIC_FEATURES = [
+    "area_m2", "rooms", "floor", "total_floors", "land_sot",
+    "is_repaired", "has_bill_of_sale", "has_mortgage", "is_agency",
+    "is_complex", "is_vip", "is_featured", "lat", "lng",
+]
+
+
+def _haversine_km(lat, lng, lat0, lng0):
+    """Great-circle distance in km from (lat, lng) arrays to one point."""
+    lat, lng, lat0, lng0 = map(np.radians, (lat, lng, lat0, lng0))
+    a = (np.sin((lat - lat0) / 2) ** 2
+         + np.cos(lat) * np.cos(lat0) * np.sin((lng - lng0) / 2) ** 2)
+    return 2 * 6371.0 * np.arcsin(np.sqrt(a))
+
+
+def make_features(df: pd.DataFrame):
     """
     Turn the cleaned frame into a numeric design matrix.
-      - encode categoricals (one-hot / ordinal — your choice, justify it),
-      - assemble X (features) and y (target `price`).
-    Return (X, y, feature_names).
+      - numeric / 0-1 columns as they are,
+      - dist_centre_km: distance to Fountain Square (from lat/lng, no target info),
+      - floor_ratio: floor / total_floors,
+      - one-hot `category` (3 values),
+      - one-hot `location` for districts with >= MIN_LOCATION_COUNT listings,
+        the rest grouped as "other". One-hot (not ordinal) because districts
+        have no natural order. Counts use no price information.
+    Return (X float ndarray, y price ndarray, feature_names list[str]).
     """
-    raise NotImplementedError("TODO: build X, y")
+    feats = df[NUMERIC_FEATURES].astype(float).copy()
+    feats["dist_centre_km"] = _haversine_km(df["lat"].to_numpy(), df["lng"].to_numpy(),
+                                            *CITY_CENTRE)
+    feats["floor_ratio"] = df["floor"] / df["total_floors"].clip(lower=1)
+
+    cat = pd.get_dummies(df["category"], prefix="cat", dtype=float)
+
+    counts = df["location"].value_counts()
+    common = counts[counts >= MIN_LOCATION_COUNT].index
+    loc = df["location"].where(df["location"].isin(common), "other")
+    loc = pd.get_dummies(loc, prefix="loc", dtype=float)
+
+    X_df = pd.concat([feats, cat, loc], axis=1)
+    return (X_df.to_numpy(dtype=float),
+            df["price"].to_numpy(dtype=float),
+            list(X_df.columns))
 
 
 def make_tier_label(y_price, threshold=None):
     """
     Derived classification target: price TIER (premium vs standard).
-    Use the MEDIAN of the TRAINING price as the split threshold.
-      - premium = 1 (price >  threshold), standard = 0.
-    Return (y_tier, threshold).  The threshold must come from TRAIN only
-    (no peeking at val/test) to avoid leakage.
+      - premium = 1 (price > threshold), standard = 0.
+    Pass threshold=None ONLY with the TRAINING prices: the median is computed
+    from them. For val/test, pass the threshold returned by the train call.
+    Return (y_tier int ndarray, threshold float).
     """
-    raise NotImplementedError("TODO: derive the price-tier label")
+    y_price = np.asarray(y_price, dtype=float)
+    if threshold is None:
+        threshold = float(np.median(y_price))
+    return (y_price > threshold).astype(int), float(threshold)
 
 
 def train_val_test_split(X, y, val_size=0.15, test_size=0.15, seed=SEED):
     """
-    Deterministic split into train / validation / test.
+    Deterministic split into train / validation / test (default 70/15/15).
+    Stratified on price deciles so every split has the same price
+    distribution, which also keeps the premium/standard balance (Task B).
+    The deciles only decide which split a row goes to; no label or model
+    statistic is taken from val/test.
     Return (X_tr, y_tr, X_val, y_val, X_te, y_te).
     """
-    raise NotImplementedError("TODO: split the data")
+    X = np.asarray(X); y = np.asarray(y, dtype=float)
+    rng = np.random.default_rng(seed)
+    edges = np.quantile(y, np.linspace(0, 1, 11)[1:-1])
+    strata = np.searchsorted(edges, y, side="right")
+
+    tr, va, te = [], [], []
+    for s in np.unique(strata):
+        idx = rng.permutation(np.flatnonzero(strata == s))
+        n_te = int(round(len(idx) * test_size))
+        n_va = int(round(len(idx) * val_size))
+        te.append(idx[:n_te]); va.append(idx[n_te:n_te + n_va]); tr.append(idx[n_te + n_va:])
+    tr, va, te = (rng.permutation(np.concatenate(p)) for p in (tr, va, te))
+    return X[tr], y[tr], X[va], y[va], X[te], y[te]
 
 
 def standardize(X_tr, *others):
     """
     Standardize features using TRAIN statistics only (mean/std from X_tr),
-    then apply the same transform to the other splits.
+    then apply the same transform to the other splits. Constant columns
+    (std 0) are left centred, not divided.
     Return the scaled arrays in the same order as given.
     (Needed for the SVM; trees don't require it.)
     """
-    raise NotImplementedError("TODO: standardize using train stats")
+    mean = X_tr.mean(axis=0)
+    std = X_tr.std(axis=0)
+    std[std == 0] = 1.0
+    return tuple((X - mean) / std for X in (X_tr, *others))
+
+
+def get_splits(seed: int = SEED, path: str = CLEAN_PATH) -> dict:
+    """
+    One call for everyone (team interface contract):
+      X_tr, X_val, X_te   raw features (float)  -> trees
+      y_tr, y_val, y_te   price in AZN          -> Task A (use np.log for log-price)
+      t_tr, t_val, t_te   0/1 price tier         -> Task B
+      tier_threshold      median TRAIN price
+      feature_names
+    For the SVM call standardize(X_tr, X_val, X_te) yourself.
+    """
+    df = pd.read_csv(path, encoding="utf-8")
+    X, y, names = make_features(df)
+    X_tr, y_tr, X_val, y_val, X_te, y_te = train_val_test_split(X, y, seed=seed)
+    t_tr, thr = make_tier_label(y_tr)
+    t_val, _ = make_tier_label(y_val, thr)
+    t_te, _ = make_tier_label(y_te, thr)
+    return dict(X_tr=X_tr, X_val=X_val, X_te=X_te,
+                y_tr=y_tr, y_val=y_val, y_te=y_te,
+                t_tr=t_tr, t_val=t_val, t_te=t_te,
+                tier_threshold=thr, feature_names=names)
 
 
 if __name__ == "__main__":
     clean_df = clean(load_raw())
     clean_df.to_csv(CLEAN_PATH, index=False, encoding="utf-8")
     print(f"\nSaved {clean_df.shape[0]} rows x {clean_df.shape[1]} cols -> {CLEAN_PATH}")
+
+    sp = get_splits()
+    print(f"Features: {len(sp['feature_names'])}")
+    print(f"Split sizes: train {len(sp['y_tr'])}, val {len(sp['y_val'])}, test {len(sp['y_te'])}")
+    print(f"Tier threshold (train median): {sp['tier_threshold']:,.0f} AZN")
+    print("Premium share: " + ", ".join(f"{k} {sp[k].mean():.3f}" for k in ("t_tr", "t_val", "t_te")))
