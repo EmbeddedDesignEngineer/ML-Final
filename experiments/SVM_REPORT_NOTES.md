@@ -2,44 +2,134 @@
 
 ## Verified status — 14 October 2026
 
-The existing NumPy SVM implementation and its 84 tests were preserved. A
-standalone SVM experiment runner and focused experiment tests have been added.
-**No real Bina.az experiment has been executed in this checkout.** No real-data
-validation scores, test scores, best configuration, convergence conclusion, or
-performance advantage can currently be reported.
+The merged checkout contains the real dataset and implemented preprocessing
+functions. Real-data cleaning and a preprocessing audit have now been completed
+using Davud's functions. **SVM training remains blocked by categorical encoding
+fitted before the train/validation/test split.** No real-data validation scores,
+test model scores, best configuration, convergence conclusion, or performance
+advantage can currently be reported. The SVM implementation and runner were
+preserved; another preprocessing pipeline was not introduced.
 
 Repository inspection found:
 
-- `data/` contains only `README.md`; no raw CSV, cleaned CSV, NPZ, NPY, or
-  Parquet dataset is present. No previous experiment results were found.
-- `src/data_prep.py` implements cleaning, including duplicate removal, numeric
-  parsing, structural missing-value fills, fixed outlier rules, and removal of
-  known target-derived columns. It retains `price` as the target and categorical
-  `category`/`location` columns that still require feature construction.
-- `make_features`, `make_tier_label`, `train_val_test_split`, and `standardize`
-  still raise `NotImplementedError`. Completed preprocessing is not available
-  here. Its documented interfaces promise training-only scaling and a
-  training-price median threshold, but those promises cannot yet be verified.
+- `data/house_sale.csv` is available (141,882,994 bytes). Davud's `load_raw()`
+  and `clean()` produced `data/house_sale_clean.csv`. No previous model results
+  or prepared NPZ were present when this audit started.
+- `make_features`, `make_tier_label`, `train_val_test_split`, `standardize`, and
+  the public `get_splits` interface are implemented and execute successfully.
+- Known target-derived columns are excluded from the feature matrix. Tier
+  labels use the training median, and `standardize` correctly fits mean/std
+  on training rows only. Split membership is disjoint and exhaustive.
+- **Blocking issue:** `get_splits` calls `make_features(df)` on the complete
+  cleaned frame before splitting. `make_features` calculates location counts,
+  chooses frequent districts and discovers dummy-column vocabularies from its
+  entire input. It has no fitted-state transform interface. The resulting
+  validation/test influence on the training representation violates the
+  training-only preprocessing requirement even though it does not use prices.
 - `src/evaluate.py` contains unimplemented metric functions. The experiment
   script therefore uses sklearn metrics, as permitted for this task; sklearn
   remains outside the custom SVM algorithm.
 - `src/run_all.py` is an unimplemented integration skeleton.
-- The data README's example filename differs from `data_prep.DATA_PATH`; the
-  eventual export should record the actual dataset file/version used.
+- `data_prep.DATA_PATH` correctly identifies the available raw CSV. Dataset and
+  source hashes are recorded in `results/svm_preprocessing_audit.json`.
 
 Running `python -m experiments.svm_experiments` without prepared data exits with
 an explicit missing-data error and does not create metrics or figures. Synthetic
 fixtures are confined to tests and labelled as such, with artifacts written to
 pytest temporary directories. They are not evidence about Bina.az performance.
 
-Verification on 14 October 2026: **120 tests passed in 2.18 seconds**, consisting
+Verification after the merge: **120 tests passed in 1.97 seconds**, consisting
 of the unchanged 84 SVM tests and 36 experiment checks. The final run treated
 warnings as errors (`-W error`) and completed without warnings. The checks
 included actual NumPy/sklearn fits, CSV/JSON and six PNG outputs, reproducible
 validation results, and unchanged selected configurations after inverting only
-the synthetic test labels. No existing repository file changed during this task,
-as verified against its starting SHA-256 hash. `pip check` found no broken
-requirements in the temporary verification environment.
+the synthetic test labels. These unit tests do not certify the preprocessing
+module. The current real-data audit found the upstream encoding issue described
+below. Only this SVM notes file and ignored data/audit artifacts were changed;
+the SVM implementation, runner, tests and other members' files were preserved.
+
+## Real-data preprocessing audit
+
+The audited source commit is `f2d127a93eb3663f8c7fa3bdcfbfcb934ad00075`.
+The raw CSV SHA-256 is
+`b6a4c67e0d3c712de31b9db53db53688792bc03099a213c1994c43114758aec2`.
+The preprocessing source SHA-256 is
+`9671cf33b1a2cc72033b2a157b0889874a62d2baa0fa312d1313d3617bcb09f8`.
+The machine-readable audit also records the cleaned-file hash and cleaning log.
+
+| Property | Actual observation |
+|---|---:|
+| Raw observations / columns | 100,775 / 51 |
+| Observations after listing deduplication | 64,454 |
+| Final cleaned observations / columns | 57,363 / 17 |
+| Training observations | 40,155 |
+| Validation observations | 8,604 |
+| Test observations | 8,604 |
+| Split seed | 42 |
+| Training-price median threshold | 209,000 AZN |
+| Premium proportion, train / validation / test | 49.7099% / 49.7327% / 49.7211% |
+| Globally fitted feature count | 71 |
+| Feature count when fitted on training rows only | 65 |
+| Training rows affected by changed location grouping | 1,041 |
+
+Davud's splitter stratifies on full-dataset price deciles to allocate rows.
+Those quantiles are used only for split construction; they are not passed to
+the model or used as the premium threshold. The tier threshold was separately
+verified as the median of the training prices. All labels equal
+`(price > 209000).astype(int)`, and both classes occur in every split.
+
+To check separation without writing a second splitter, the audit passed unique
+cleaned-row indices and prices into `train_val_test_split`. The returned indices
+had no overlap and covered all cleaned rows. The public `get_splits(seed=42)`
+was also executed on the saved cleaned CSV; its split sizes and labels matched.
+The original listing IDs are removed by `clean`, so these diagnostic IDs are
+stable cleaned-row positions, tied to the cleaned-data hash and split seed.
+
+The current feature matrix is finite and numeric, with none of `price`,
+`log_price`, `unit_price`, `total_price`, or `price_tier` in its columns. Every
+scaled array was checked against the training mean and population standard
+deviation; the maximum absolute scaled training mean was approximately
+`7.73e-12`, and training column standard deviations were one or zero. These
+checks establish that the scaling implementation works, **not** that the full
+preprocessing is leakage-free: its input still uses globally fitted encoding.
+
+The location grouping threshold is 200 observations. Six locations meet it
+only when validation and test rows contribute to the count:
+
+| Location | Full-data count | Training-only count |
+|---|---:|---:|
+| 8-ci mikrorayon q. | 272 | 192 |
+| 9-cu mikrorayon q. | 261 | 186 |
+| Avtovağzal m. | 221 | 157 |
+| Köhnə Günəşli q. | 213 | 154 |
+| Nizami r. | 237 | 160 |
+| Yasamal q. | 264 | 192 |
+
+Under training-only fitting these locations must belong to `other`; the current
+pipeline gives them separate columns. Their training counts sum to 1,041.
+This is a concrete held-out-distribution leak in preprocessing, rather than a
+hypothetical issue or evidence of direct target columns in the model inputs.
+
+No `data/svm_prepared.npz` was exported: declaring `encoding_fit_split="train"`
+would be false, and the runner correctly rejects another scope. No SVM model
+was fitted on these diagnostic arrays, no hyperparameters were selected, and
+no test model predictions or metrics were computed. The test split's aggregate
+class balance was inspected solely to audit preparation.
+
+Required upstream correction, owned by Davud:
+
+1. Split cleaned rows before fitting categorical feature construction, using
+   the existing splitter and seed; retain row identifiers for export.
+2. Fit the frequent-location set and categorical vocabulary on training only.
+3. Provide transformation with that saved state and a fixed column order for
+   validation/test. Map rare/unseen locations to the training `other` policy.
+4. Preserve the existing training-median label and training-only scaler logic.
+
+Calling the current `make_features` independently on each split is insufficient:
+it would recompute frequencies, change meanings of `other`, and create different
+column sets. Reindexing dummy columns afterward would not repair those learned
+grouping decisions. Once the upstream fit/transform contract is available, the
+existing SVM exporter contract and 33-configuration experiment plan can proceed.
 
 ## Linear soft-margin SVM
 
@@ -121,7 +211,8 @@ RFF weights therefore cannot be interpreted as original property-feature weights
 
 The runner consumes the output of the team's existing preprocessing. It does
 not implement a second cleaning, encoding, split, scaling, or threshold pipeline.
-This is the proposed export contract; no completed upstream producer is assumed.
+The upstream functions now exist, but their categorical fit/transform contract
+must be corrected as described in the real-data audit before this export is valid.
 
 Create `data/svm_prepared.npz` after completing and reviewing preprocessing:
 
@@ -315,7 +406,9 @@ split for baselines. This change does not edit `src/run_all.py` or the shared re
 
 | Requested result | Verified status |
 |---|---|
-| Best real-data linear and RFF configurations | Not selected: prepared data unavailable |
+| Real-data cleaning, split, threshold and scaling checks | Completed; numerical findings recorded above |
+| Training-only categorical encoding | Failed audit: 71 global versus 65 training-only features |
+| Best real-data linear and RFF configurations | Not selected: categorical encoding must be corrected upstream |
 | Real validation/test accuracy, precision, recall, F1, ROC-AUC, confusion matrix | Not computed |
 | Real training/prediction timings | Not measured |
 | Real objective convergence and margin analysis | Not observed |
@@ -332,9 +425,10 @@ include the selected parameters, all requested test metrics, and measured times.
 
 ## Limitations and remaining official requirements
 
-- The missing prepared dataset and incomplete upstream code prevent final
-  real-data analysis and an end-to-end leakage audit. Assertions about numeric
-  matrices, 0/1 targets and correct scaling remain conditional on a future export.
+- The raw and cleaned datasets are available. Globally fitted categorical
+  encoding prevents a compliant prepared export and final model experiments.
+  Numeric features, 0/1 labels, disjoint membership, the training median and
+  the scaler have been checked; categorical fitting still requires correction.
 - The brief also asks for uncertainty through cross-validation. This runner is
   a single held-out study and does **not** produce cross-validated mean/std.
   Cross-validating a matrix scaled once on all development rows would leak fold
