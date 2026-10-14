@@ -208,34 +208,64 @@ def _haversine_km(lat, lng, lat0, lng0):
     return 2 * 6371.0 * np.arcsin(np.sqrt(a))
 
 
-def make_features(df: pd.DataFrame):
+class FeatureEncoder:
     """
-    Turn the cleaned frame into a numeric design matrix.
+    Learns the encoding rules from the TRAINING rows only, then applies the
+    same saved rules to any split (fit on train, transform train/val/test).
+
+    Rules learned in fit():
+      - categories_ : fixed domain list from CATEGORY_MAP (not read from data),
+      - locations_  : districts with >= MIN_LOCATION_COUNT listings IN TRAIN;
+                      every other district (rare in train, or unseen) -> "other".
+    No statistic is ever taken from validation or test rows.
+    """
+
+    def __init__(self, min_location_count: int = MIN_LOCATION_COUNT):
+        self.min_location_count = min_location_count
+
+    def fit(self, df_train: pd.DataFrame) -> "FeatureEncoder":
+        self.categories_ = list(CATEGORY_MAP.values())
+        counts = df_train["location"].value_counts()
+        self.locations_ = sorted(counts[counts >= self.min_location_count].index)
+        self.feature_names_ = (NUMERIC_FEATURES + ["dist_centre_km", "floor_ratio"]
+                               + [f"cat_{c}" for c in self.categories_]
+                               + [f"loc_{l}" for l in self.locations_] + ["loc_other"])
+        return self
+
+    def transform(self, df: pd.DataFrame) -> np.ndarray:
+        if not hasattr(self, "locations_"):
+            raise RuntimeError("FeatureEncoder.fit(train_df) must be called first")
+        num = df[NUMERIC_FEATURES].to_numpy(dtype=float)
+        dist = _haversine_km(df["lat"].to_numpy(), df["lng"].to_numpy(), *CITY_CENTRE)
+        ratio = (df["floor"] / df["total_floors"].clip(lower=1)).to_numpy(dtype=float)
+
+        cat = df["category"].to_numpy()
+        cat_oh = np.column_stack([(cat == c) for c in self.categories_]).astype(float)
+
+        loc = df["location"].to_numpy()
+        known = np.isin(loc, self.locations_)
+        loc_oh = np.column_stack([(loc == l) for l in self.locations_] + [~known]).astype(float)
+
+        X = np.column_stack([num, dist, ratio, cat_oh, loc_oh])
+        assert X.shape[1] == len(self.feature_names_)
+        return X
+
+
+def make_features(df: pd.DataFrame, encoder: FeatureEncoder):
+    """
+    Turn a cleaned frame (one split) into a numeric design matrix using an
+    encoder that was fitted on the TRAINING split only:
       - numeric / 0-1 columns as they are,
-      - dist_centre_km: distance to Fountain Square (from lat/lng, no target info),
-      - floor_ratio: floor / total_floors,
-      - one-hot `category` (3 values),
-      - one-hot `location` for districts with >= MIN_LOCATION_COUNT listings,
-        the rest grouped as "other". One-hot (not ordinal) because districts
-        have no natural order. Counts use no price information.
+      - dist_centre_km: distance to Fountain Square (fixed point, no data stats),
+      - floor_ratio: floor / total_floors (row-level),
+      - one-hot `category` (fixed list of 3),
+      - one-hot `location` for districts frequent in TRAIN, the rest -> "other".
+        One-hot (not ordinal) because districts have no natural order.
     Return (X float ndarray, y price ndarray, feature_names list[str]).
     """
-    feats = df[NUMERIC_FEATURES].astype(float).copy()
-    feats["dist_centre_km"] = _haversine_km(df["lat"].to_numpy(), df["lng"].to_numpy(),
-                                            *CITY_CENTRE)
-    feats["floor_ratio"] = df["floor"] / df["total_floors"].clip(lower=1)
-
-    cat = pd.get_dummies(df["category"], prefix="cat", dtype=float)
-
-    counts = df["location"].value_counts()
-    common = counts[counts >= MIN_LOCATION_COUNT].index
-    loc = df["location"].where(df["location"].isin(common), "other")
-    loc = pd.get_dummies(loc, prefix="loc", dtype=float)
-
-    X_df = pd.concat([feats, cat, loc], axis=1)
-    return (X_df.to_numpy(dtype=float),
+    return (encoder.transform(df),
             df["price"].to_numpy(dtype=float),
-            list(X_df.columns))
+            list(encoder.feature_names_))
 
 
 def make_tier_label(y_price, threshold=None):
@@ -252,16 +282,15 @@ def make_tier_label(y_price, threshold=None):
     return (y_price > threshold).astype(int), float(threshold)
 
 
-def train_val_test_split(X, y, val_size=0.15, test_size=0.15, seed=SEED):
+def _split_indices(y, val_size=0.15, test_size=0.15, seed=SEED):
     """
-    Deterministic split into train / validation / test (default 70/15/15).
-    Stratified on price deciles so every split has the same price
-    distribution, which also keeps the premium/standard balance (Task B).
-    The deciles only decide which split a row goes to; no label or model
-    statistic is taken from val/test.
-    Return (X_tr, y_tr, X_val, y_val, X_te, y_te).
+    Row indices for train / validation / test (default 70/15/15),
+    stratified on price deciles so every split has the same price
+    distribution (and the same premium/standard balance for Task B).
+    Like sklearn's stratified split, this only decides WHICH split a row
+    goes to; no feature, label or scaling statistic comes from val/test.
     """
-    X = np.asarray(X); y = np.asarray(y, dtype=float)
+    y = np.asarray(y, dtype=float)
     rng = np.random.default_rng(seed)
     edges = np.quantile(y, np.linspace(0, 1, 11)[1:-1])
     strata = np.searchsorted(edges, y, side="right")
@@ -272,7 +301,18 @@ def train_val_test_split(X, y, val_size=0.15, test_size=0.15, seed=SEED):
         n_te = int(round(len(idx) * test_size))
         n_va = int(round(len(idx) * val_size))
         te.append(idx[:n_te]); va.append(idx[n_te:n_te + n_va]); tr.append(idx[n_te + n_va:])
-    tr, va, te = (rng.permutation(np.concatenate(p)) for p in (tr, va, te))
+    return tuple(rng.permutation(np.concatenate(p)) for p in (tr, va, te))
+
+
+def train_val_test_split(X, y, val_size=0.15, test_size=0.15, seed=SEED):
+    """
+    Deterministic split of ready arrays into train / validation / test.
+    Return (X_tr, y_tr, X_val, y_val, X_te, y_te).
+    For the real data use get_splits(): it splits the ROWS first and only
+    then fits the encoder on train.
+    """
+    X = np.asarray(X); y = np.asarray(y, dtype=float)
+    tr, va, te = _split_indices(y, val_size, test_size, seed)
     return X[tr], y[tr], X[va], y[va], X[te], y[te]
 
 
@@ -292,24 +332,35 @@ def standardize(X_tr, *others):
 
 def get_splits(seed: int = SEED, path: str = CLEAN_PATH) -> dict:
     """
-    One call for everyone (team interface contract):
+    One call for everyone (team interface contract). Order matters:
+      1. split the cleaned ROWS into train / val / test,
+      2. fit the FeatureEncoder on the train rows only,
+      3. transform all three splits with that same encoder,
+      4. tier threshold = median TRAIN price, reused for val/test.
+    Returns:
       X_tr, X_val, X_te   raw features (float)  -> trees
       y_tr, y_val, y_te   price in AZN          -> Task A (use np.log for log-price)
       t_tr, t_val, t_te   0/1 price tier         -> Task B
       tier_threshold      median TRAIN price
-      feature_names
-    For the SVM call standardize(X_tr, X_val, X_te) yourself.
+      feature_names, encoder
+    For the SVM call standardize(X_tr, X_val, X_te) yourself (train mean/std).
     """
     df = pd.read_csv(path, encoding="utf-8")
-    X, y, names = make_features(df)
-    X_tr, y_tr, X_val, y_val, X_te, y_te = train_val_test_split(X, y, seed=seed)
+    tr, va, te = _split_indices(df["price"].to_numpy(), seed=seed)
+    df_tr, df_val, df_te = (df.iloc[i].reset_index(drop=True) for i in (tr, va, te))
+
+    encoder = FeatureEncoder().fit(df_tr)
+    X_tr, y_tr, names = make_features(df_tr, encoder)
+    X_val, y_val, _ = make_features(df_val, encoder)
+    X_te, y_te, _ = make_features(df_te, encoder)
+
     t_tr, thr = make_tier_label(y_tr)
     t_val, _ = make_tier_label(y_val, thr)
     t_te, _ = make_tier_label(y_te, thr)
     return dict(X_tr=X_tr, X_val=X_val, X_te=X_te,
                 y_tr=y_tr, y_val=y_val, y_te=y_te,
                 t_tr=t_tr, t_val=t_val, t_te=t_te,
-                tier_threshold=thr, feature_names=names)
+                tier_threshold=thr, feature_names=names, encoder=encoder)
 
 
 if __name__ == "__main__":
