@@ -88,3 +88,55 @@ def test_deeper_split_is_stopped_by_global_not_local_gain():
     assert model.root.right.impurity == pytest.approx(1.)
     assert model.root.right.is_leaf()  # global gain = (2/6)*1 < .5
     assert_allclose(model.predict([[4], [5]]), [11, 11])
+
+
+def test_importance_is_normalized_and_refit_resets_metadata():
+    model = DecisionTree().fit([[0, 4], [1, 4], [2, 4], [3, 4]], [0, 0, 1, 1])
+    assert_allclose(model.feature_importances_, [1., 0.])
+    assert model.get_depth() == 1
+    assert model.get_n_leaves() == 2
+    model.fit([[5], [5]], [1, 1])
+    assert_allclose(model.feature_importances_, [0.])
+    assert_array_equal(model.classes_, [1])
+    assert model.get_depth() == 0
+    assert model.get_n_leaves() == 1
+
+
+@pytest.mark.parametrize("params", [
+    {"task": "bad"}, {"criterion": "bad"}, {"task": "regression"},
+    {"max_depth": -1}, {"max_depth": 1.5}, {"max_depth": True},
+    {"min_samples_split": 1}, {"min_samples_leaf": 0},
+    {"min_impurity_decrease": -1}, {"min_impurity_decrease": float("nan")},
+])
+def test_invalid_parameters_fail_clearly(params):
+    with pytest.raises(ValueError):
+        DecisionTree(**params).fit([[0], [1]], [0, 1])
+
+
+@pytest.mark.parametrize("X,y", [
+    ([], []), ([1, 2], [0, 1]), ([[0], [1]], [1]),
+    ([[0], [1]], [[0], [1]]), ([[float("nan")]], [0]),
+    ([[float("inf")]], [0]), ([[0], [1]], [0, float("nan")]),
+])
+def test_invalid_training_arrays_fail_clearly(X, y):
+    with pytest.raises(ValueError):
+        DecisionTree().fit(X, y)
+
+
+def test_prediction_checks_and_empty_batches():
+    model = DecisionTree()
+    with pytest.raises(RuntimeError, match="fit"):
+        model.predict([[0]])
+    model.fit([[0], [1]], [0, 1])
+    assert model.predict(np.empty((0, 1))).shape == (0,)
+    assert model.predict_proba(np.empty((0, 1))).shape == (0, 2)
+    for X in ([[0, 1]], [0], [[float("nan")]]):
+        with pytest.raises(ValueError):
+            model.predict(X)
+
+
+def test_adjacent_floats_split_without_empty_child():
+    low = 1.
+    high = np.nextafter(low, np.inf)
+    model = DecisionTree().fit([[low], [high]], [0, 1])
+    assert_array_equal(model.predict([[low], [high]]), [0, 1])

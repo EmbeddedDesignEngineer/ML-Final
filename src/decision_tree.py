@@ -27,6 +27,12 @@ class Node:
 
 
 class DecisionTree:
+    """Exhaustive CART-style tree for finite, preprocessed numeric features.
+
+    ``min_impurity_decrease`` uses gain weighted by node/training sample
+    count, as in sklearn. ``max_depth=0`` deliberately permits a stump.
+    No random feature sampling is used, so random_state is API-only.
+    """
     def __init__(self, task="classification", criterion="gini", max_depth=None,
                  min_samples_split=2, min_samples_leaf=1,
                  min_impurity_decrease=0.0, random_state=42):
@@ -124,31 +130,92 @@ class DecisionTree:
         return node
 
     def fit(self, X, y):
+        self._validate_parameters()
         X = np.asarray(X, dtype=float)
+        y = np.asarray(y)
+        if X.ndim != 2 or not all(X.shape) or not np.isfinite(X).all():
+            raise ValueError("X must be a non-empty finite 2-D numeric array")
+        if y.ndim != 1 or len(y) != len(X):
+            raise ValueError("y must be a 1-D array with one target per row")
+        if y.dtype.kind not in "biufUS" or (y.dtype.kind in "biuf" and not np.isfinite(y).all()):
+            raise ValueError("y must contain finite numbers or string labels")
+        self.root = None
         if self.task == "classification":
-            self.classes_, y = np.unique(np.asarray(y), return_inverse=True)
+            self.classes_, y = np.unique(y, return_inverse=True)
         else:
             y = np.asarray(y, dtype=float)
+            if not np.isfinite(y).all():
+                raise ValueError("Regression targets must be finite numbers")
+            if hasattr(self, "classes_"):
+                del self.classes_
         self.n_features_in_ = X.shape[1]
         self.n_samples_ = len(y)
         self.root = self._grow(X, y, 0)
+        self.feature_importances_ = np.zeros(self.n_features_in_)
+        for node, _ in self._nodes():
+            if not node.is_leaf():
+                self.feature_importances_[node.feature] += node.n_samples / self.n_samples_ * node.gain
+        total = self.feature_importances_.sum()
+        if total > 0:
+            self.feature_importances_ /= total
         return self
 
-    def _leaf(self, x):
-        node = self.root
+    def _validate_parameters(self):
+        valid = {"classification": ("gini", "entropy"), "regression": ("mse",)}
+        if self.task not in valid or self.criterion not in valid[self.task]:
+            raise ValueError("Use classification with gini/entropy, or regression with mse")
+        for name, minimum in (("max_depth", 0), ("min_samples_split", 2), ("min_samples_leaf", 1)):
+            value = getattr(self, name)
+            if name == "max_depth" and value is None:
+                continue
+            if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, np.integer)) or value < minimum:
+                raise ValueError(f"{name} must be an integer >= {minimum}")
+        value = self.min_impurity_decrease
+        if (isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, float, np.integer, np.floating))
+                or not np.isfinite(value) or value < 0):
+            raise ValueError("min_impurity_decrease must be finite and non-negative")
+
+    def _check_fitted(self):
+        if self.root is None:
+            raise RuntimeError("Call fit before predicting or inspecting the tree")
+
+    def _prediction_array(self, X):
+        self._check_fitted()
+        X = np.asarray(X, dtype=float)
+        if X.ndim != 2 or X.shape[1] != self.n_features_in_ or not np.isfinite(X).all():
+            raise ValueError(f"X must be finite and 2-D with {self.n_features_in_} features")
+        return X
+
+    def _nodes(self):
+        self._check_fitted()
+        stack = [(self.root, 0)]
+        while stack:
+            node, depth = stack.pop()
+            yield node, depth
+            if not node.is_leaf():
+                stack.extend(((node.right, depth + 1), (node.left, depth + 1)))
+
+    def get_depth(self):
+        return max(depth for _, depth in self._nodes())
+
+    def get_n_leaves(self):
+        return sum(node.is_leaf() for node, _ in self._nodes())
+
+    def _leaf(self, x, node):
         while not node.is_leaf():
             node = node.left if x[node.feature] <= node.threshold else node.right
         return node
 
     def _predict_one(self, x, node):
-        while not node.is_leaf():
-            node = node.left if x[node.feature] <= node.threshold else node.right
-        return node.value
+        return self._leaf(x, node).value
 
     def predict(self, X):
-        return np.asarray([self._predict_one(x, self.root) for x in np.asarray(X, dtype=float)])
+        X = self._prediction_array(X)
+        dtype = self.classes_.dtype if self.task == "classification" else float
+        return np.asarray([self._predict_one(x, self.root) for x in X], dtype=dtype)
 
     def predict_proba(self, X):
         if self.task != "classification":
             raise ValueError("predict_proba is available for classification only")
-        return np.asarray([self._leaf(x).proba for x in np.asarray(X, dtype=float)])
+        X = self._prediction_array(X)
+        return np.asarray([self._leaf(x, self.root).proba for x in X]).reshape(len(X), len(self.classes_))
