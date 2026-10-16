@@ -1,4 +1,4 @@
-# MLE-AI-201 Machine Learning — Final Project (Starter Pack)
+# MLE-AI-201 Machine Learning — Final Project
 
 Build **two models from scratch** (a decision tree and an SVM) on the
 **bina.az** real-estate dataset, then benchmark honestly against
@@ -56,11 +56,32 @@ only. For the SVM you do **not** need a QP/SMO solver — use the
 
 ## Quick start
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-# put the dataset in data/ (see data/README.md), then:
-python -m src.run_all
+python -m venv .venv
+.venv/Scripts/python.exe -m pip install -r requirements.txt
+.venv/Scripts/python.exe -m src.run_all
 ```
+
+These commands use Windows paths. On Linux/macOS use `.venv/bin/python`.
+Place the real raw dataset at `data/house_sale.csv` before running. The default
+run writes to `results/final/` and includes cleaning, EDA, all 33 SVM validation
+configurations, tree validation sweeps, Ridge selection, five-fold evaluation,
+and final model comparisons. The SVC fits can take substantial time.
+
+For a new reproduction choose an unused directory:
+
+```bash
+python -m src.run_all --output results/reproduction
+```
+
+The runner preserves earlier output instead of deleting it. After a later-stage
+failure, a completed SVM search can be reused with
+`python -m src.run_all --output results/reproduction --resume`.
+Data and SVM source hashes are checked before reuse. An incomplete SVM search
+cannot be resumed; choose a new output directory in that case.
+
+`--skip-cv` and `--skip-svm-search` are diagnostic shortcuts. They do not produce
+the complete experiment evidence. Install `requirements-dev.txt` and run
+`python -m pytest -q` for all checks.
 
 ## Decision tree module
 
@@ -87,5 +108,18 @@ four previously selected SVM configurations, runs five-fold uncertainty checks
 without final test rows, and saves final metrics, subgroup analysis and figures.
 Use a fresh output directory to preserve earlier test results.
 Committed results are in `evaluation/artifacts/`; methodology and interpretation
-are in `evaluation/REPORT_NOTES.md`. This command is available for integration
-into Bailar's shared `src/run_all.py` entry point.
+are in `evaluation/REPORT_NOTES.md`. This evaluation is integrated into Bailar's shared `src/run_all.py` entry point.
+
+## Ridge and shared experiments
+
+`src/linear.py` implements Ridge with NumPy normal equations and an unpenalized
+intercept. Ridge is the optional regression bonus; custom and sklearn versions
+use training-fitted scaling and the same alpha grid. `src/run_all.py` is the
+shared entry point and `experiments/pipeline.py` connects the team's modules.
+See `experiments/PIPELINE_REPORT_NOTES.md` for results, reproduction details and
+timing/uncertainty limits. Committed evidence is under
+`experiments/artifacts/final/`; local prepared CSV/NPZ files remain ignored.
+
+This completes the experiment code path. The team must still assemble and
+review its final report PDF, presentation PDF and named contribution report
+before tagging the submission `v1.0-final`.

@@ -11,11 +11,11 @@ Kaggle: **"binaaz-sale-project"** by `sehriyarmemmedli`
 1. Download the dataset archive from Kaggle.
 2. Extract it so the CSV lives **directly in this folder**, e.g.:
    ```
-   data/bina_az_sale.csv
+   data/house_sale.csv
    ```
-3. If your filename differs, set the path once at the top of
-   `src/data_prep.py` (the `DATA_PATH` constant) — do not scatter paths
-   across the codebase.
+3. If your filename differs, pass it to the shared runner:
+   `python -m src.run_all --raw path/to/your.csv`.
+   The default is `data/house_sale.csv`; no source edit is needed.
 
 ## Notes / gotchas
 - Column names are in **Azerbaijani** (e.g. `Sahə`, `Otaq sayı`, `Mərtəbə`,
