@@ -21,6 +21,7 @@ from src.evaluation_plots import (
 from experiments.tree_experiments import compare_tree_configs
 from experiments.svm_experiments import build_configurations, make_model
 from experiments.svm_cross_validation import make_folds
+from experiments.linear_experiments import create_ridge_model, select_ridge_configs, save_ridge_curve
 
 
 def write_csv(path, rows):
@@ -73,6 +74,8 @@ def select_configs(splits, depths=(2, 4, 8, 12), leaf_sizes=(1, 5, 20)):
 
 
 def create_model(config, n_train):
+    if config["kind"] == "ridge":
+        return create_ridge_model(config)
     if config["kind"] == "svm":
         return make_model(config["config"], n_train)
     params = {"max_depth": config["max_depth"], "min_samples_leaf": config["min_samples_leaf"], "random_state": 42}
@@ -198,13 +201,26 @@ def save_figures(output, configs, models, predictions, prices, tiers, feature_na
     return effects
 
 
-def run_evaluation(clean_path, output, include_cv=True, depths=(2, 4, 8, 12), leaf_sizes=(1, 5, 20)):
+def run_evaluation(clean_path, output, include_cv=True, depths=(2, 4, 8, 12), leaf_sizes=(1, 5, 20),
+                   include_ridge=False, svm_configs=None):
     output = Path(output)
     if output.exists() and any(output.iterdir()):
         raise FileExistsError("Output directory must be empty; preserve previous test results.")
     frame, splits, ids = load_data(clean_path)
     output.mkdir(parents=True, exist_ok=True)
     configs, validation = select_configs(splits, depths, leaf_sizes)
+    if svm_configs is not None:
+        expected = {"custom_linear", "custom_rff", "sklearn_linear", "sklearn_rbf"}
+        if set(svm_configs) != expected:
+            raise ValueError("Provide one validation-selected configuration per SVM family.")
+        for name, config in svm_configs.items():
+            configs[name] = {"kind": "svm", "task": "classification", "config": config,
+                             "selection_source": "Current run's SVM validation search"}
+    if include_ridge:
+        ridge_configs, ridge_rows = select_ridge_configs(splits)
+        configs.update(ridge_configs)
+        write_csv(output / "ridge_validation.csv", ridge_rows)
+        save_ridge_curve(ridge_rows, output / "figures/ridge_validation.png")
     write_json(output / "selected_configs.json", configs)
     write_csv(output / "tree_validation.csv", validation)
     cv_rows, cv_summary, cv_audit = [], [], []
@@ -223,7 +239,7 @@ def run_evaluation(clean_path, output, include_cv=True, depths=(2, 4, 8, 12), le
     write_csv(output / "feature_effects.csv", effects)
     versions = {"python": platform.python_version(), "numpy": np.__version__, "pandas": pd.__version__, "sklearn": sklearn.__version__}
     source_hashes = {path: hashlib.sha256(Path(path).read_bytes()).hexdigest()
-                     for path in ("src/data_prep.py", "src/decision_tree.py", "src/svm.py", "src/evaluate.py", "experiments/evaluation_experiments.py")}
+                     for path in ("src/data_prep.py", "src/decision_tree.py", "src/svm.py", "src/linear.py", "src/evaluate.py", "experiments/evaluation_experiments.py")}
     manifest = {"dataset": "Real Bina.az cleaned sale listings", "cleaned_sha256": hashlib.sha256(Path(clean_path).read_bytes()).hexdigest(),
                 "seed": 42, "split_counts": dict(zip(("train", "validation", "test"), map(len, ids))),
                 "tier_threshold": float(splits["tier_threshold"]), "expensive_threshold": expensive_threshold,
@@ -231,7 +247,7 @@ def run_evaluation(clean_path, output, include_cv=True, depths=(2, 4, 8, 12), le
                 "target_units": "AZN", "encoding_and_scaling_fit": "training only; refitted inside each CV fold",
                 "test_used_for_selection": False, "cv_pool": "original train + validation; final test excluded",
                 "cv_note": "Descriptive uncertainty for fixed selected settings; not nested model-selection CV",
-                "cv_complete": include_cv, "versions": versions, "source_hashes": source_hashes,
+                "cv_complete": include_cv, "ridge_included": include_ridge, "versions": versions, "source_hashes": source_hashes,
                 "timing_note": "Single-run wall-clock timings vary with hardware and load", "status": "complete"}
     write_json(output / "manifest.json", manifest)
     write_csv(output / "split_audit.csv", [{"split": split, "rows": len(part), "ids_sha256": hashlib.sha256(np.asarray(part, dtype=np.int64).tobytes()).hexdigest()}
