@@ -1,0 +1,391 @@
+model,feature,kind,value
+custom_tree_regression,area_m2,Impurity importance,0.6334325526684734
+custom_tree_regression,rooms,Impurity importance,0.005955768956719844
+custom_tree_regression,floor,Impurity importance,0.008374574657985764
+custom_tree_regression,total_floors,Impurity importance,0.03970401903839009
+custom_tree_regression,land_sot,Impurity importance,0.029379208469464152
+custom_tree_regression,is_repaired,Impurity importance,0.003450987737568835
+custom_tree_regression,has_bill_of_sale,Impurity importance,0.001259103921625801
+custom_tree_regression,has_mortgage,Impurity importance,0.0003337011966637974
+custom_tree_regression,is_agency,Impurity importance,0.001833250125358995
+custom_tree_regression,is_complex,Impurity importance,0.00044348563012910794
+custom_tree_regression,is_vip,Impurity importance,9.690993388471703e-05
+custom_tree_regression,is_featured,Impurity importance,0.0
+custom_tree_regression,lat,Impurity importance,0.04292491854953967
+custom_tree_regression,lng,Impurity importance,0.04948676496971524
+custom_tree_regression,dist_centre_km,Impurity importance,0.16332006749639882
+custom_tree_regression,floor_ratio,Impurity importance,0.0031339668729083075
+custom_tree_regression,cat_new_build,Impurity importance,0.0032596700310913137
+custom_tree_regression,cat_old_build,Impurity importance,2.3646042662420692e-05
+custom_tree_regression,cat_house,Impurity importance,3.0685272093861075e-05
+custom_tree_regression,loc_20 Yanvar m.,Impurity importance,6.06359754348311e-05
+custom_tree_regression,loc_28 May m.,Impurity importance,0.0
+custom_tree_regression,loc_7-ci mikrorayon q.,Impurity importance,0.0
+custom_tree_regression,loc_8 Noyabr m.,Impurity importance,0.0
+custom_tree_regression,loc_Azadlıq Prospekti m.,Impurity importance,8.6781100024722e-05
+custom_tree_regression,loc_Ağ şəhər q.,Impurity importance,0.00024350682439334503
+custom_tree_regression,loc_Badamdar q.,Impurity importance,0.0021420856944302253
+custom_tree_regression,loc_Bakıxanov q.,Impurity importance,2.6727535901278865e-05
+custom_tree_regression,loc_Bayıl q.,Impurity importance,0.00023564603324102262
+custom_tree_regression,loc_Biləcəri q.,Impurity importance,3.2297416629083174e-06
+custom_tree_regression,loc_Binə q.,Impurity importance,0.0
+custom_tree_regression,loc_Binəqədi q.,Impurity importance,6.802646961956957e-06
+custom_tree_regression,loc_Binəqədi r.,Impurity importance,0.0
+custom_tree_regression,loc_Buzovna q.,Impurity importance,5.759004830203303e-06
+custom_tree_regression,loc_Elmlər Akademiyası m.,Impurity importance,0.0
+custom_tree_regression,loc_Gənclik m.,Impurity importance,6.770317358366109e-05
+custom_tree_regression,loc_Hövsan q.,Impurity importance,7.892849916771668e-06
+custom_tree_regression,loc_Həzi Aslanov m.,Impurity importance,0.0
+custom_tree_regression,loc_Həzi Aslanov q.,Impurity importance,0.0003007864666721975
+custom_tree_regression,loc_Masazır q.,Impurity importance,0.0
+custom_tree_regression,loc_Memar Əcəmi m.,Impurity importance,1.3048424004453194e-05
+custom_tree_regression,loc_Mərdəkan q.,Impurity importance,0.006068187394217821
+custom_tree_regression,loc_Nardaran q.,Impurity importance,0.0
+custom_tree_regression,loc_Neftçilər m.,Impurity importance,1.2280460153333081e-05
+custom_tree_regression,loc_Nizami m.,Impurity importance,1.4854574534402872e-05
+custom_tree_regression,loc_Novxanı q.,Impurity importance,0.0
+custom_tree_regression,loc_Nəriman Nərimanov m.,Impurity importance,0.00041424563623720934
+custom_tree_regression,loc_Nərimanov r.,Impurity importance,0.0
+custom_tree_regression,loc_Nəsimi m.,Impurity importance,0.0001698237490967435
+custom_tree_regression,loc_Nəsimi r.,Impurity importance,0.0014041727583884588
+custom_tree_regression,loc_Qara Qarayev m.,Impurity importance,0.000529293564079143
+custom_tree_regression,loc_Qaraçuxur q.,Impurity importance,0.0
+custom_tree_regression,loc_Sahil m.,Impurity importance,3.411631455732081e-06
+custom_tree_regression,loc_Səbail r.,Impurity importance,2.1876468292575997e-05
+custom_tree_regression,loc_Xalqlar Dostluğu m.,Impurity importance,3.874485749191203e-06
+custom_tree_regression,loc_Xətai r.,Impurity importance,3.5534907279349006e-06
+custom_tree_regression,loc_Yasamal r.,Impurity importance,0.0
+custom_tree_regression,loc_Yeni Günəşli q.,Impurity importance,0.00033441113460387124
+custom_tree_regression,loc_Yeni Yasamal q.,Impurity importance,0.0
+custom_tree_regression,loc_İnşaatçılar m.,Impurity importance,1.4403273940145766e-05
+custom_tree_regression,loc_İçəri Şəhər m.,Impurity importance,1.8160040588145822e-06
+custom_tree_regression,loc_Şah İsmayıl Xətai m.,Impurity importance,0.0005391746775434582
+custom_tree_regression,loc_Şüvəlan q.,Impurity importance,0.00044735817163262323
+custom_tree_regression,loc_Əhmədli m.,Impurity importance,0.0
+custom_tree_regression,loc_Əhmədli q.,Impurity importance,0.0
+custom_tree_regression,loc_other,Impurity importance,0.0003733754835566695
+sklearn_tree_regression,area_m2,Impurity importance,0.6706191849194046
+sklearn_tree_regression,rooms,Impurity importance,0.003983165209644477
+sklearn_tree_regression,floor,Impurity importance,6.806180204301447e-06
+sklearn_tree_regression,total_floors,Impurity importance,0.03792885121042263
+sklearn_tree_regression,land_sot,Impurity importance,0.02052660419591761
+sklearn_tree_regression,is_repaired,Impurity importance,0.001112607012639779
+sklearn_tree_regression,has_bill_of_sale,Impurity importance,0.00037245355959496164
+sklearn_tree_regression,has_mortgage,Impurity importance,0.0
+sklearn_tree_regression,is_agency,Impurity importance,0.0
+sklearn_tree_regression,is_complex,Impurity importance,0.0003681857323271984
+sklearn_tree_regression,is_vip,Impurity importance,0.0
+sklearn_tree_regression,is_featured,Impurity importance,0.0
+sklearn_tree_regression,lat,Impurity importance,0.03543546016484753
+sklearn_tree_regression,lng,Impurity importance,0.04443002490966422
+sklearn_tree_regression,dist_centre_km,Impurity importance,0.1634090030268192
+sklearn_tree_regression,floor_ratio,Impurity importance,0.0018103137930582825
+sklearn_tree_regression,cat_new_build,Impurity importance,0.010086609651461227
+sklearn_tree_regression,cat_old_build,Impurity importance,0.0
+sklearn_tree_regression,cat_house,Impurity importance,1.1755159100731238e-05
+sklearn_tree_regression,loc_20 Yanvar m.,Impurity importance,0.0
+sklearn_tree_regression,loc_28 May m.,Impurity importance,0.0
+sklearn_tree_regression,loc_7-ci mikrorayon q.,Impurity importance,0.0
+sklearn_tree_regression,loc_8 Noyabr m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Azadlıq Prospekti m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Ağ şəhər q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Badamdar q.,Impurity importance,0.002087663110442101
+sklearn_tree_regression,loc_Bakıxanov q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Bayıl q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Biləcəri q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Binə q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Binəqədi q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Binəqədi r.,Impurity importance,0.0
+sklearn_tree_regression,loc_Buzovna q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Elmlər Akademiyası m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Gənclik m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Hövsan q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Həzi Aslanov m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Həzi Aslanov q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Masazır q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Memar Əcəmi m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Mərdəkan q.,Impurity importance,0.005552170093333751
+sklearn_tree_regression,loc_Nardaran q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Neftçilər m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Nizami m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Novxanı q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Nəriman Nərimanov m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Nərimanov r.,Impurity importance,0.0
+sklearn_tree_regression,loc_Nəsimi m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Nəsimi r.,Impurity importance,0.0015037176712395645
+sklearn_tree_regression,loc_Qara Qarayev m.,Impurity importance,0.00052816751609336
+sklearn_tree_regression,loc_Qaraçuxur q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Sahil m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Səbail r.,Impurity importance,0.0
+sklearn_tree_regression,loc_Xalqlar Dostluğu m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Xətai r.,Impurity importance,0.0
+sklearn_tree_regression,loc_Yasamal r.,Impurity importance,0.0
+sklearn_tree_regression,loc_Yeni Günəşli q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Yeni Yasamal q.,Impurity importance,0.0
+sklearn_tree_regression,loc_İnşaatçılar m.,Impurity importance,0.0
+sklearn_tree_regression,loc_İçəri Şəhər m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Şah İsmayıl Xətai m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Şüvəlan q.,Impurity importance,0.0
+sklearn_tree_regression,loc_Əhmədli m.,Impurity importance,0.0
+sklearn_tree_regression,loc_Əhmədli q.,Impurity importance,0.0
+sklearn_tree_regression,loc_other,Impurity importance,0.0002272568837843466
+custom_tree_classification,area_m2,Impurity importance,0.5825145681877205
+custom_tree_classification,rooms,Impurity importance,0.008775743564833524
+custom_tree_classification,floor,Impurity importance,0.016805550902338318
+custom_tree_classification,total_floors,Impurity importance,0.02521328744585641
+custom_tree_classification,land_sot,Impurity importance,0.010404797406600306
+custom_tree_classification,is_repaired,Impurity importance,0.013271048250664321
+custom_tree_classification,has_bill_of_sale,Impurity importance,0.0034959164167663133
+custom_tree_classification,has_mortgage,Impurity importance,0.0018010179841091013
+custom_tree_classification,is_agency,Impurity importance,0.0013077552944503591
+custom_tree_classification,is_complex,Impurity importance,0.0
+custom_tree_classification,is_vip,Impurity importance,0.0002835393944650423
+custom_tree_classification,is_featured,Impurity importance,0.0006522908598544552
+custom_tree_classification,lat,Impurity importance,0.03511691044090606
+custom_tree_classification,lng,Impurity importance,0.0649879116509321
+custom_tree_classification,dist_centre_km,Impurity importance,0.14992897109981362
+custom_tree_classification,floor_ratio,Impurity importance,0.01869106188793773
+custom_tree_classification,cat_new_build,Impurity importance,0.020514823121830787
+custom_tree_classification,cat_old_build,Impurity importance,0.0007377069392491328
+custom_tree_classification,cat_house,Impurity importance,0.0
+custom_tree_classification,loc_20 Yanvar m.,Impurity importance,0.0009459623718658479
+custom_tree_classification,loc_28 May m.,Impurity importance,0.00019834505974638538
+custom_tree_classification,loc_7-ci mikrorayon q.,Impurity importance,0.00020570879379501215
+custom_tree_classification,loc_8 Noyabr m.,Impurity importance,3.218988953863371e-05
+custom_tree_classification,loc_Azadlıq Prospekti m.,Impurity importance,0.00021931720356524006
+custom_tree_classification,loc_Ağ şəhər q.,Impurity importance,0.007956779359830137
+custom_tree_classification,loc_Badamdar q.,Impurity importance,0.0
+custom_tree_classification,loc_Bakıxanov q.,Impurity importance,0.00034695125130006736
+custom_tree_classification,loc_Bayıl q.,Impurity importance,0.00045716644624694896
+custom_tree_classification,loc_Biləcəri q.,Impurity importance,1.276746929793051e-05
+custom_tree_classification,loc_Binə q.,Impurity importance,0.007974502378805407
+custom_tree_classification,loc_Binəqədi q.,Impurity importance,0.0
+custom_tree_classification,loc_Binəqədi r.,Impurity importance,5.394593847505955e-05
+custom_tree_classification,loc_Buzovna q.,Impurity importance,0.0006864354850184215
+custom_tree_classification,loc_Elmlər Akademiyası m.,Impurity importance,0.0
+custom_tree_classification,loc_Gənclik m.,Impurity importance,0.0006650564811843795
+custom_tree_classification,loc_Hövsan q.,Impurity importance,0.004806105236270304
+custom_tree_classification,loc_Həzi Aslanov m.,Impurity importance,0.0
+custom_tree_classification,loc_Həzi Aslanov q.,Impurity importance,0.0
+custom_tree_classification,loc_Masazır q.,Impurity importance,4.1337510088920566e-05
+custom_tree_classification,loc_Memar Əcəmi m.,Impurity importance,0.00038331710544199524
+custom_tree_classification,loc_Mərdəkan q.,Impurity importance,2.662859591708376e-05
+custom_tree_classification,loc_Nardaran q.,Impurity importance,0.00029595445838993513
+custom_tree_classification,loc_Neftçilər m.,Impurity importance,0.00042015044420654085
+custom_tree_classification,loc_Nizami m.,Impurity importance,0.0
+custom_tree_classification,loc_Novxanı q.,Impurity importance,0.0
+custom_tree_classification,loc_Nəriman Nərimanov m.,Impurity importance,0.006914949940126469
+custom_tree_classification,loc_Nərimanov r.,Impurity importance,0.00045291119283156746
+custom_tree_classification,loc_Nəsimi m.,Impurity importance,0.0
+custom_tree_classification,loc_Nəsimi r.,Impurity importance,0.00010757456120423281
+custom_tree_classification,loc_Qara Qarayev m.,Impurity importance,0.00022129266262890617
+custom_tree_classification,loc_Qaraçuxur q.,Impurity importance,0.0
+custom_tree_classification,loc_Sahil m.,Impurity importance,0.00031985213778480405
+custom_tree_classification,loc_Səbail r.,Impurity importance,5.967819281109259e-05
+custom_tree_classification,loc_Xalqlar Dostluğu m.,Impurity importance,0.00014967494177456066
+custom_tree_classification,loc_Xətai r.,Impurity importance,0.00022923907600095754
+custom_tree_classification,loc_Yasamal r.,Impurity importance,1.0415094504641474e-05
+custom_tree_classification,loc_Yeni Günəşli q.,Impurity importance,0.0001065073847582676
+custom_tree_classification,loc_Yeni Yasamal q.,Impurity importance,0.0
+custom_tree_classification,loc_İnşaatçılar m.,Impurity importance,0.0003419661363515132
+custom_tree_classification,loc_İçəri Şəhər m.,Impurity importance,0.0
+custom_tree_classification,loc_Şah İsmayıl Xətai m.,Impurity importance,0.002012036003986152
+custom_tree_classification,loc_Şüvəlan q.,Impurity importance,0.0
+custom_tree_classification,loc_Əhmədli m.,Impurity importance,0.000495869621999854
+custom_tree_classification,loc_Əhmədli q.,Impurity importance,0.0
+custom_tree_classification,loc_other,Impurity importance,0.008346510725924709
+sklearn_tree_classification,area_m2,Impurity importance,0.5766772661788567
+sklearn_tree_classification,rooms,Impurity importance,0.007891403582426843
+sklearn_tree_classification,floor,Impurity importance,0.012931972627756562
+sklearn_tree_classification,total_floors,Impurity importance,0.026122860819812427
+sklearn_tree_classification,land_sot,Impurity importance,0.010834526819359062
+sklearn_tree_classification,is_repaired,Impurity importance,0.013379578675603698
+sklearn_tree_classification,has_bill_of_sale,Impurity importance,0.003351577886760152
+sklearn_tree_classification,has_mortgage,Impurity importance,0.0018621943118819493
+sklearn_tree_classification,is_agency,Impurity importance,0.001573636392952792
+sklearn_tree_classification,is_complex,Impurity importance,0.0
+sklearn_tree_classification,is_vip,Impurity importance,0.00023965557890428965
+sklearn_tree_classification,is_featured,Impurity importance,0.0008237023441425818
+sklearn_tree_classification,lat,Impurity importance,0.034862721940151824
+sklearn_tree_classification,lng,Impurity importance,0.06560432485905072
+sklearn_tree_classification,dist_centre_km,Impurity importance,0.1532648351239929
+sklearn_tree_classification,floor_ratio,Impurity importance,0.021627617608849962
+sklearn_tree_classification,cat_new_build,Impurity importance,0.02041011114070542
+sklearn_tree_classification,cat_old_build,Impurity importance,0.0010759356187507161
+sklearn_tree_classification,cat_house,Impurity importance,0.0
+sklearn_tree_classification,loc_20 Yanvar m.,Impurity importance,0.0009458843013009522
+sklearn_tree_classification,loc_28 May m.,Impurity importance,0.00025456555896367813
+sklearn_tree_classification,loc_7-ci mikrorayon q.,Impurity importance,0.00020797022086536845
+sklearn_tree_classification,loc_8 Noyabr m.,Impurity importance,3.218723289716986e-05
+sklearn_tree_classification,loc_Azadlıq Prospekti m.,Impurity importance,0.0003836276156723516
+sklearn_tree_classification,loc_Ağ şəhər q.,Impurity importance,0.007956122684387185
+sklearn_tree_classification,loc_Badamdar q.,Impurity importance,0.00013456679295102906
+sklearn_tree_classification,loc_Bakıxanov q.,Impurity importance,0.0003469226173068079
+sklearn_tree_classification,loc_Bayıl q.,Impurity importance,0.0006239595090830547
+sklearn_tree_classification,loc_Biləcəri q.,Impurity importance,1.2766415594770579e-05
+sklearn_tree_classification,loc_Binə q.,Impurity importance,0.007973844240676459
+sklearn_tree_classification,loc_Binəqədi q.,Impurity importance,0.0
+sklearn_tree_classification,loc_Binəqədi r.,Impurity importance,5.394148630019933e-05
+sklearn_tree_classification,loc_Buzovna q.,Impurity importance,0.0006863788332871527
+sklearn_tree_classification,loc_Elmlər Akademiyası m.,Impurity importance,0.0001483788150977822
+sklearn_tree_classification,loc_Gənclik m.,Impurity importance,0.000866088529781672
+sklearn_tree_classification,loc_Hövsan q.,Impurity importance,0.004805708586929978
+sklearn_tree_classification,loc_Həzi Aslanov m.,Impurity importance,0.0
+sklearn_tree_classification,loc_Həzi Aslanov q.,Impurity importance,0.0
+sklearn_tree_classification,loc_Masazır q.,Impurity importance,4.1334098491525016e-05
+sklearn_tree_classification,loc_Memar Əcəmi m.,Impurity importance,0.0003832854701636219
+sklearn_tree_classification,loc_Mərdəkan q.,Impurity importance,8.012391670798963e-05
+sklearn_tree_classification,loc_Nardaran q.,Impurity importance,0.00020693982337306141
+sklearn_tree_classification,loc_Neftçilər m.,Impurity importance,0.00043505627542606413
+sklearn_tree_classification,loc_Nizami m.,Impurity importance,5.125220000886581e-05
+sklearn_tree_classification,loc_Novxanı q.,Impurity importance,1.8745622898650812e-05
+sklearn_tree_classification,loc_Nəriman Nərimanov m.,Impurity importance,0.0069143792471854735
+sklearn_tree_classification,loc_Nərimanov r.,Impurity importance,0.0004528738139318087
+sklearn_tree_classification,loc_Nəsimi m.,Impurity importance,0.0
+sklearn_tree_classification,loc_Nəsimi r.,Impurity importance,0.0001569929860803915
+sklearn_tree_classification,loc_Qara Qarayev m.,Impurity importance,0.0002212743992775371
+sklearn_tree_classification,loc_Qaraçuxur q.,Impurity importance,0.0
+sklearn_tree_classification,loc_Sahil m.,Impurity importance,0.0003760626089856515
+sklearn_tree_classification,loc_Səbail r.,Impurity importance,5.967326755157352e-05
+sklearn_tree_classification,loc_Xalqlar Dostluğu m.,Impurity importance,0.0001496625890556766
+sklearn_tree_classification,loc_Xətai r.,Impurity importance,0.00029986175207761764
+sklearn_tree_classification,loc_Yasamal r.,Impurity importance,0.00015234537974776564
+sklearn_tree_classification,loc_Yeni Günəşli q.,Impurity importance,0.00010649859467111252
+sklearn_tree_classification,loc_Yeni Yasamal q.,Impurity importance,0.0
+sklearn_tree_classification,loc_İnşaatçılar m.,Impurity importance,0.00034193791378131895
+sklearn_tree_classification,loc_İçəri Şəhər m.,Impurity importance,8.569427610811801e-05
+sklearn_tree_classification,loc_Şah İsmayıl Xətai m.,Impurity importance,0.0022047923126305644
+sklearn_tree_classification,loc_Şüvəlan q.,Impurity importance,0.0
+sklearn_tree_classification,loc_Əhmədli m.,Impurity importance,0.000495828697727752
+sklearn_tree_classification,loc_Əhmədli q.,Impurity importance,9.459697789227342e-05
+sklearn_tree_classification,loc_other,Impurity importance,0.008703952825171226
+custom_linear,area_m2,Standardized linear weight,3.6313523091778195
+custom_linear,rooms,Standardized linear weight,0.8301280714505818
+custom_linear,floor,Standardized linear weight,-0.10050502352298199
+custom_linear,total_floors,Standardized linear weight,0.45605148774976256
+custom_linear,land_sot,Standardized linear weight,0.317620586427201
+custom_linear,is_repaired,Standardized linear weight,0.22234812468732754
+custom_linear,has_bill_of_sale,Standardized linear weight,0.09980980975447917
+custom_linear,has_mortgage,Standardized linear weight,-0.09253499653159822
+custom_linear,is_agency,Standardized linear weight,0.1272026360739655
+custom_linear,is_complex,Standardized linear weight,0.10538930574848458
+custom_linear,is_vip,Standardized linear weight,-0.06180367318011848
+custom_linear,is_featured,Standardized linear weight,0.0718155742884765
+custom_linear,lat,Standardized linear weight,0.0018028599848956915
+custom_linear,lng,Standardized linear weight,0.3519991038244973
+custom_linear,dist_centre_km,Standardized linear weight,-0.8473655399762796
+custom_linear,floor_ratio,Standardized linear weight,0.20045366064700237
+custom_linear,cat_new_build,Standardized linear weight,0.6622617205775881
+custom_linear,cat_old_build,Standardized linear weight,0.10441800788123097
+custom_linear,cat_house,Standardized linear weight,-0.9925816705168676
+custom_linear,loc_20 Yanvar m.,Standardized linear weight,0.06539478012517337
+custom_linear,loc_28 May m.,Standardized linear weight,0.17944085991631
+custom_linear,loc_7-ci mikrorayon q.,Standardized linear weight,-0.03210709625731957
+custom_linear,loc_8 Noyabr m.,Standardized linear weight,-0.13296699701590747
+custom_linear,loc_Azadlıq Prospekti m.,Standardized linear weight,0.009767364050169825
+custom_linear,loc_Ağ şəhər q.,Standardized linear weight,0.5269864211227299
+custom_linear,loc_Badamdar q.,Standardized linear weight,-0.05174882619402325
+custom_linear,loc_Bakıxanov q.,Standardized linear weight,-0.13088435895687692
+custom_linear,loc_Bayıl q.,Standardized linear weight,-0.1606665121559602
+custom_linear,loc_Biləcəri q.,Standardized linear weight,-0.23825192525317684
+custom_linear,loc_Binə q.,Standardized linear weight,-0.24578066889882638
+custom_linear,loc_Binəqədi q.,Standardized linear weight,-0.43650477536896537
+custom_linear,loc_Binəqədi r.,Standardized linear weight,-0.030096992768689428
+custom_linear,loc_Buzovna q.,Standardized linear weight,0.10719738961140998
+custom_linear,loc_Elmlər Akademiyası m.,Standardized linear weight,0.40112131995032363
+custom_linear,loc_Gənclik m.,Standardized linear weight,0.060726490347649965
+custom_linear,loc_Hövsan q.,Standardized linear weight,-0.24012411758689178
+custom_linear,loc_Həzi Aslanov m.,Standardized linear weight,-0.23088707248429646
+custom_linear,loc_Həzi Aslanov q.,Standardized linear weight,0.07076456820508224
+custom_linear,loc_Masazır q.,Standardized linear weight,-0.7694453643888963
+custom_linear,loc_Memar Əcəmi m.,Standardized linear weight,-0.027587744223039314
+custom_linear,loc_Mərdəkan q.,Standardized linear weight,0.5801657256056357
+custom_linear,loc_Nardaran q.,Standardized linear weight,0.49476744181766963
+custom_linear,loc_Neftçilər m.,Standardized linear weight,-0.06142334558295026
+custom_linear,loc_Nizami m.,Standardized linear weight,0.11090213727355079
+custom_linear,loc_Novxanı q.,Standardized linear weight,0.10190293707599156
+custom_linear,loc_Nəriman Nərimanov m.,Standardized linear weight,0.025051955152596398
+custom_linear,loc_Nərimanov r.,Standardized linear weight,0.1288322834092003
+custom_linear,loc_Nəsimi m.,Standardized linear weight,-0.04752140191042996
+custom_linear,loc_Nəsimi r.,Standardized linear weight,0.16424147581731985
+custom_linear,loc_Qara Qarayev m.,Standardized linear weight,-0.004024317368013363
+custom_linear,loc_Qaraçuxur q.,Standardized linear weight,-0.16885981628295355
+custom_linear,loc_Sahil m.,Standardized linear weight,0.07015602556115302
+custom_linear,loc_Səbail r.,Standardized linear weight,-0.03450388887549152
+custom_linear,loc_Xalqlar Dostluğu m.,Standardized linear weight,-0.05501396150241283
+custom_linear,loc_Xətai r.,Standardized linear weight,-0.1288856966163599
+custom_linear,loc_Yasamal r.,Standardized linear weight,0.049564705079342374
+custom_linear,loc_Yeni Günəşli q.,Standardized linear weight,-0.25574519253553335
+custom_linear,loc_Yeni Yasamal q.,Standardized linear weight,-0.2945959850667496
+custom_linear,loc_İnşaatçılar m.,Standardized linear weight,-0.006945273622671701
+custom_linear,loc_İçəri Şəhər m.,Standardized linear weight,0.13466291334855549
+custom_linear,loc_Şah İsmayıl Xətai m.,Standardized linear weight,0.15349043538943727
+custom_linear,loc_Şüvəlan q.,Standardized linear weight,0.5635102240772227
+custom_linear,loc_Əhmədli m.,Standardized linear weight,0.008712086021761071
+custom_linear,loc_Əhmədli q.,Standardized linear weight,-0.14310931418965372
+custom_linear,loc_other,Standardized linear weight,-0.3018855169146406
+sklearn_linear,area_m2,Standardized linear weight,3.970353939920647
+sklearn_linear,rooms,Standardized linear weight,0.3456074326834897
+sklearn_linear,floor,Standardized linear weight,-0.12474115317127701
+sklearn_linear,total_floors,Standardized linear weight,0.3335359987446249
+sklearn_linear,land_sot,Standardized linear weight,0.31595430991841
+sklearn_linear,is_repaired,Standardized linear weight,0.232526285158958
+sklearn_linear,has_bill_of_sale,Standardized linear weight,0.0659438088885472
+sklearn_linear,has_mortgage,Standardized linear weight,-0.04785547307666177
+sklearn_linear,is_agency,Standardized linear weight,0.01484586100125522
+sklearn_linear,is_complex,Standardized linear weight,0.06990534939882775
+sklearn_linear,is_vip,Standardized linear weight,-0.025569537746547466
+sklearn_linear,is_featured,Standardized linear weight,0.04316425117778323
+sklearn_linear,lat,Standardized linear weight,0.25335047253346427
+sklearn_linear,lng,Standardized linear weight,0.8869132237085517
+sklearn_linear,dist_centre_km,Standardized linear weight,-1.9219119258570012
+sklearn_linear,floor_ratio,Standardized linear weight,0.06611905610701224
+sklearn_linear,cat_new_build,Standardized linear weight,0.6237706512454781
+sklearn_linear,cat_old_build,Standardized linear weight,0.20678045420615254
+sklearn_linear,cat_house,Standardized linear weight,-1.0559903787915232
+sklearn_linear,loc_20 Yanvar m.,Standardized linear weight,-0.027386566219280886
+sklearn_linear,loc_28 May m.,Standardized linear weight,0.04728292210651067
+sklearn_linear,loc_7-ci mikrorayon q.,Standardized linear weight,-0.01593224352462979
+sklearn_linear,loc_8 Noyabr m.,Standardized linear weight,-0.016854319856885264
+sklearn_linear,loc_Azadlıq Prospekti m.,Standardized linear weight,-0.014354593563471754
+sklearn_linear,loc_Ağ şəhər q.,Standardized linear weight,0.39632082485579795
+sklearn_linear,loc_Badamdar q.,Standardized linear weight,0.058469000823632544
+sklearn_linear,loc_Bakıxanov q.,Standardized linear weight,-0.09351249074314627
+sklearn_linear,loc_Bayıl q.,Standardized linear weight,-0.018901588644079648
+sklearn_linear,loc_Biləcəri q.,Standardized linear weight,-0.14428591025343163
+sklearn_linear,loc_Binə q.,Standardized linear weight,-0.23361788298142475
+sklearn_linear,loc_Binəqədi q.,Standardized linear weight,-0.3555468636722794
+sklearn_linear,loc_Binəqədi r.,Standardized linear weight,-0.02527035667547777
+sklearn_linear,loc_Buzovna q.,Standardized linear weight,0.16042913098223655
+sklearn_linear,loc_Elmlər Akademiyası m.,Standardized linear weight,0.10763559295154221
+sklearn_linear,loc_Gənclik m.,Standardized linear weight,0.017601594656723396
+sklearn_linear,loc_Hövsan q.,Standardized linear weight,-0.16121948996671512
+sklearn_linear,loc_Həzi Aslanov m.,Standardized linear weight,-0.16232892044621386
+sklearn_linear,loc_Həzi Aslanov q.,Standardized linear weight,-0.06852834985087021
+sklearn_linear,loc_Masazır q.,Standardized linear weight,-0.2798683097883774
+sklearn_linear,loc_Memar Əcəmi m.,Standardized linear weight,-0.06764665314755017
+sklearn_linear,loc_Mərdəkan q.,Standardized linear weight,0.8309454879595445
+sklearn_linear,loc_Nardaran q.,Standardized linear weight,0.3959793795286135
+sklearn_linear,loc_Neftçilər m.,Standardized linear weight,-0.10080226052362055
+sklearn_linear,loc_Nizami m.,Standardized linear weight,0.10229869849607842
+sklearn_linear,loc_Novxanı q.,Standardized linear weight,0.009100354004305082
+sklearn_linear,loc_Nəriman Nərimanov m.,Standardized linear weight,0.023636832592392965
+sklearn_linear,loc_Nərimanov r.,Standardized linear weight,-0.012426628430534964
+sklearn_linear,loc_Nəsimi m.,Standardized linear weight,-0.027269109675184144
+sklearn_linear,loc_Nəsimi r.,Standardized linear weight,0.05595834933899391
+sklearn_linear,loc_Qara Qarayev m.,Standardized linear weight,-0.03249819621308764
+sklearn_linear,loc_Qaraçuxur q.,Standardized linear weight,-0.05708131497230133
+sklearn_linear,loc_Sahil m.,Standardized linear weight,0.09630008060800918
+sklearn_linear,loc_Səbail r.,Standardized linear weight,0.04631373322972136
+sklearn_linear,loc_Xalqlar Dostluğu m.,Standardized linear weight,-0.09723507931282475
+sklearn_linear,loc_Xətai r.,Standardized linear weight,-0.07908559193718284
+sklearn_linear,loc_Yasamal r.,Standardized linear weight,-0.05469916750480981
+sklearn_linear,loc_Yeni Günəşli q.,Standardized linear weight,-0.13484000366229718
+sklearn_linear,loc_Yeni Yasamal q.,Standardized linear weight,-0.171052941803405
+sklearn_linear,loc_İnşaatçılar m.,Standardized linear weight,-0.15123997602309494
+sklearn_linear,loc_İçəri Şəhər m.,Standardized linear weight,0.07187040077104966
+sklearn_linear,loc_Şah İsmayıl Xətai m.,Standardized linear weight,0.1102989483400557
+sklearn_linear,loc_Şüvəlan q.,Standardized linear weight,0.551898070444912
+sklearn_linear,loc_Əhmədli m.,Standardized linear weight,-0.10485454075609066
+sklearn_linear,loc_Əhmədli q.,Standardized linear weight,-0.055816389778079165
+sklearn_linear,loc_other,Standardized linear weight,-0.22965686921011336

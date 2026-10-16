@@ -1,0 +1,37 @@
+[
+  {
+    "fold": 1,
+    "train_count": 39007,
+    "validation_count": 9752,
+    "tier_threshold": 209000.0,
+    "feature_count": 65
+  },
+  {
+    "fold": 2,
+    "train_count": 39007,
+    "validation_count": 9752,
+    "tier_threshold": 209000.0,
+    "feature_count": 65
+  },
+  {
+    "fold": 3,
+    "train_count": 39007,
+    "validation_count": 9752,
+    "tier_threshold": 209000.0,
+    "feature_count": 65
+  },
+  {
+    "fold": 4,
+    "train_count": 39007,
+    "validation_count": 9752,
+    "tier_threshold": 209000.0,
+    "feature_count": 65
+  },
+  {
+    "fold": 5,
+    "train_count": 39008,
+    "validation_count": 9751,
+    "tier_threshold": 209000.0,
+    "feature_count": 65
+  }
+]
