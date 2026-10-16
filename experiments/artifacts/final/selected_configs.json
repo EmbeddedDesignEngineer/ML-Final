@@ -1,0 +1,122 @@
+{
+  "custom_tree_regression": {
+    "kind": "tree",
+    "task": "regression",
+    "implementation": "custom",
+    "criterion": "mse",
+    "max_depth": 12,
+    "min_samples_leaf": 5,
+    "validation_score": 124741.2832757964,
+    "selection_metric": "rmse"
+  },
+  "sklearn_tree_regression": {
+    "kind": "tree",
+    "task": "regression",
+    "implementation": "sklearn",
+    "criterion": "mse",
+    "max_depth": 8,
+    "min_samples_leaf": 5,
+    "validation_score": 125621.07440838165,
+    "selection_metric": "rmse"
+  },
+  "custom_tree_classification": {
+    "kind": "tree",
+    "task": "classification",
+    "implementation": "custom",
+    "criterion": "gini",
+    "max_depth": 12,
+    "min_samples_leaf": 1,
+    "validation_score": 0.9285464506352722,
+    "selection_metric": "f1"
+  },
+  "sklearn_tree_classification": {
+    "kind": "tree",
+    "task": "classification",
+    "implementation": "sklearn",
+    "criterion": "gini",
+    "max_depth": 12,
+    "min_samples_leaf": 1,
+    "validation_score": 0.927806241266884,
+    "selection_metric": "f1"
+  },
+  "custom_linear": {
+    "kind": "svm",
+    "task": "classification",
+    "config": {
+      "config_id": "custom_linear_003",
+      "family": "custom_linear",
+      "lambda_": 0.0001,
+      "n_iters": 20000,
+      "learning_rate": "constant",
+      "eta0": 0.01,
+      "gamma": null,
+      "n_components": null,
+      "random_state": 42
+    },
+    "selection_source": "Current run's SVM validation search"
+  },
+  "custom_rff": {
+    "kind": "svm",
+    "task": "classification",
+    "config": {
+      "config_id": "custom_rff_017",
+      "family": "custom_rff",
+      "lambda_": 0.001,
+      "n_iters": 20000,
+      "learning_rate": "pegasos",
+      "eta0": null,
+      "gamma": 0.01,
+      "n_components": 512,
+      "random_state": 42
+    },
+    "selection_source": "Current run's SVM validation search"
+  },
+  "sklearn_linear": {
+    "kind": "svm",
+    "task": "classification",
+    "config": {
+      "config_id": "sklearn_linear_024",
+      "family": "sklearn_linear",
+      "lambda_": 0.0001,
+      "n_iters": null,
+      "learning_rate": null,
+      "eta0": null,
+      "gamma": null,
+      "n_components": null,
+      "random_state": 42
+    },
+    "selection_source": "Current run's SVM validation search"
+  },
+  "sklearn_rbf": {
+    "kind": "svm",
+    "task": "classification",
+    "config": {
+      "config_id": "sklearn_rbf_027",
+      "family": "sklearn_rbf",
+      "lambda_": 0.0001,
+      "n_iters": null,
+      "learning_rate": null,
+      "eta0": null,
+      "gamma": 0.01,
+      "n_components": null,
+      "random_state": 42
+    },
+    "selection_source": "Current run's SVM validation search"
+  },
+  "custom_ridge": {
+    "kind": "ridge",
+    "task": "regression",
+    "implementation": "custom",
+    "alpha": 1000.0,
+    "validation_score": 141041.28657887504,
+    "selection_metric": "rmse"
+  },
+  "sklearn_ridge": {
+    "kind": "ridge",
+    "task": "regression",
+    "implementation": "sklearn",
+    "alpha": 1000.0,
+    "validation_score": 141041.28657887504,
+    "selection_metric": "rmse"
+  }
+}

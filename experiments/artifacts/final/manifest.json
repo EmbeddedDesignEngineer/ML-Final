@@ -1,0 +1,37 @@
+{
+  "dataset": "Real Bina.az cleaned sale listings",
+  "cleaned_sha256": "ec31dd5e9cf6dc1f8f8e14c0b6827b0998ed51761f33ccc1f6d9f6fb8f4d2197",
+  "seed": 42,
+  "split_counts": {
+    "train": 40155,
+    "validation": 8604,
+    "test": 8604
+  },
+  "tier_threshold": 209000.0,
+  "expensive_threshold": 455000.0,
+  "sparse_location_training_count_below": 200,
+  "feature_count": 65,
+  "target_units": "AZN",
+  "encoding_and_scaling_fit": "training only; refitted inside each CV fold",
+  "test_used_for_selection": false,
+  "cv_pool": "original train + validation; final test excluded",
+  "cv_note": "Descriptive uncertainty for fixed selected settings; not nested model-selection CV",
+  "cv_complete": true,
+  "ridge_included": true,
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1"
+  },
+  "source_hashes": {
+    "src/data_prep.py": "c33cb17e55cea23e72de1576d9741f3beab9da87aa45bccf3cb7c05e6df7625e",
+    "src/decision_tree.py": "fc45b842d42c79360049407de551888fd904d6f85f621717731761be0aa22f5c",
+    "src/svm.py": "39f414a821d1e981fd91a8855c5cae6146a9bbc8cbd89ccc53117f90b3662be9",
+    "src/linear.py": "b33a713cfe1914a7a943b1a216bfe2301bcb552d744c38f2e7f7c75792fbae1c",
+    "src/evaluate.py": "33e810e5f6c63952dcd70fd635be269bb029b1fb7d278d584c5c8ea0e01e5c01",
+    "experiments/evaluation_experiments.py": "1467406d220227bf60641493f389cd241bc3bed4285a93dc901f8a4e732fa229"
+  },
+  "timing_note": "Single-run wall-clock timings vary with hardware and load",
+  "status": "complete"
+}

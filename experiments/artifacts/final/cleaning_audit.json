@@ -1,0 +1,30 @@
+{
+  "raw_rows": 100775,
+  "cleaned_rows": 57363,
+  "cleaned_columns": [
+    "price",
+    "category",
+    "area_m2",
+    "rooms",
+    "floor",
+    "total_floors",
+    "land_sot",
+    "is_repaired",
+    "has_bill_of_sale",
+    "has_mortgage",
+    "is_agency",
+    "is_complex",
+    "is_vip",
+    "is_featured",
+    "location",
+    "lat",
+    "lng"
+  ],
+  "raw_sha256": "b6a4c67e0d3c712de31b9db53db53688792bc03099a213c1994c43114758aec2",
+  "cleaned_sha256": "ec31dd5e9cf6dc1f8f8e14c0b6827b0998ed51761f33ccc1f6d9f6fb8f4d2197",
+  "removed_leakage_columns": [
+    "total_price",
+    "unit_price"
+  ],
+  "rules_source": "src/data_prep.py: clean; fixed domain filters and structural missing-value rules"
+}
