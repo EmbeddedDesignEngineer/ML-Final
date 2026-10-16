@@ -29,3 +29,21 @@ def test_constant_features_and_single_class_are_leaves():
     model.fit([[0], [1]], [7, 7])
     assert_array_equal(model.predict([[4]]), [7])
     assert_allclose(model.predict_proba([[4]]), [[1]])
+
+
+def test_regression_uses_variance_splits_and_leaf_means():
+    model = DecisionTree(task="regression", criterion="mse", max_depth=1)
+    model.fit([[0], [1], [2], [3]], [10., 12., 30., 32.])
+    assert_allclose(model.predict([[0], [3]]), [11., 31.])
+    assert model.root.threshold == 1.5
+    assert model.root.impurity == pytest.approx(101.)
+    with pytest.raises(ValueError, match="classification"):
+        model.predict_proba([[0]])
+
+
+def test_regression_preserves_small_variation_at_large_price_offset():
+    X = np.arange(4.).reshape(-1, 1)
+    y = 1e12 + np.array([0., 2., 10., 12.])
+    model = DecisionTree(task="regression", criterion="mse", max_depth=1).fit(X, y)
+    assert model.root.threshold == 1.5
+    assert_allclose(model.predict(X) - 1e12, [1., 1., 11., 11.])

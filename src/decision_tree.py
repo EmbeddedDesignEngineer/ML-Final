@@ -41,6 +41,8 @@ class DecisionTree:
         self.root = None
 
     def _impurity(self, y):
+        if self.task == "regression":
+            return float(np.var(y))
         counts = np.bincount(y, minlength=len(self.classes_))
         p = counts[counts > 0] / len(y)
         return float(1.0 - p @ p)
@@ -68,9 +70,12 @@ class DecisionTree:
         node = Node()
         node.n_samples = len(y)
         node.impurity = self._impurity(y)
-        counts = np.bincount(y, minlength=len(self.classes_))
-        node.proba = counts / len(y)
-        node.value = self.classes_[np.argmax(counts)]
+        if self.task == "regression":
+            node.value = float(np.mean(y))
+        else:
+            counts = np.bincount(y, minlength=len(self.classes_))
+            node.proba = counts / len(y)
+            node.value = self.classes_[np.argmax(counts)]
         if (node.impurity <= 0 or len(y) < self.min_samples_split
                 or (self.max_depth is not None and depth >= self.max_depth)):
             return node
@@ -88,7 +93,10 @@ class DecisionTree:
 
     def fit(self, X, y):
         X = np.asarray(X, dtype=float)
-        self.classes_, y = np.unique(np.asarray(y), return_inverse=True)
+        if self.task == "classification":
+            self.classes_, y = np.unique(np.asarray(y), return_inverse=True)
+        else:
+            y = np.asarray(y, dtype=float)
         self.n_features_in_ = X.shape[1]
         self.n_samples_ = len(y)
         self.root = self._grow(X, y, 0)
@@ -109,4 +117,6 @@ class DecisionTree:
         return np.asarray([self._predict_one(x, self.root) for x in np.asarray(X, dtype=float)])
 
     def predict_proba(self, X):
+        if self.task != "classification":
+            raise ValueError("predict_proba is available for classification only")
         return np.asarray([self._leaf(x).proba for x in np.asarray(X, dtype=float)])
