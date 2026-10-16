@@ -1,0 +1,38 @@
+\section{Evaluation and Error Analysis}
+We evaluate price regression in AZN and premium classification on 8,604 held-out listings. The premium threshold is the training median (209,000 AZN). Settings are frozen from validation evidence. RMSE, MAE, and $R^2$ describe regression; precision, recall, F1, and ROC-AUC describe premium class 1. ROC-AUC uses decision scores or probabilities with average ranks for tied scores.
+
+\begin{table}[ht]
+\centering\scriptsize
+\caption{Held-out regression results in AZN.}
+\begin{tabular}{lrrr}
+\toprule
+Model & RMSE & MAE & $R^2$ \\
+\midrule
+Custom tree & 109163.81 & 45555.13 & 0.7595 \\
+sklearn tree & 119375.81 & 52230.16 & 0.7124 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[ht]
+\centering\scriptsize
+\caption{Held-out premium classification.}
+\begin{tabular}{lrrrr}
+\toprule
+Model & Prec. & Recall & F1 & AUC \\
+\midrule
+Custom tree & 0.9286 & 0.9301 & 0.9293 & 0.9486 \\
+sklearn tree & 0.9287 & 0.9287 & 0.9287 & 0.9489 \\
+Custom linear SVM & 0.8743 & 0.8873 & 0.8807 & 0.9489 \\
+Custom RFF SVM & 0.7657 & 0.9451 & 0.8460 & 0.9341 \\
+Linear SVC & 0.9047 & 0.9004 & 0.9025 & 0.9631 \\
+RBF SVC & 0.8938 & 0.8915 & 0.8927 & 0.9645 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\subsection{Uncertainty}
+Five-fold evaluation uses the original training-plus-validation pool, excluding final test rows. Encoding, scaling, and tier thresholds are fitted within each fold. Settings remain fixed; standard deviations use $ddof=1$. This describes variability of the selected settings, not nested model-selection uncertainty.
+Custom tree RMSE: $119674.73 \pm 2953.66$. Custom tree F1: $0.9247 \pm 0.0029$. Custom linear SVM F1: $0.8849 \pm 0.0053$. Custom RFF SVM F1: $0.8357 \pm 0.0095$.
+\subsection{Subgroup Errors}
+Expensive properties exceed the training 90th percentile (455,000 AZN). Their custom-tree MAE is 177,315.24 AZN, compared with 30,998.26 for other properties. Locations with fewer than 200 training listings have MAE 54,699.85 AZN versus 44,672.94 for frequent locations. Group counts and price ranges affect this comparison; these are descriptive differences, not causal effects. Signed bias is predicted minus actual price. Single-class subgroup AUC is undefined and omitted.
+\subsection{Interpretation and Limits}
+Tree impurity importances and standardized linear SVM weights describe fitted associations. RFF weights are not interpreted as original-feature effects. The custom and sklearn regressors were selected independently from the same grid, so the final regression gap also reflects different selected depths. Results apply to the filtered residential Baku population. Timing measurements are single-run observations and vary by hardware. Full group tables, fold summaries, times, and plots are saved in the repository evaluation artifacts.

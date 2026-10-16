@@ -1,8 +1,3 @@
-"""Run: python -m experiments.evaluation_demo
-
-Small artificial examples to check the code, NOT final project results.
-"""
-
 from pathlib import Path
 
 from src.evaluate import rmse, mae, r2, precision_recall_f1, roc_auc, compare
@@ -29,7 +24,7 @@ def main():
     plot_actual_vs_predicted(prices, predictions, output / "price.png", title="Development example: prices")
     plot_feature_values(["area", "rooms", "distance"], [0.8, 0.3, -0.5], output / "weights.png", title="Development example: invented weights", xlabel="Weight")
     print("Location errors:", summarize_errors_by_group(prices, predictions, ["A", "A", "B", "B"]))
-    # Example fixed threshold; on real data choose it from training prices.
+
     print("Price errors:", summarize_price_errors(prices, predictions, 300000))
     print(f"Figures saved to {output}")
 
