@@ -32,7 +32,7 @@ def test_regression_matches_sklearn(seed):
 def test_classification_matches_sklearn(seed):
     rng = np.random.default_rng(seed)
     truth = rng.integers(0, 2, 200)
-    scores = np.round(rng.normal(size=200), 1)  # Many tied scores.
+    scores = np.round(rng.normal(size=200), 1)
     pred = (scores >= 0).astype(int)
     np.testing.assert_array_equal(confusion_matrix(truth, pred), metrics.confusion_matrix(truth, pred, labels=[0, 1]))
     expected = metrics.precision_recall_fscore_support(truth, pred, average="binary", zero_division=0)[:3]
@@ -100,7 +100,7 @@ def test_comparison_table(capsys):
 
 
 def test_existing_svm_outputs():
-    """Integration with Farid's actual API, using development data only."""
+
     from src.svm import PegasosSVM
     X = np.array([[-3.0], [-2.0], [-1.0], [1.0], [2.0], [3.0]])
     y = np.array([0, 0, 0, 1, 1, 1])
