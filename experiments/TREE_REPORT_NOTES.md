@@ -150,8 +150,8 @@ Tests cover known leaf probabilities/means, Gini/entropy, all stopping rules,
 weighted gain, constant and adjacent-float inputs, refitting, invalid arrays,
 XOR, an unbalanced 1,100-row tree, sklearn comparisons and plot export.
 
-On 16 October 2026 the complete repository suite passed: **190 tests**,
-including **50 tree tests**. In the Windows sandbox pytest's default temporary
+On 16 October 2026 the complete repository suite passed: **194 tests**,
+including **54 tree tests**. In the Windows sandbox pytest's default temporary
 directory was unavailable, so verification used an empty directory under
 `results/` via `--basetemp`. Plot output was also inspected visually.
 
@@ -183,3 +183,4 @@ feature seçimi və floating-point dəqiqliyi ağacın strukturunu dəyişə bil
 The final report must disclose AI assistance as required by the project brief.
 Describe the actual assistance with implementation, tests and review; each team
 member should independently understand and verify their submitted contribution.
+

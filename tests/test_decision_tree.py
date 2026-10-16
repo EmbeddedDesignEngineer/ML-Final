@@ -158,3 +158,33 @@ def test_unlimited_depth_handles_pathological_unbalanced_tree():
     model = DecisionTree().fit(X, y)
     assert_array_equal(model.predict(X), y)
     assert model.get_depth() > 1000
+
+
+def test_multi_feature_importance_matches_hand_calculated_variance_reduction():
+    # Overall variance is 26. Feature 0 removes 25 at the root; feature 1
+    # removes the remaining variance 1 across the two equally sized children.
+    X = [[0, 0], [0, 1], [1, 0], [1, 1]]
+    model = DecisionTree(task="regression", criterion="mse").fit(X, [0, 2, 10, 12])
+    assert_allclose(model.feature_importances_, [25 / 26, 1 / 26])
+    assert_allclose(model.predict(X), [0, 2, 10, 12])
+
+
+@pytest.mark.parametrize("task,criterion", [
+    ("classification", "gini"), ("classification", "entropy"), ("regression", "mse"),
+])
+def test_equal_gain_ties_are_reproducible_without_mutating_inputs(task, criterion):
+    # Identical columns deliberately tie. Exhaustive search always picks the
+    # first feature, regardless of the API-compatible random_state setting.
+    X = np.array([[0, 0], [1, 1], [2, 2], [3, 3]], dtype=float)
+    y = np.array([0, 0, 1, 1])
+    original_X, original_y = X.copy(), y.copy()
+    for seed in (0, 42, 99):
+        model = DecisionTree(task=task, criterion=criterion, random_state=seed)
+        for _ in range(2):
+            model.fit(X, y)
+            assert model.root.feature == 0
+            assert model.root.threshold == 1.5
+            assert_array_equal(model.predict(X), y)
+            assert_allclose(model.feature_importances_, [1, 0])
+            assert_array_equal(X, original_X)
+            assert_array_equal(y, original_y)
