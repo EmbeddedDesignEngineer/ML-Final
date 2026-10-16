@@ -13,7 +13,7 @@ import sklearn
 
 from src import data_prep
 from experiments.prepare_svm_data import export_prepared
-from experiments.svm_experiments import build_configurations, run_experiments
+from experiments.svm_experiments import build_configurations, run_experiments, load_prepared_data
 from experiments.svm_cross_validation import CONFIG_KEYS
 from experiments.evaluation_experiments import run_evaluation, write_json
 from experiments.tree_experiments import save_validation_curves
@@ -61,15 +61,21 @@ def save_eda(frame, threshold, output):
 
 
 def run_pipeline(raw_path, output, include_cv=True, search_svm=True,
-                 depths=(2, 4, 8, 12), leaf_sizes=(1, 5, 20)):
+                 depths=(2, 4, 8, 12), leaf_sizes=(1, 5, 20), resume=False):
     raw_path, output = Path(raw_path), Path(output)
     if not raw_path.is_file():
         raise FileNotFoundError(f"Place the real dataset at {raw_path}; see data/README.md.")
-    if output.exists() and any(output.iterdir()):
+    if output.exists() and any(output.iterdir()) and not resume:
         raise FileExistsError("Output is not empty; choose a new --output to preserve earlier results.")
+    if resume:
+        old_manifest = json.loads((output / "run_manifest.json").read_text(encoding="utf-8"))
+        if old_manifest["raw_sha256"] != sha256(raw_path):
+            raise ValueError("Cannot resume with a different raw dataset.")
+        if old_manifest["status"] == "complete":
+            raise FileExistsError("The run is already complete; use a fresh output to reproduce it.")
     output.mkdir(parents=True, exist_ok=True)
     start = perf_counter()
-    manifest = {"status": "running", "seed": 42, "raw_sha256": sha256(raw_path),
+    manifest = {"status": "running", "seed": 42, "raw_sha256": sha256(raw_path), "resumed": resume,
                 "cv_requested": include_cv, "svm_search_requested": search_svm,
                 "versions": {"python": platform.python_version(), "numpy": np.__version__,
                              "pandas": pd.__version__, "sklearn": sklearn.__version__, "matplotlib": matplotlib.__version__}}
@@ -85,20 +91,43 @@ def run_pipeline(raw_path, output, include_cv=True, search_svm=True,
             "raw_sha256": manifest["raw_sha256"], "cleaned_sha256": sha256(cleaned_path),
             "removed_leakage_columns": data_prep.LEAKAGE_COLUMNS,
             "rules_source": "src/data_prep.py: clean; fixed domain filters and structural missing-value rules"})
-        arrays, metadata = export_prepared(cleaned_path, output / "prepared/svm_prepared.npz", raw_path=raw_path)
+        prepared_path = output / "prepared/svm_prepared.npz"
+        if resume:
+            arrays, metadata = load_prepared_data(prepared_path)
+            if metadata["cleaned_sha256"] != sha256(cleaned_path) or metadata["raw_sha256"] != sha256(raw_path):
+                raise ValueError("Prepared data hashes do not match the resumed run.")
+        else:
+            arrays, metadata = export_prepared(cleaned_path, prepared_path, raw_path=raw_path)
         save_eda(frame, metadata["tier_threshold"], output / "figures/eda")
         selected_svm = None
         if search_svm:
-            study = run_experiments(arrays, metadata, build_configurations(), output / "svm")
-            selected_svm = {name: {key: row[key] for key in CONFIG_KEYS} for name, row in study["selected"].items()}
-        result = run_evaluation(cleaned_path, output / "evaluation", include_cv=include_cv,
+            if resume:
+                study_manifest = json.loads((output / "svm/configurations.json").read_text(encoding="utf-8"))
+                if study_manifest["status"] != "complete" or study_manifest["dataset"]["cleaned_sha256"] != sha256(cleaned_path):
+                    raise ValueError("Only a completed, matching SVM search can be reused.")
+                for name, expected_hash in study_manifest["source_sha256"].items():
+                    if sha256(name) != expected_hash:
+                        raise ValueError("SVM search source changed; start a fresh run.")
+                selections = json.loads((output / "svm/selected_configurations.json").read_text(encoding="utf-8"))
+            else:
+                study = run_experiments(arrays, metadata, build_configurations(), output / "svm")
+                selections = study["selected"]
+            if any(row["split"] != "validation" for row in selections.values()):
+                raise ValueError("SVM settings must be selected on validation, never test.")
+            selected_svm = {name: {key: row[key] for key in CONFIG_KEYS} for name, row in selections.items()}
+        evaluation_output = output / "evaluation"
+        attempt = 1
+        while evaluation_output.exists() and any(evaluation_output.iterdir()):
+            attempt += 1
+            evaluation_output = output / f"evaluation_attempt_{attempt}"
+        result = run_evaluation(cleaned_path, evaluation_output, include_cv=include_cv,
                                 depths=depths, leaf_sizes=leaf_sizes, include_ridge=True, svm_configs=selected_svm)
-        validation = pd.read_csv(output / "evaluation/tree_validation.csv").to_dict("records")
+        validation = pd.read_csv(evaluation_output / "tree_validation.csv").to_dict("records")
         for task in ("regression", "classification"):
             save_validation_curves([row for row in validation if row["task"] == task],
                                    output / f"figures/tree_{task}_validation.png")
         for name in ("test_metrics.csv", "cv_folds.csv", "cv_summary.csv", "error_groups.csv", "feature_effects.csv", "selected_configs.json"):
-            source = output / "evaluation" / name
+            source = evaluation_output / name
             if source.exists():
                 shutil.copyfile(source, output / name)
         sources = ("src/linear.py", "src/run_all.py", "experiments/pipeline.py", "experiments/linear_experiments.py",
@@ -108,7 +137,9 @@ def run_pipeline(raw_path, output, include_cv=True, search_svm=True,
                          "tier_threshold": result["manifest"]["tier_threshold"],
                          "source_hashes": {name: sha256(name) for name in sources},
                          "elapsed_seconds": perf_counter() - start,
+                         "elapsed_scope": "This invocation; reused SVM search timings are recorded separately",
                          "test_used_for_selection": False, "ridge_included": True,
+                         "evaluation_directory": evaluation_output.name,
                          "timing_policy": "Single-run measured times; not deterministic benchmark averages",
                          "data_policy": "Prepared CSV/NPZ stays local under results; commit only aggregate evidence"})
         write_json(output / "run_manifest.json", manifest)

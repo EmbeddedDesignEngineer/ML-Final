@@ -9,11 +9,23 @@ from src.linear import RidgeRegression
 from src.evaluate import rmse, mae, r2
 
 
+class ScaledRidge:
+    def __init__(self, alpha):
+        self.scale = StandardScaler()
+        self.ridge = RidgeRegression(alpha=alpha)
+
+    def fit(self, X, y):
+        self.ridge.fit(self.scale.fit_transform(X), y)
+        return self
+
+    def predict(self, X):
+        return self.ridge.predict(self.scale.transform(X))
+
+
 def create_ridge_model(config):
     if config["implementation"] == "custom":
-        estimator = RidgeRegression(alpha=config["alpha"])
-    else:
-        estimator = Ridge(alpha=config["alpha"], solver="cholesky")
+        return ScaledRidge(config["alpha"])
+    estimator = Ridge(alpha=config["alpha"], solver="cholesky")
     return Pipeline([("scale", StandardScaler()), ("ridge", estimator)])
 
 
@@ -53,7 +65,8 @@ def save_ridge_curve(rows, destination):
         selected = [row for row in rows if row["implementation"] == implementation]
         ax.plot([row["alpha"] for row in selected], [row["validation_rmse"] for row in selected],
                 marker=marker, label=implementation)
-    ax.set(xscale="symlog", linthresh=0.1, xlabel="Ridge alpha", ylabel="Validation RMSE (AZN)")
+    ax.set_xscale("symlog", linthresh=0.1)
+    ax.set(xlabel="Ridge alpha", ylabel="Validation RMSE (AZN)")
     ax.legend()
     destination = Path(destination)
     destination.parent.mkdir(parents=True, exist_ok=True)
