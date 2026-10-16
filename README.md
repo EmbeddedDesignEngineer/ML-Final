@@ -61,3 +61,11 @@ pip install -r requirements.txt
 # put the dataset in data/ (see data/README.md), then:
 python -m src.run_all
 ```
+
+## Decision tree module
+
+The NumPy tree supports Gini/entropy classification and MSE regression.
+Run its checks with `python -m pytest tests/test_decision_tree.py tests/test_tree_sklearn.py tests/test_tree_experiments.py -q` (pytest required).
+See [tree methodology and integration notes](experiments/TREE_REPORT_NOTES.md)
+for the model API, validation sweeps, sklearn comparison caveats and remaining
+real-data evaluation steps. The tree helper does not replace the shared runner.

@@ -67,7 +67,7 @@ def test_each_stopping_parameter_can_prevent_a_split(params):
 
 
 def test_impurity_decrease_uses_fraction_of_all_training_samples():
-    # Root gain .125; left child local gain .5, globally weighted gain .25.
+    # A small global minimum still permits the useful descendant splits.
     model = DecisionTree(min_impurity_decrease=.1).fit([[0], [1], [2], [3]], [0, 1, 1, 0])
     assert not model.root.is_leaf()
     assert_array_equal(model.predict([[0], [1], [2], [3]]), [0, 1, 1, 0])
@@ -140,3 +140,21 @@ def test_adjacent_floats_split_without_empty_child():
     high = np.nextafter(low, np.inf)
     model = DecisionTree().fit([[low], [high]], [0, 1])
     assert_array_equal(model.predict([[low], [high]]), [0, 1])
+
+
+@pytest.mark.parametrize("task,criterion", [("classification", "gini"), ("classification", "entropy"), ("regression", "mse")])
+def test_zero_gain_bridge_can_learn_xor(task, criterion):
+    X, y = [[0, 0], [0, 1], [1, 0], [1, 1]], [0, 1, 1, 0]
+    model = DecisionTree(task=task, criterion=criterion, max_depth=2).fit(X, y)
+    assert_array_equal(model.predict(X), y)
+    assert model.get_depth() == 2
+    blocked = DecisionTree(task=task, criterion=criterion, min_impurity_decrease=.01).fit(X, y)
+    assert blocked.root.is_leaf()
+
+
+def test_unlimited_depth_handles_pathological_unbalanced_tree():
+    X = np.arange(1100.).reshape(-1, 1)
+    y = np.arange(1100) % 2
+    model = DecisionTree().fit(X, y)
+    assert_array_equal(model.predict(X), y)
+    assert model.get_depth() > 1000

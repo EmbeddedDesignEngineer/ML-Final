@@ -57,7 +57,7 @@ class DecisionTree:
 
     def _best_split(self, X, y):
         parent = self._impurity(y)
-        best, best_gain = None, 0.0
+        best, best_gain = None, -np.inf
         n = len(y)
         for feature in range(X.shape[1]):
             order = np.argsort(X[:, feature], kind="stable")
@@ -104,7 +104,8 @@ class DecisionTree:
                 best, best_gain = (feature, float(threshold), gain), gain
         return best
 
-    def _grow(self, X, y, depth):
+    def _make_node(self, X, y, depth):
+        """Create a leaf or choose a split, leaving child construction to _grow."""
         node = Node()
         node.n_samples = len(y)
         node.impurity = self._impurity(y)
@@ -116,15 +117,34 @@ class DecisionTree:
             node.value = self.classes_[np.argmax(counts)]
         if (node.impurity <= 0 or len(y) < self.min_samples_split
                 or (self.max_depth is not None and depth >= self.max_depth)):
-            return node
+            return node, None
         split = self._best_split(X, y)
         if split is None:
-            return node
+            return node, None
         feature, threshold, gain = split
         if gain * len(y) / self.n_samples_ < self.min_impurity_decrease:
-            return node
+            return node, None
         node.feature, node.threshold, node.gain = feature, threshold, gain
         left = X[:, feature] <= threshold
+        return node, left
+
+    def _grow(self, X, y, depth):
+        node, left = self._make_node(X, y, depth)
+        if left is None:
+            return node
+        # Preserve the recursive construction, but use an explicit continuation
+        # stack for pathological deep trees without changing Python's global limit.
+        if depth >= 128:
+            pending = [(node, X, y, left, depth)]
+            while pending:
+                parent, features, targets, mask, level = pending.pop()
+                for side, selected in (("left", mask), ("right", ~mask)):
+                    child_X, child_y = features[selected], targets[selected]
+                    child, child_mask = self._make_node(child_X, child_y, level + 1)
+                    setattr(parent, side, child)
+                    if child_mask is not None:
+                        pending.append((child, child_X, child_y, child_mask, level + 1))
+            return node
         node.left = self._grow(X[left], y[left], depth + 1)
         node.right = self._grow(X[~left], y[~left], depth + 1)
         return node
