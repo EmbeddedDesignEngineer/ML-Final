@@ -1,0 +1,18 @@
+\section{Ridge Baseline and Reproducibility}
+Our optional NumPy Ridge model minimizes squared error plus an $\alpha\lVert w\rVert_2^2$ penalty. Training-centered normal equations are solved with \texttt{numpy.linalg.solve}; the intercept is not penalized. Both custom and sklearn versions use training-fitted scaling. The validation grid is $\{0.1,1,10,100,1000\}$; both select $\alpha=1000$ by minimum validation RMSE. This is the best searched setting, not a global-optimum claim.
+
+\begin{table}[ht]
+\centering\scriptsize
+\caption{Regression test comparison in AZN.}
+\begin{tabular}{lrrr}
+\toprule
+Model & RMSE & MAE & $R^2$ \\
+\midrule
+Custom tree & 109163.81 & 45555.13 & 0.7595 \\
+sklearn tree & 119375.81 & 52230.16 & 0.7124 \\
+Custom Ridge & 128440.98 & 57859.18 & 0.6671 \\
+sklearn Ridge & 128440.98 & 57859.18 & 0.6671 \\
+\bottomrule
+\end{tabular}
+\end{table}
+The shared runner cleans real data, executes all SVM configurations and tree validation sweeps, selects Ridge, and evaluates ten models. Five-fold evaluation excludes final test rows and refits preprocessing inside each fold. The resulting mean and sample standard deviation describe frozen settings rather than nested selection uncertainty. Source/data hashes, seeds, versions, timings, plots and tables are saved. Prepared data stays local and is not committed. The command \texttt{python -m src.run\_all} reproduces the complete experiment.
