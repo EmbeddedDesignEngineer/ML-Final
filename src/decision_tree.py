@@ -45,25 +45,57 @@ class DecisionTree:
             return float(np.var(y))
         counts = np.bincount(y, minlength=len(self.classes_))
         p = counts[counts > 0] / len(y)
+        if self.criterion == "entropy":
+            return float(-np.sum(p * np.log2(p)))
         return float(1.0 - p @ p)
 
     def _best_split(self, X, y):
         parent = self._impurity(y)
         best, best_gain = None, 0.0
+        n = len(y)
         for feature in range(X.shape[1]):
-            values = np.unique(X[:, feature])
-            for lower, upper in zip(values[:-1], values[1:]):
+            order = np.argsort(X[:, feature], kind="stable")
+            values, targets = X[order, feature], y[order]
+            positions = np.flatnonzero(values[:-1] < values[1:]) + 1
+            positions = positions[(positions >= self.min_samples_leaf)
+                                  & (n - positions >= self.min_samples_leaf)]
+            if not len(positions):
+                continue
+            left_n, right_n = positions, n - positions
+            if self.task == "regression":
+                # Center before accumulating squares: real prices may be large.
+                centered = targets - np.mean(targets)
+                sums = np.cumsum(centered)
+                squares = np.cumsum(centered * centered)
+                left_s = sums[positions - 1]
+                right_s = sums[-1] - left_s
+                left_sse = squares[positions - 1] - left_s * left_s / left_n
+                right_sse = squares[-1] - squares[positions - 1] - right_s * right_s / right_n
+                child_impurity = (np.maximum(left_sse, 0) + np.maximum(right_sse, 0)) / n
+            else:
+                # Prefix class counts evaluate all valid thresholds in one pass.
+                counts = np.eye(len(self.classes_), dtype=np.int64)[targets].cumsum(axis=0)
+                left_counts = counts[positions - 1]
+                right_counts = counts[-1] - left_counts
+                left_p = left_counts / left_n[:, None]
+                right_p = right_counts / right_n[:, None]
+                if self.criterion == "gini":
+                    left_i = 1 - np.sum(left_p * left_p, axis=1)
+                    right_i = 1 - np.sum(right_p * right_p, axis=1)
+                else:
+                    left_i = -np.sum(left_p * np.log2(np.maximum(left_p, np.finfo(float).tiny)), axis=1)
+                    right_i = -np.sum(right_p * np.log2(np.maximum(right_p, np.finfo(float).tiny)), axis=1)
+                child_impurity = (left_n * left_i + right_n * right_i) / n
+            gains = parent - child_impurity
+            index = int(np.argmax(gains))
+            gain = float(gains[index])
+            if gain > best_gain:
+                position = positions[index]
+                lower, upper = values[position - 1], values[position]
                 threshold = lower / 2 + upper / 2
                 if threshold >= upper:
                     threshold = lower
-                left = X[:, feature] <= threshold
-                n_left = int(left.sum())
-                if min(n_left, len(y) - n_left) < self.min_samples_leaf:
-                    continue
-                gain = parent - (n_left * self._impurity(y[left])
-                                 + (len(y) - n_left) * self._impurity(y[~left])) / len(y)
-                if gain > best_gain:
-                    best, best_gain = (feature, threshold, gain), gain
+                best, best_gain = (feature, float(threshold), gain), gain
         return best
 
     def _grow(self, X, y, depth):
