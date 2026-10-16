@@ -1,8 +1,7 @@
-"""Validation-only tree sweeps, callable by the shared experiment runner.
+"""Compare tree settings on prepared train/validation splits.
 
-The caller supplies already prepared train/validation splits. No cleaning,
-label thresholding or test-set selection happens here. sklearn is used only
-as the reference model and validation scorer, never inside our tree.
+The shared runner handles preprocessing and test evaluation.
+sklearn provides reference models and validation scores.
 """
 from itertools import product
 from pathlib import Path
@@ -17,11 +16,10 @@ from src.decision_tree import DecisionTree
 
 def compare_tree_configs(X_train, y_train, X_val, y_val, *, task,
                          depths=(2, 4, 8, 12), leaf_sizes=(1, 5, 20), seed=42):
-    """Return (rows, best_by_implementation), selected only on validation.
+    """Return validation results and the best setting per implementation.
 
-    F1 (positive class 1) is maximized; RMSE is minimized in the supplied
-    target units. Ties keep the first configuration. Models fit train only.
-    Test evaluation and cross-validation remain the shared runner's job.
+    Maximize F1 for class 1 or minimize RMSE in the supplied target units.
+    Fit on train only. Ties keep the first configuration.
     """
     if task not in ("classification", "regression"):
         raise ValueError("task must be classification or regression")
@@ -77,7 +75,7 @@ def compare_tree_configs(X_train, y_train, X_val, y_val, *, task,
 
 
 def save_validation_curves(rows, path):
-    """Plot each criterion/leaf-size combination; keep train and val distinct."""
+    """Plot train and validation scores by depth for each setting."""
     import matplotlib.pyplot as plt
 
     if not rows or len({(r["task"], r["metric"]) for r in rows}) != 1:
