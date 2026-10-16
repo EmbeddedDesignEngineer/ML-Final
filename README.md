@@ -69,3 +69,23 @@ Run its checks with `python -m pytest tests/test_decision_tree.py tests/test_tre
 See [tree methodology and integration notes](experiments/TREE_REPORT_NOTES.md)
 for the model API, validation sweeps, sklearn comparison caveats and remaining
 real-data evaluation steps. The tree helper does not replace the shared runner.
+
+## Evaluation module
+
+The starter metrics are implemented in NumPy in `src/evaluate.py`.
+Run `python -m pytest -q` after installing `pytest==9.1.1`.
+
+With the real `data/house_sale.csv` available, reproduce the evaluation with:
+
+```bash
+python -m src.data_prep
+python -m experiments.evaluation_experiments --output results/evaluation_reproduction
+```
+
+The evaluation command performs validation-only tree selection, reuses the
+four previously selected SVM configurations, runs five-fold uncertainty checks
+without final test rows, and saves final metrics, subgroup analysis and figures.
+Use a fresh output directory to preserve earlier test results.
+Committed results are in `evaluation/artifacts/`; methodology and interpretation
+are in `evaluation/REPORT_NOTES.md`. This command is available for integration
+into Bailar's shared `src/run_all.py` entry point.

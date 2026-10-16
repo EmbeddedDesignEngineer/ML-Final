@@ -1,0 +1,977 @@
+model,task,group_type,group,count,mae,rmse,bias,errors,error_rate,precision,recall,f1,roc_auc,tn,fp,fn,tp
+custom_tree_regression,regression,price,Expensive,856,177315.23932869293,304984.77463858743,-56805.94067342769,,,,,,,,,,
+custom_tree_regression,regression,price,Other,7748,30998.25934429179,54377.50297537559,6655.22342110891,,,,,,,,,,
+custom_tree_regression,regression,representation,Frequent,7847,44672.94109024849,103724.34447688509,-743.681099606538,,,,,,,,,,
+custom_tree_regression,regression,representation,Sparse,757,54699.854068367385,154662.37484769637,11591.08512405579,,,,,,,,,,
+custom_tree_regression,regression,location,2-ci mikrorayon q.,1,76421.5804676754,76421.5804676754,76421.5804676754,,,,,,,,,,
+custom_tree_regression,regression,location,20 Yanvar m.,184,31549.478729522685,85743.19893457156,-2734.443150729902,,,,,,,,,,
+custom_tree_regression,regression,location,20-ci sahə q.,4,78545.51767676767,89306.37735679263,-17403.09343434343,,,,,,,,,,
+custom_tree_regression,regression,location,28 May m.,326,52948.90807156004,94443.71562772084,4622.343168246156,,,,,,,,,,
+custom_tree_regression,regression,location,3-cü mikrorayon q.,2,11728.179406915617,13659.786232482023,11728.179406915617,,,,,,,,,,
+custom_tree_regression,regression,location,4-cü mikrorayon q.,1,14310.353503184713,14310.353503184713,-14310.353503184713,,,,,,,,,,
+custom_tree_regression,regression,location,6-cı mikrorayon q.,2,226011.90476190476,313214.36489836284,-226011.90476190476,,,,,,,,,,
+custom_tree_regression,regression,location,7-ci mikrorayon q.,42,18737.481901752937,31863.176905092278,-3228.6050352259135,,,,,,,,,,
+custom_tree_regression,regression,location,8 Noyabr m.,247,36434.998842240224,52637.54287074635,-1073.4027556698463,,,,,,,,,,
+custom_tree_regression,regression,location,8-ci kilometr q.,28,39673.369502601105,57704.592415256615,17162.44677002476,,,,,,,,,,
+custom_tree_regression,regression,location,8-ci mikrorayon q.,35,26130.898195581525,35521.02086171284,-10055.848126666373,,,,,,,,,,
+custom_tree_regression,regression,location,9-cu mikrorayon q.,39,18975.457148064386,26983.32488490647,-8798.934206793345,,,,,,,,,,
+custom_tree_regression,regression,location,Abşeron r.,33,35460.83727101069,84012.94148283679,16151.107782032705,,,,,,,,,,
+custom_tree_regression,regression,location,Albalılıq q.,7,43071.292000467714,58411.34425943675,-22326.60715919616,,,,,,,,,,
+custom_tree_regression,regression,location,Avtovağzal m.,32,38064.64627498812,61100.562399684604,17011.729608321453,,,,,,,,,,
+custom_tree_regression,regression,location,Azadlıq Prospekti m.,177,48981.439088128835,137888.76182345237,941.6512339856952,,,,,,,,,,
+custom_tree_regression,regression,location,Ağ şəhər q.,124,58977.4769452326,106389.3505051533,-7878.32852107999,,,,,,,,,,
+custom_tree_regression,regression,location,Aşağı Güzdək q.,2,8758.316203290917,10845.73868943298,8758.316203290917,,,,,,,,,,
+custom_tree_regression,regression,location,Badamdar q.,125,151701.71148121168,299064.96625596675,-27015.269760411597,,,,,,,,,,
+custom_tree_regression,regression,location,Bakmil m.,2,22742.89861111113,30750.645508385114,-22742.89861111113,,,,,,,,,,
+custom_tree_regression,regression,location,Bakıxanov q.,131,41849.121963459555,79978.74710613307,-10339.936220452491,,,,,,,,,,
+custom_tree_regression,regression,location,Balaxanı q.,3,60759.722222222226,76592.52940948348,60759.722222222226,,,,,,,,,,
+custom_tree_regression,regression,location,Bayıl q.,56,68726.84505025823,97952.33870280553,3141.94986986546,,,,,,,,,,
+custom_tree_regression,regression,location,Bibi Heybət q.,2,43350.608231707316,55809.98992778884,-35149.391768292684,,,,,,,,,,
+custom_tree_regression,regression,location,Bilgəh q.,13,309314.1407189919,589519.823960704,195361.0729562217,,,,,,,,,,
+custom_tree_regression,regression,location,Biləcəri q.,83,33176.77176999588,56631.230051945684,14173.66392398379,,,,,,,,,,
+custom_tree_regression,regression,location,Binə q.,75,15829.79315760965,25878.723802910972,2846.9520337781996,,,,,,,,,,
+custom_tree_regression,regression,location,Binəqədi q.,46,32393.069276928447,56073.22120328781,12628.347859108659,,,,,,,,,,
+custom_tree_regression,regression,location,Binəqədi r.,71,35621.83481344004,51313.97745751741,3431.671613053767,,,,,,,,,,
+custom_tree_regression,regression,location,Buzovna q.,46,97255.69637880588,203329.4982467784,3901.0052237630425,,,,,,,,,,
+custom_tree_regression,regression,location,Böyükşor q.,1,21662.391666666663,21662.391666666663,21662.391666666663,,,,,,,,,,
+custom_tree_regression,regression,location,Bülbülə q.,2,23659.699164054335,24437.8785168134,-6117.887042842216,,,,,,,,,,
+custom_tree_regression,regression,location,Ceyranbatan q.,2,28730.6449704142,38997.34407741544,28730.6449704142,,,,,,,,,,
+custom_tree_regression,regression,location,Digah q.,4,30661.440298507463,32144.034955543655,9822.880597014926,,,,,,,,,,
+custom_tree_regression,regression,location,Dübəndi q.,2,96416.66666666666,97234.3246435583,-12583.333333333343,,,,,,,,,,
+custom_tree_regression,regression,location,Dədə Qorqud q.,2,16270.875,20518.074306952516,16270.875,,,,,,,,,,
+custom_tree_regression,regression,location,Dərnəgül m.,22,27208.66004178972,33362.28229573916,-6136.250510093624,,,,,,,,,,
+custom_tree_regression,regression,location,Elmlər Akademiyası m.,418,49563.97339641528,78269.78158108411,54.86892460366158,,,,,,,,,,
+custom_tree_regression,regression,location,Fatmayı q.,8,40758.42197918761,62608.47935423422,26565.644201409836,,,,,,,,,,
+custom_tree_regression,regression,location,Görədil q.,15,102382.02403365965,189875.30085023062,-36243.10668828957,,,,,,,,,,
+custom_tree_regression,regression,location,Günəşli q.,1,37860.71428571429,37860.71428571429,-37860.71428571429,,,,,,,,,,
+custom_tree_regression,regression,location,Gənclik m.,207,62674.09776319459,161286.8294401694,-5613.595950013677,,,,,,,,,,
+custom_tree_regression,regression,location,Hökməli q.,6,48393.26550557107,57218.40182780492,45596.96920927477,,,,,,,,,,
+custom_tree_regression,regression,location,Hövsan q.,104,14829.853718421915,21415.786000473327,6139.973069414527,,,,,,,,,,
+custom_tree_regression,regression,location,Həzi Aslanov m.,405,18213.51583972017,26113.52774157774,4883.569682372835,,,,,,,,,,
+custom_tree_regression,regression,location,Həzi Aslanov q.,71,31483.956418792364,47094.25554425981,-554.0771495414338,,,,,,,,,,
+custom_tree_regression,regression,location,Keşlə q.,5,64093.41374878271,95581.29331790388,-18206.586251217283,,,,,,,,,,
+custom_tree_regression,regression,location,Koroğlu m.,36,26105.76719212823,36877.178674268354,-11653.902331955505,,,,,,,,,,
+custom_tree_regression,regression,location,Kubinka q.,3,27875.16514690983,29641.67176506337,-4314.7786734798965,,,,,,,,,,
+custom_tree_regression,regression,location,Köhnə Günəşli q.,31,26333.259345618022,62309.00487405907,-3880.078158620032,,,,,,,,,,
+custom_tree_regression,regression,location,Kürdəxanı q.,2,81331.01265822785,89884.64280497273,81331.01265822785,,,,,,,,,,
+custom_tree_regression,regression,location,Lökbatan q.,13,29138.125071489725,36822.10031231453,25980.51823388289,,,,,,,,,,
+custom_tree_regression,regression,location,M.Ə.Rəsulzadə q.,12,49985.71321582858,67463.30519115178,-5302.771468903033,,,,,,,,,,
+custom_tree_regression,regression,location,Masazır q.,266,13234.942160464261,20509.95642762446,2480.9266800655423,,,,,,,,,,
+custom_tree_regression,regression,location,Massiv D q.,9,11119.748145275991,16449.93797680967,-3626.399140544562,,,,,,,,,,
+custom_tree_regression,regression,location,Massiv V q.,6,18129.027569982823,22047.89365951298,6800.602415167537,,,,,,,,,,
+custom_tree_regression,regression,location,Maştağa q.,22,27987.03158415997,36849.90411123636,13664.261693608265,,,,,,,,,,
+custom_tree_regression,regression,location,Mehdiabad q.,17,83431.65837052853,195613.14616322794,62040.7228902168,,,,,,,,,,
+custom_tree_regression,regression,location,Memar Əcəmi m.,306,19495.26151534434,29240.13928028852,2388.292138846478,,,,,,,,,,
+custom_tree_regression,regression,location,Müşfiqabad q.,2,17456.02389277389,21446.70444902322,17456.02389277389,,,,,,,,,,
+custom_tree_regression,regression,location,Məmmədli q.,20,16533.992875588676,22464.9694541696,9853.537408607674,,,,,,,,,,
+custom_tree_regression,regression,location,Mərdəkan q.,279,87534.85126221791,152920.360718146,-3665.645436670163,,,,,,,,,,
+custom_tree_regression,regression,location,NZS q.,11,24488.966628051134,36756.36335691602,19791.996931081438,,,,,,,,,,
+custom_tree_regression,regression,location,Nardaran q.,51,82645.2662398934,129524.03524717284,-43537.59598579996,,,,,,,,,,
+custom_tree_regression,regression,location,Neftçilər m.,170,20252.218679781916,38184.889952723686,3113.372708233415,,,,,,,,,,
+custom_tree_regression,regression,location,Nizami m.,223,55005.75273929638,85326.22564283977,11094.343915367339,,,,,,,,,,
+custom_tree_regression,regression,location,Nizami r.,38,48293.5573613274,141243.4994403661,21727.44167070344,,,,,,,,,,
+custom_tree_regression,regression,location,Novxanı q.,53,103156.09061435846,182684.08452870624,41339.74752889747,,,,,,,,,,
+custom_tree_regression,regression,location,Nəriman Nərimanov m.,493,41436.19334863523,62110.964147405386,-3649.5728444923366,,,,,,,,,,
+custom_tree_regression,regression,location,Nərimanov r.,303,41196.09894228021,76002.47219975368,2339.1501961621784,,,,,,,,,,
+custom_tree_regression,regression,location,Nəsimi m.,96,49417.03938279228,143672.36673331552,-6955.82669733469,,,,,,,,,,
+custom_tree_regression,regression,location,Nəsimi r.,387,55964.556144748334,140176.7064065173,-366.78452449296503,,,,,,,,,,
+custom_tree_regression,regression,location,Pirallahı r.,3,17937.353658536584,25282.78479891468,17937.353658536584,,,,,,,,,,
+custom_tree_regression,regression,location,Pirşağı q.,5,21105.61512049514,32368.24923075381,5624.0010985480885,,,,,,,,,,
+custom_tree_regression,regression,location,Pirəkəşkül q.,1,18041.81212121212,18041.81212121212,18041.81212121212,,,,,,,,,,
+custom_tree_regression,regression,location,Qala q.,7,298672.4236039379,411492.2689102954,49627.22706714134,,,,,,,,,,
+custom_tree_regression,regression,location,Qara Qarayev m.,210,27473.215988481883,57926.65505283673,-3931.471448617597,,,,,,,,,,
+custom_tree_regression,regression,location,Qaraçuxur q.,56,42820.6340616159,83734.68233251444,-27496.239724519073,,,,,,,,,,
+custom_tree_regression,regression,location,Qobu q.,1,44703.70370370371,44703.70370370371,44703.70370370371,,,,,,,,,,
+custom_tree_regression,regression,location,Qobustan q.,1,88833.33333333331,88833.33333333331,88833.33333333331,,,,,,,,,,
+custom_tree_regression,regression,location,Ramana q.,12,33612.33559284085,54012.58062227074,13487.982577410223,,,,,,,,,,
+custom_tree_regression,regression,location,Sabunçu q.,3,65335.31746031746,83001.14153394075,65335.31746031746,,,,,,,,,,
+custom_tree_regression,regression,location,Sabunçu r.,19,83527.92984652873,229147.1480253549,37447.12326332789,,,,,,,,,,
+custom_tree_regression,regression,location,Sahil m.,69,144283.25584400055,244548.4768409274,-19909.777812890283,,,,,,,,,,
+custom_tree_regression,regression,location,Sahil q.,1,86500.0,86500.0,-86500.0,,,,,,,,,,
+custom_tree_regression,regression,location,Saray q.,24,46339.685920443306,86740.97523687844,37118.92243613789,,,,,,,,,,
+custom_tree_regression,regression,location,Savalan q.,10,42568.35062788728,55487.801586431815,31596.922056458716,,,,,,,,,,
+custom_tree_regression,regression,location,Sulutəpə q.,12,54922.242484655,78396.5998919583,-22584.66124322081,,,,,,,,,,
+custom_tree_regression,regression,location,Suraxanı q.,3,13570.735524256654,14709.868443854535,-818.1533646322374,,,,,,,,,,
+custom_tree_regression,regression,location,Suraxanı r.,12,16419.80133882767,19493.10145159368,2563.1382394367224,,,,,,,,,,
+custom_tree_regression,regression,location,Səbail r.,51,173308.85057957703,364672.8320151158,-75093.81651355156,,,,,,,,,,
+custom_tree_regression,regression,location,Türkan q.,5,508778.6111111111,857393.733384308,-241141.3888888889,,,,,,,,,,
+custom_tree_regression,regression,location,Xalqlar Dostluğu m.,151,16786.686369296593,23925.28893521037,375.0905874560806,,,,,,,,,,
+custom_tree_regression,regression,location,Xocəsən m.,3,35970.61935200853,36759.7432132489,17106.421821144333,,,,,,,,,,
+custom_tree_regression,regression,location,Xocəsən q.,6,80151.74694885362,95697.39825740994,80151.74694885362,,,,,,,,,,
+custom_tree_regression,regression,location,Xutor q.,1,37125.0,37125.0,37125.0,,,,,,,,,,
+custom_tree_regression,regression,location,Xətai r.,199,44832.938830043204,141998.55290511428,-14533.588226794953,,,,,,,,,,
+custom_tree_regression,regression,location,Xəzər r.,8,111484.2757936508,167763.10686752564,56416.418650793654,,,,,,,,,,
+custom_tree_regression,regression,location,Yasamal q.,34,57775.43481439871,177866.77458380267,-25946.211757510497,,,,,,,,,,
+custom_tree_regression,regression,location,Yasamal r.,116,32749.783455432324,66304.53207592998,-4482.002860449025,,,,,,,,,,
+custom_tree_regression,regression,location,Yeni Günəşli q.,67,17322.43545400575,24547.366672797674,4993.052035979303,,,,,,,,,,
+custom_tree_regression,regression,location,Yeni Ramana q.,13,41059.40908273857,65873.62751818937,-36970.85537065545,,,,,,,,,,
+custom_tree_regression,regression,location,Yeni Suraxanı q.,4,13855.129778576385,16018.944266066235,1660.6853341319402,,,,,,,,,,
+custom_tree_regression,regression,location,Yeni Yasamal q.,109,30589.59747706797,116623.31335259131,-5684.237737806807,,,,,,,,,,
+custom_tree_regression,regression,location,Zabrat q.,20,14715.041481372386,22507.514614328025,2783.2840809591826,,,,,,,,,,
+custom_tree_regression,regression,location,Zirə q.,2,77769.44444444444,98912.45107869412,61119.44444444444,,,,,,,,,,
+custom_tree_regression,regression,location,Zığ q.,15,25246.744119075996,27948.582900523717,8013.322803245392,,,,,,,,,,
+custom_tree_regression,regression,location,İnşaatçılar m.,428,24028.7335413978,38685.44960884212,4825.893924758234,,,,,,,,,,
+custom_tree_regression,regression,location,İçəri Şəhər m.,88,99823.62780323088,181251.9966083806,-30716.998080803907,,,,,,,,,,
+custom_tree_regression,regression,location,Şah İsmayıl Xətai m.,366,49371.85698278085,86662.84038532086,7833.67391899192,,,,,,,,,,
+custom_tree_regression,regression,location,Şağan q.,9,240131.86728395062,344825.80387689045,63239.27469135803,,,,,,,,,,
+custom_tree_regression,regression,location,Şimal DRES q.,1,3375.0,3375.0,-3375.0,,,,,,,,,,
+custom_tree_regression,regression,location,Şüvəlan q.,123,69426.30688396694,107823.92552356757,14482.46658941054,,,,,,,,,,
+custom_tree_regression,regression,location,Şıxov q.,9,193604.51200651197,353135.8645673959,102153.71835571833,,,,,,,,,,
+custom_tree_regression,regression,location,Əhmədli m.,181,22563.750388776072,58738.28171434254,5288.175377286442,,,,,,,,,,
+custom_tree_regression,regression,location,Əhmədli q.,68,15486.058363677541,21360.10416484018,-1546.5736774023085,,,,,,,,,,
+custom_tree_regression,regression,location,Ələt q.,1,33600.0,33600.0,33600.0,,,,,,,,,,
+custom_tree_regression,regression,location,Əmircan q.,14,67705.3934193908,185589.25064719643,54414.077592360685,,,,,,,,,,
+sklearn_tree_regression,regression,price,Expensive,856,196858.4854390448,331989.89267697313,-72645.6713409321,,,,,,,,,,
+sklearn_tree_regression,regression,price,Other,7748,36251.608194047374,60400.08170606806,8316.79489140015,,,,,,,,,,
+sklearn_tree_regression,regression,representation,Frequent,7847,51218.61322135888,114515.50916465672,-1740.3305449519735,,,,,,,,,,
+sklearn_tree_regression,regression,representation,Sparse,757,62715.80696868985,161351.68956327703,21017.44509507084,,,,,,,,,,
+sklearn_tree_regression,regression,location,2-ci mikrorayon q.,1,102268.33434782608,102268.33434782608,102268.33434782608,,,,,,,,,,
+sklearn_tree_regression,regression,location,20 Yanvar m.,184,36863.27349517712,89037.75757695241,-124.60440135190417,,,,,,,,,,
+sklearn_tree_regression,regression,location,20-ci sahə q.,4,166495.80934869678,166618.06859691575,86824.9232727474,,,,,,,,,,
+sklearn_tree_regression,regression,location,28 May m.,326,61739.45592482242,104307.31766510266,-3470.5619384275956,,,,,,,,,,
+sklearn_tree_regression,regression,location,3-cü mikrorayon q.,2,27465.063355297287,27465.767919591734,27465.063355297287,,,,,,,,,,
+sklearn_tree_regression,regression,location,4-cü mikrorayon q.,1,16019.195246179966,16019.195246179966,-16019.195246179966,,,,,,,,,,
+sklearn_tree_regression,regression,location,6-cı mikrorayon q.,2,139929.00938893142,177045.93990817294,-108467.21702616292,,,,,,,,,,
+sklearn_tree_regression,regression,location,7-ci mikrorayon q.,42,23806.063690715557,35964.594712814745,-5006.4110895110625,,,,,,,,,,
+sklearn_tree_regression,regression,location,8 Noyabr m.,247,43084.28959712154,63240.128142962916,12366.055794098776,,,,,,,,,,
+sklearn_tree_regression,regression,location,8-ci kilometr q.,28,42743.17271999667,58852.61661929636,16408.2228291078,,,,,,,,,,
+sklearn_tree_regression,regression,location,8-ci mikrorayon q.,35,39531.35767748212,52941.31749935152,1055.9731857976806,,,,,,,,,,
+sklearn_tree_regression,regression,location,9-cu mikrorayon q.,39,20718.109957658475,28851.569326109235,-13753.66293497437,,,,,,,,,,
+sklearn_tree_regression,regression,location,Abşeron r.,33,35037.407728129736,84295.82622020316,18559.803787992292,,,,,,,,,,
+sklearn_tree_regression,regression,location,Albalılıq q.,7,83345.52813434754,99426.30734229153,-13342.55755534538,,,,,,,,,,
+sklearn_tree_regression,regression,location,Avtovağzal m.,32,46980.687924316444,74165.9427320288,35549.13692664815,,,,,,,,,,
+sklearn_tree_regression,regression,location,Azadlıq Prospekti m.,177,51405.86918200602,131256.67032906789,-9268.303978704218,,,,,,,,,,
+sklearn_tree_regression,regression,location,Ağ şəhər q.,124,75958.89178790795,118559.90121094785,-18324.55023411911,,,,,,,,,,
+sklearn_tree_regression,regression,location,Aşağı Güzdək q.,2,13389.340258958153,17270.7238340429,13389.340258958153,,,,,,,,,,
+sklearn_tree_regression,regression,location,Badamdar q.,125,161329.6668832548,293016.7289064087,-21546.187000177135,,,,,,,,,,
+sklearn_tree_regression,regression,location,Bakmil m.,2,36131.922753980034,37736.567732359996,-36131.922753980034,,,,,,,,,,
+sklearn_tree_regression,regression,location,Bakıxanov q.,131,43443.25835090025,78916.48233134205,-19702.270932291678,,,,,,,,,,
+sklearn_tree_regression,regression,location,Balaxanı q.,3,46263.543209876545,60403.85738338897,44695.151457299224,,,,,,,,,,
+sklearn_tree_regression,regression,location,Bayıl q.,56,79883.02157291763,117350.47465038557,5722.878269201791,,,,,,,,,,
+sklearn_tree_regression,regression,location,Bibi Heybət q.,2,43075.50634110089,50452.115576908276,-26266.26581079785,,,,,,,,,,
+sklearn_tree_regression,regression,location,Bilgəh q.,13,343343.60402641684,600629.9472149321,176556.27013652524,,,,,,,,,,
+sklearn_tree_regression,regression,location,Biləcəri q.,83,43394.9383023908,67609.28654004389,23497.31970904566,,,,,,,,,,
+sklearn_tree_regression,regression,location,Binə q.,75,24296.332506456885,38803.791145444,7819.225406655351,,,,,,,,,,
+sklearn_tree_regression,regression,location,Binəqədi q.,46,32925.31406441024,47199.69212513789,18751.702507981012,,,,,,,,,,
+sklearn_tree_regression,regression,location,Binəqədi r.,71,47405.391089447134,66120.64805810516,14027.502363993943,,,,,,,,,,
+sklearn_tree_regression,regression,location,Buzovna q.,46,131768.97988861738,240410.98356971616,-12480.565914099494,,,,,,,,,,
+sklearn_tree_regression,regression,location,Böyükşor q.,1,8633.574529667152,8633.574529667152,8633.574529667152,,,,,,,,,,
+sklearn_tree_regression,regression,location,Bülbülə q.,2,18341.808743993744,19759.58303256946,-7349.7737121466125,,,,,,,,,,
+sklearn_tree_regression,regression,location,Ceyranbatan q.,2,14365.97369833602,18645.278732357103,14365.97369833602,,,,,,,,,,
+sklearn_tree_regression,regression,location,Digah q.,4,37125.739130434784,38136.331274190765,22751.478260869568,,,,,,,,,,
+sklearn_tree_regression,regression,location,Dübəndi q.,2,191135.59322033898,208036.22441620086,82135.59322033898,,,,,,,,,,
+sklearn_tree_regression,regression,location,Dədə Qorqud q.,2,63751.47826086957,64965.38293927101,63751.47826086957,,,,,,,,,,
+sklearn_tree_regression,regression,location,Dərnəgül m.,22,28880.92351864289,39942.7682890981,-19374.284727947812,,,,,,,,,,
+sklearn_tree_regression,regression,location,Elmlər Akademiyası m.,418,53560.27047968391,80162.73993765053,-7455.516230209819,,,,,,,,,,
+sklearn_tree_regression,regression,location,Fatmayı q.,8,62202.5524753738,81969.74865733295,41265.42204059119,,,,,,,,,,
+sklearn_tree_regression,regression,location,Görədil q.,15,100361.94783966456,176419.6750363092,-45524.181416396794,,,,,,,,,,
+sklearn_tree_regression,regression,location,Günəşli q.,1,15495.342233009695,15495.342233009695,-15495.342233009695,,,,,,,,,,
+sklearn_tree_regression,regression,location,Gənclik m.,207,71196.75483943193,167264.16640448815,335.00054412278814,,,,,,,,,,
+sklearn_tree_regression,regression,location,Hökməli q.,6,82240.52527642429,98161.42965176642,82240.52527642429,,,,,,,,,,
+sklearn_tree_regression,regression,location,Hövsan q.,104,19065.21721277455,26570.116875950283,6914.418379460125,,,,,,,,,,
+sklearn_tree_regression,regression,location,Həzi Aslanov m.,405,21104.59518037883,30184.26605847354,7411.970884601411,,,,,,,,,,
+sklearn_tree_regression,regression,location,Həzi Aslanov q.,71,29092.274560458816,41868.31874686936,2498.461959647233,,,,,,,,,,
+sklearn_tree_regression,regression,location,Keşlə q.,5,35981.403319261066,42151.39254383847,12376.069985927717,,,,,,,,,,
+sklearn_tree_regression,regression,location,Koroğlu m.,36,34495.46234241692,54646.99605198106,-29538.89011224206,,,,,,,,,,
+sklearn_tree_regression,regression,location,Kubinka q.,3,33285.09734352257,33455.43451799495,-11864.286145605904,,,,,,,,,,
+sklearn_tree_regression,regression,location,Köhnə Günəşli q.,31,30137.687880466,51988.01685708213,-3513.6182981177117,,,,,,,,,,
+sklearn_tree_regression,regression,location,Kürdəxanı q.,2,28971.530358504962,39793.78254036052,27279.947902364605,,,,,,,,,,
+sklearn_tree_regression,regression,location,Lökbatan q.,13,53408.346616882634,61786.881110758484,53408.346616882634,,,,,,,,,,
+sklearn_tree_regression,regression,location,M.Ə.Rəsulzadə q.,12,56588.44108157719,67873.25928737935,-9277.059395806744,,,,,,,,,,
+sklearn_tree_regression,regression,location,Masazır q.,266,19121.29499130301,28508.033779283065,11901.923874949221,,,,,,,,,,
+sklearn_tree_regression,regression,location,Massiv D q.,9,16236.086580107354,22681.290870111072,13443.621244459202,,,,,,,,,,
+sklearn_tree_regression,regression,location,Massiv V q.,6,19165.126252589977,23270.887893070547,8130.704855961148,,,,,,,,,,
+sklearn_tree_regression,regression,location,Maştağa q.,22,42175.45582296111,49822.063053699865,29008.98816603109,,,,,,,,,,
+sklearn_tree_regression,regression,location,Mehdiabad q.,17,88644.6650231613,191857.41720598066,49056.302780821796,,,,,,,,,,
+sklearn_tree_regression,regression,location,Memar Əcəmi m.,306,23986.296581806047,34056.43479039973,4910.243039014046,,,,,,,,,,
+sklearn_tree_regression,regression,location,Müşfiqabad q.,2,42600.15385911695,54287.979726753765,42600.15385911695,,,,,,,,,,
+sklearn_tree_regression,regression,location,Məmmədli q.,20,26007.042097665817,34874.09675073472,23625.23683733302,,,,,,,,,,
+sklearn_tree_regression,regression,location,Mərdəkan q.,279,89528.99585953908,175391.90051081174,-15906.456688804175,,,,,,,,,,
+sklearn_tree_regression,regression,location,NZS q.,11,21348.638027184512,34349.93637615916,16475.66484118896,,,,,,,,,,
+sklearn_tree_regression,regression,location,Nardaran q.,51,95547.42341917408,133849.07301478388,-52001.196033078384,,,,,,,,,,
+sklearn_tree_regression,regression,location,Neftçilər m.,170,21705.591930565097,31470.187102628126,1173.4821906728246,,,,,,,,,,
+sklearn_tree_regression,regression,location,Nizami m.,223,61077.60752833431,94545.98526507303,12950.34870946442,,,,,,,,,,
+sklearn_tree_regression,regression,location,Nizami r.,38,47947.09991570431,104360.07481115888,13626.999251129397,,,,,,,,,,
+sklearn_tree_regression,regression,location,Novxanı q.,53,91977.32042579085,152499.05833570514,858.4761352443553,,,,,,,,,,
+sklearn_tree_regression,regression,location,Nəriman Nərimanov m.,493,47470.01206189297,67492.15432326295,-3796.1716682330357,,,,,,,,,,
+sklearn_tree_regression,regression,location,Nərimanov r.,303,49271.307662341525,86820.67839605223,5455.591303034069,,,,,,,,,,
+sklearn_tree_regression,regression,location,Nəsimi m.,96,52547.54795349796,144116.0351654813,-19467.674565075064,,,,,,,,,,
+sklearn_tree_regression,regression,location,Nəsimi r.,387,68372.67404654331,148463.7811614861,232.7007672887621,,,,,,,,,,
+sklearn_tree_regression,regression,location,Pirallahı r.,3,6631.096793794201,7147.415072543673,4413.672940583194,,,,,,,,,,
+sklearn_tree_regression,regression,location,Pirşağı q.,5,36641.50247848922,46566.13061248646,-9925.250626637364,,,,,,,,,,
+sklearn_tree_regression,regression,location,Pirəkəşkül q.,1,11492.035031847132,11492.035031847132,11492.035031847132,,,,,,,,,,
+sklearn_tree_regression,regression,location,Qala q.,7,302141.23952281015,366098.4518655039,148862.77334143312,,,,,,,,,,
+sklearn_tree_regression,regression,location,Qara Qarayev m.,210,31072.60755150152,51381.076870910336,-15619.293453941908,,,,,,,,,,
+sklearn_tree_regression,regression,location,Qaraçuxur q.,56,50762.46937214525,84373.90646341903,-23700.323055723402,,,,,,,,,,
+sklearn_tree_regression,regression,location,Qobu q.,1,134992.24137931035,134992.24137931035,134992.24137931035,,,,,,,,,,
+sklearn_tree_regression,regression,location,Qobustan q.,1,278271.18644067796,278271.18644067796,278271.18644067796,,,,,,,,,,
+sklearn_tree_regression,regression,location,Ramana q.,12,38275.63699709492,53483.13589685265,28316.222545881043,,,,,,,,,,
+sklearn_tree_regression,regression,location,Sabunçu q.,3,33327.161046788264,47469.58154612739,33327.161046788264,,,,,,,,,,
+sklearn_tree_regression,regression,location,Sabunçu r.,19,122742.10241388339,388521.83328098024,83753.54935889943,,,,,,,,,,
+sklearn_tree_regression,regression,location,Sahil m.,69,182025.92549696733,437466.5303902266,-29613.73908058944,,,,,,,,,,
+sklearn_tree_regression,regression,location,Sahil q.,1,40031.80428134557,40031.80428134557,40031.80428134557,,,,,,,,,,
+sklearn_tree_regression,regression,location,Saray q.,24,45525.72218811148,56834.746259566506,34338.35205011223,,,,,,,,,,
+sklearn_tree_regression,regression,location,Savalan q.,10,40149.52186669917,54474.580552367326,32514.1052000325,,,,,,,,,,
+sklearn_tree_regression,regression,location,Sulutəpə q.,12,71089.17279264863,82477.64285831363,35042.17851072463,,,,,,,,,,
+sklearn_tree_regression,regression,location,Suraxanı q.,3,8267.49837560463,9942.299691752003,393.85831229345786,,,,,,,,,,
+sklearn_tree_regression,regression,location,Suraxanı r.,12,24395.028250228614,35521.429607409016,13560.857135923448,,,,,,,,,,
+sklearn_tree_regression,regression,location,Səbail r.,51,191180.16810628667,383305.58414000156,-72630.27493207734,,,,,,,,,,
+sklearn_tree_regression,regression,location,Türkan q.,5,605658.4859524638,881041.7625242922,-26931.366701464052,,,,,,,,,,
+sklearn_tree_regression,regression,location,Xalqlar Dostluğu m.,151,20626.833808967396,29350.10074611675,641.6500918122056,,,,,,,,,,
+sklearn_tree_regression,regression,location,Xocəsən m.,3,61425.03746275011,62458.72746352914,61425.03746275011,,,,,,,,,,
+sklearn_tree_regression,regression,location,Xocəsən q.,6,117685.50464985658,119538.40999692642,117685.50464985658,,,,,,,,,,
+sklearn_tree_regression,regression,location,Xutor q.,1,127394.70796943229,127394.70796943229,127394.70796943229,,,,,,,,,,
+sklearn_tree_regression,regression,location,Xətai r.,199,50318.56647071484,150310.6339007588,-19267.10279471577,,,,,,,,,,
+sklearn_tree_regression,regression,location,Xəzər r.,8,114913.72879952488,139561.2163524927,39602.337495177046,,,,,,,,,,
+sklearn_tree_regression,regression,location,Yasamal q.,34,56732.36989799458,145016.47091718603,-12295.96415109409,,,,,,,,,,
+sklearn_tree_regression,regression,location,Yasamal r.,116,43711.8345595048,86214.3929254826,-2692.5245445912306,,,,,,,,,,
+sklearn_tree_regression,regression,location,Yeni Günəşli q.,67,25873.404550435505,33082.56340292957,9417.347692963456,,,,,,,,,,
+sklearn_tree_regression,regression,location,Yeni Ramana q.,13,30430.415506398913,50758.346609126,-25386.928635402488,,,,,,,,,,
+sklearn_tree_regression,regression,location,Yeni Suraxanı q.,4,16570.29399074131,17265.15447065941,4420.846891280258,,,,,,,,,,
+sklearn_tree_regression,regression,location,Yeni Yasamal q.,109,32274.849429942675,106743.761236113,1797.4653020979981,,,,,,,,,,
+sklearn_tree_regression,regression,location,Zabrat q.,20,22343.301867605187,29644.381965301713,20024.62253319832,,,,,,,,,,
+sklearn_tree_regression,regression,location,Zirə q.,2,195365.8577299264,271610.910644677,195365.8577299264,,,,,,,,,,
+sklearn_tree_regression,regression,location,Zığ q.,15,31725.13390100311,42260.60768974306,13902.528411618508,,,,,,,,,,
+sklearn_tree_regression,regression,location,İnşaatçılar m.,428,29573.8845471384,44533.13310969037,9708.22496234427,,,,,,,,,,
+sklearn_tree_regression,regression,location,İçəri Şəhər m.,88,128362.68940278543,215428.03533388177,-41120.22665232943,,,,,,,,,,
+sklearn_tree_regression,regression,location,Şah İsmayıl Xətai m.,366,52770.2282085609,90003.5610318589,842.1474638301719,,,,,,,,,,
+sklearn_tree_regression,regression,location,Şağan q.,9,213872.92394332905,285057.0124067566,68020.71256403708,,,,,,,,,,
+sklearn_tree_regression,regression,location,Şimal DRES q.,1,44968.19571865443,44968.19571865443,-44968.19571865443,,,,,,,,,,
+sklearn_tree_regression,regression,location,Şüvəlan q.,123,81311.72770639365,122178.44844890422,14956.589461445306,,,,,,,,,,
+sklearn_tree_regression,regression,location,Şıxov q.,9,186080.94092472084,355088.28856377845,119473.50071128404,,,,,,,,,,
+sklearn_tree_regression,regression,location,Əhmədli m.,181,23970.54469292879,45118.46445834348,5083.933253389576,,,,,,,,,,
+sklearn_tree_regression,regression,location,Əhmədli q.,68,20444.878039239848,30656.290968784564,1568.7214385098885,,,,,,,,,,
+sklearn_tree_regression,regression,location,Ələt q.,1,28673.86422018349,28673.86422018349,28673.86422018349,,,,,,,,,,
+sklearn_tree_regression,regression,location,Əmircan q.,14,80791.23770552428,240720.91167510234,58601.99892687178,,,,,,,,,,
+custom_tree_classification,classification,price,Expensive,856,,,,7,0.008177570093457943,1.0,0.991822429906542,0.9958944281524926,,0,0,7,849
+custom_tree_classification,classification,price,Other,7748,,,,598,0.07718120805369127,0.9109429569266589,0.9146697837521917,0.9128025663458734,0.9426194569797073,4020,306,292,3130
+custom_tree_classification,classification,representation,Frequent,7847,,,,533,0.06792404740665223,0.9331713244228432,0.9370424597364568,0.9351028856690612,0.9514264483868873,3474,275,258,3840
+custom_tree_classification,classification,representation,Sparse,757,,,,72,0.095112285336856,0.8176470588235294,0.7722222222222223,0.7942857142857143,0.8789524359715001,546,31,41,139
+custom_tree_classification,classification,location,2-ci mikrorayon q.,1,,,,1,1.0,0.0,0.0,0.0,,0,1,0,0
+custom_tree_classification,classification,location,20 Yanvar m.,184,,,,19,0.10326086956521739,0.8918918918918919,0.8571428571428571,0.8741721854304636,0.9487195047942711,99,8,11,66
+custom_tree_classification,classification,location,20-ci sahə q.,4,,,,2,0.5,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.0,0,1,1,2
+custom_tree_classification,classification,location,28 May m.,326,,,,9,0.027607361963190184,0.9885931558935361,0.9774436090225563,0.9829867674858223,0.9947055137844611,57,3,6,260
+custom_tree_classification,classification,location,3-cü mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_tree_classification,classification,location,4-cü mikrorayon q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_tree_classification,classification,location,6-cı mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_tree_classification,classification,location,7-ci mikrorayon q.,42,,,,2,0.047619047619047616,0.9230769230769231,0.9230769230769231,0.9230769230769231,0.9005305039787799,28,1,1,12
+custom_tree_classification,classification,location,8 Noyabr m.,247,,,,11,0.044534412955465584,0.9545454545454546,0.9895287958115183,0.9717223650385605,0.9849476439790575,47,9,2,189
+custom_tree_classification,classification,location,8-ci kilometr q.,28,,,,6,0.21428571428571427,0.5833333333333334,0.875,0.7,0.903125,15,5,1,7
+custom_tree_classification,classification,location,8-ci mikrorayon q.,35,,,,4,0.11428571428571428,0.9285714285714286,0.8125,0.8666666666666667,0.8207236842105263,18,1,3,13
+custom_tree_classification,classification,location,9-cu mikrorayon q.,39,,,,3,0.07692307692307693,1.0,0.75,0.8571428571428571,0.941358024691358,27,0,3,9
+custom_tree_classification,classification,location,Abşeron r.,33,,,,2,0.06060606060606061,0.3333333333333333,1.0,0.5,0.984375,30,2,0,1
+custom_tree_classification,classification,location,Albalılıq q.,7,,,,3,0.42857142857142855,0.3333333333333333,0.5,0.4,0.7,3,2,1,1
+custom_tree_classification,classification,location,Avtovağzal m.,32,,,,3,0.09375,0.8,0.6666666666666666,0.7272727272727273,0.6923076923076923,25,1,2,4
+custom_tree_classification,classification,location,Azadlıq Prospekti m.,177,,,,13,0.07344632768361582,0.9142857142857143,0.9014084507042254,0.9078014184397163,0.939875099654531,100,6,7,64
+custom_tree_classification,classification,location,Ağ şəhər q.,124,,,,2,0.016129032258064516,0.9918032786885246,0.9918032786885246,0.9918032786885246,0.5327868852459017,1,1,1,121
+custom_tree_classification,classification,location,Aşağı Güzdək q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_tree_classification,classification,location,Badamdar q.,125,,,,10,0.08,0.9680851063829787,0.9285714285714286,0.9479166666666666,0.8915343915343915,24,3,7,91
+custom_tree_classification,classification,location,Bakmil m.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_tree_classification,classification,location,Bakıxanov q.,131,,,,5,0.03816793893129771,0.9310344827586207,0.9,0.9152542372881356,0.9594059405940594,99,2,3,27
+custom_tree_classification,classification,location,Balaxanı q.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+custom_tree_classification,classification,location,Bayıl q.,56,,,,4,0.07142857142857142,0.95,0.95,0.95,0.96875,14,2,2,38
+custom_tree_classification,classification,location,Bibi Heybət q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_tree_classification,classification,location,Bilgəh q.,13,,,,2,0.15384615384615385,1.0,0.75,0.8571428571428571,0.8875,5,0,2,6
+custom_tree_classification,classification,location,Biləcəri q.,83,,,,5,0.060240963855421686,0.7142857142857143,0.625,0.6666666666666666,0.7766666666666666,73,2,3,5
+custom_tree_classification,classification,location,Binə q.,75,,,,1,0.013333333333333334,1.0,0.5,0.6666666666666666,0.6643835616438356,73,0,1,1
+custom_tree_classification,classification,location,Binəqədi q.,46,,,,3,0.06521739130434782,0.3333333333333333,0.5,0.4,0.9602272727272727,42,2,1,1
+custom_tree_classification,classification,location,Binəqədi r.,71,,,,11,0.15492957746478872,0.7727272727272727,0.7391304347826086,0.7555555555555555,0.8573369565217391,43,5,6,17
+custom_tree_classification,classification,location,Buzovna q.,46,,,,9,0.1956521739130435,0.7727272727272727,0.8095238095238095,0.7906976744186046,0.7285714285714285,20,5,4,17
+custom_tree_classification,classification,location,Böyükşor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+custom_tree_classification,classification,location,Bülbülə q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_tree_classification,classification,location,Ceyranbatan q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_tree_classification,classification,location,Digah q.,4,,,,0,0.0,0.0,0.0,0.0,,4,0,0,0
+custom_tree_classification,classification,location,Dübəndi q.,2,,,,2,1.0,0.0,0.0,0.0,,0,0,2,0
+custom_tree_classification,classification,location,Dədə Qorqud q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_tree_classification,classification,location,Dərnəgül m.,22,,,,3,0.13636363636363635,1.0,0.625,0.7692307692307693,0.9375,14,0,3,5
+custom_tree_classification,classification,location,Elmlər Akademiyası m.,418,,,,29,0.06937799043062201,0.9395973154362416,0.9621993127147767,0.9507640067911715,0.9362367075249615,109,18,11,280
+custom_tree_classification,classification,location,Fatmayı q.,8,,,,1,0.125,0.0,0.0,0.0,1.0,7,0,1,0
+custom_tree_classification,classification,location,Görədil q.,15,,,,3,0.2,0.7142857142857143,0.8333333333333334,0.7692307692307693,0.7870370370370371,7,2,1,5
+custom_tree_classification,classification,location,Günəşli q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_tree_classification,classification,location,Gənclik m.,207,,,,13,0.06280193236714976,0.9323308270676691,0.96875,0.9501915708812261,0.9676127373417721,70,9,4,124
+custom_tree_classification,classification,location,Hökməli q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+custom_tree_classification,classification,location,Hövsan q.,104,,,,3,0.028846153846153848,0.25,1.0,0.4,0.9854368932038835,100,3,0,1
+custom_tree_classification,classification,location,Həzi Aslanov m.,405,,,,26,0.06419753086419754,0.8703703703703703,0.8867924528301887,0.8785046728971962,0.9500536379125386,285,14,12,94
+custom_tree_classification,classification,location,Həzi Aslanov q.,71,,,,7,0.09859154929577464,0.8260869565217391,0.8636363636363636,0.8444444444444444,0.9522263450834879,45,4,3,19
+custom_tree_classification,classification,location,Keşlə q.,5,,,,1,0.2,0.5,1.0,0.6666666666666666,1.0,3,1,0,1
+custom_tree_classification,classification,location,Koroğlu m.,36,,,,3,0.08333333333333333,1.0,0.7857142857142857,0.88,0.9285714285714286,22,0,3,11
+custom_tree_classification,classification,location,Kubinka q.,3,,,,0,0.0,1.0,1.0,1.0,,0,0,0,3
+custom_tree_classification,classification,location,Köhnə Günəşli q.,31,,,,1,0.03225806451612903,0.75,1.0,0.8571428571428571,0.9821428571428571,27,1,0,3
+custom_tree_classification,classification,location,Kürdəxanı q.,2,,,,1,0.5,0.0,0.0,0.0,,1,1,0,0
+custom_tree_classification,classification,location,Lökbatan q.,13,,,,1,0.07692307692307693,0.0,0.0,0.0,,12,1,0,0
+custom_tree_classification,classification,location,M.Ə.Rəsulzadə q.,12,,,,2,0.16666666666666666,1.0,0.3333333333333333,0.5,0.7962962962962963,9,0,2,1
+custom_tree_classification,classification,location,Masazır q.,266,,,,4,0.015037593984962405,0.0,0.0,0.0,,262,4,0,0
+custom_tree_classification,classification,location,Massiv D q.,9,,,,0,0.0,0.0,0.0,0.0,,9,0,0,0
+custom_tree_classification,classification,location,Massiv V q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+custom_tree_classification,classification,location,Maştağa q.,22,,,,1,0.045454545454545456,0.0,0.0,0.0,0.3333333333333333,21,0,1,0
+custom_tree_classification,classification,location,Mehdiabad q.,17,,,,2,0.11764705882352941,1.0,0.5,0.6666666666666666,0.7980769230769231,13,0,2,2
+custom_tree_classification,classification,location,Memar Əcəmi m.,306,,,,12,0.0392156862745098,0.8823529411764706,0.9375,0.9090909090909091,0.9670067148760331,234,8,4,60
+custom_tree_classification,classification,location,Müşfiqabad q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_tree_classification,classification,location,Məmmədli q.,20,,,,0,0.0,0.0,0.0,0.0,,20,0,0,0
+custom_tree_classification,classification,location,Mərdəkan q.,279,,,,24,0.08602150537634409,0.9585062240663901,0.9428571428571428,0.9506172839506173,0.9144657863145258,24,10,14,231
+custom_tree_classification,classification,location,NZS q.,11,,,,0,0.0,0.0,0.0,0.0,,11,0,0,0
+custom_tree_classification,classification,location,Nardaran q.,51,,,,6,0.11764705882352941,0.926829268292683,0.926829268292683,0.926829268292683,0.8207317073170731,7,3,3,38
+custom_tree_classification,classification,location,Neftçilər m.,170,,,,12,0.07058823529411765,0.8444444444444444,0.8837209302325582,0.8636363636363636,0.9550448635780993,120,7,5,38
+custom_tree_classification,classification,location,Nizami m.,223,,,,7,0.03139013452914798,0.9842931937172775,0.9791666666666666,0.9817232375979112,0.925739247311828,28,3,4,188
+custom_tree_classification,classification,location,Nizami r.,38,,,,5,0.13157894736842105,0.8571428571428571,0.8,0.8275862068965517,0.9666666666666667,21,2,3,12
+custom_tree_classification,classification,location,Novxanı q.,53,,,,12,0.22641509433962265,0.8461538461538461,0.7333333333333333,0.7857142857142857,0.8347826086956521,19,4,8,22
+custom_tree_classification,classification,location,Nəriman Nərimanov m.,493,,,,34,0.06896551724137931,0.9441176470588235,0.9553571428571429,0.9497041420118343,0.9182685016681832,138,19,15,321
+custom_tree_classification,classification,location,Nərimanov r.,303,,,,18,0.0594059405940594,0.9398148148148148,0.9759615384615384,0.9575471698113207,0.9248481781376519,82,13,5,203
+custom_tree_classification,classification,location,Nəsimi m.,96,,,,6,0.0625,0.9166666666666666,0.9565217391304348,0.9361702127659575,0.9465217391304348,46,4,2,44
+custom_tree_classification,classification,location,Nəsimi r.,387,,,,23,0.059431524547803614,0.9503311258278145,0.9728813559322034,0.9614740368509213,0.9678334561532793,77,15,8,287
+custom_tree_classification,classification,location,Pirallahı r.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+custom_tree_classification,classification,location,Pirşağı q.,5,,,,0,0.0,1.0,1.0,1.0,1.0,4,0,0,1
+custom_tree_classification,classification,location,Pirəkəşkül q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_tree_classification,classification,location,Qala q.,7,,,,2,0.2857142857142857,0.3333333333333333,1.0,0.5,0.9166666666666666,4,2,0,1
+custom_tree_classification,classification,location,Qara Qarayev m.,210,,,,11,0.05238095238095238,0.9545454545454546,0.9230769230769231,0.9385474860335196,0.9646320066488133,115,4,7,84
+custom_tree_classification,classification,location,Qaraçuxur q.,56,,,,5,0.08928571428571429,0.8235294117647058,0.875,0.8484848484848485,0.89375,37,3,2,14
+custom_tree_classification,classification,location,Qobu q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_tree_classification,classification,location,Qobustan q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+custom_tree_classification,classification,location,Ramana q.,12,,,,0,0.0,1.0,1.0,1.0,1.0,11,0,0,1
+custom_tree_classification,classification,location,Sabunçu q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+custom_tree_classification,classification,location,Sabunçu r.,19,,,,2,0.10526315789473684,1.0,0.7777777777777778,0.875,0.9055555555555556,10,0,2,7
+custom_tree_classification,classification,location,Sahil m.,69,,,,4,0.057971014492753624,1.0,0.9375,0.967741935483871,0.984375,5,0,4,60
+custom_tree_classification,classification,location,Sahil q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_tree_classification,classification,location,Saray q.,24,,,,0,0.0,0.0,0.0,0.0,,24,0,0,0
+custom_tree_classification,classification,location,Savalan q.,10,,,,0,0.0,1.0,1.0,1.0,1.0,8,0,0,2
+custom_tree_classification,classification,location,Sulutəpə q.,12,,,,1,0.08333333333333333,1.0,0.75,0.8571428571428571,0.78125,8,0,1,3
+custom_tree_classification,classification,location,Suraxanı q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+custom_tree_classification,classification,location,Suraxanı r.,12,,,,0,0.0,0.0,0.0,0.0,,12,0,0,0
+custom_tree_classification,classification,location,Səbail r.,51,,,,11,0.21568627450980393,0.896551724137931,0.7647058823529411,0.8253968253968254,0.8442906574394463,14,3,8,26
+custom_tree_classification,classification,location,Türkan q.,5,,,,1,0.2,1.0,0.5,0.6666666666666666,0.5,3,0,1,1
+custom_tree_classification,classification,location,Xalqlar Dostluğu m.,151,,,,11,0.0728476821192053,0.8235294117647058,0.8484848484848485,0.835820895522388,0.9069080636877247,112,6,5,28
+custom_tree_classification,classification,location,Xocəsən m.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+custom_tree_classification,classification,location,Xocəsən q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+custom_tree_classification,classification,location,Xutor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+custom_tree_classification,classification,location,Xətai r.,199,,,,8,0.04020100502512563,0.948051948051948,0.948051948051948,0.948051948051948,0.9469342133276559,118,4,4,73
+custom_tree_classification,classification,location,Xəzər r.,8,,,,1,0.125,0.75,1.0,0.8571428571428571,0.8333333333333334,4,1,0,3
+custom_tree_classification,classification,location,Yasamal q.,34,,,,6,0.17647058823529413,0.8,0.8,0.8,0.8421052631578947,16,3,3,12
+custom_tree_classification,classification,location,Yasamal r.,116,,,,8,0.06896551724137931,0.8947368421052632,0.9622641509433962,0.9272727272727272,0.9457921533393232,57,6,2,51
+custom_tree_classification,classification,location,Yeni Günəşli q.,67,,,,4,0.05970149253731343,0.25,0.5,0.3333333333333333,0.9576923076923077,62,3,1,1
+custom_tree_classification,classification,location,Yeni Ramana q.,13,,,,0,0.0,1.0,1.0,1.0,1.0,12,0,0,1
+custom_tree_classification,classification,location,Yeni Suraxanı q.,4,,,,0,0.0,0.0,0.0,0.0,,4,0,0,0
+custom_tree_classification,classification,location,Yeni Yasamal q.,109,,,,9,0.08256880733944955,0.7222222222222222,0.7647058823529411,0.7428571428571429,0.8273657289002557,87,5,4,13
+custom_tree_classification,classification,location,Zabrat q.,20,,,,2,0.1,0.0,0.0,0.0,0.8888888888888888,18,0,2,0
+custom_tree_classification,classification,location,Zirə q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_tree_classification,classification,location,Zığ q.,15,,,,0,0.0,0.0,0.0,0.0,,15,0,0,0
+custom_tree_classification,classification,location,İnşaatçılar m.,428,,,,39,0.0911214953271028,0.9022988505747126,0.8770949720670391,0.8895184135977338,0.9384801776940163,232,17,22,157
+custom_tree_classification,classification,location,İçəri Şəhər m.,88,,,,9,0.10227272727272728,0.9411764705882353,0.927536231884058,0.9343065693430657,0.8268497330282227,15,4,5,64
+custom_tree_classification,classification,location,Şah İsmayıl Xətai m.,366,,,,28,0.07650273224043716,0.9801980198019802,0.9310344827586207,0.954983922829582,0.8971520042686587,41,6,22,297
+custom_tree_classification,classification,location,Şağan q.,9,,,,1,0.1111111111111111,0.8571428571428571,1.0,0.9230769230769231,0.9722222222222222,2,1,0,6
+custom_tree_classification,classification,location,Şimal DRES q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+custom_tree_classification,classification,location,Şüvəlan q.,123,,,,23,0.18699186991869918,0.8461538461538461,0.8953488372093024,0.8700564971751412,0.8915776241357637,23,14,9,77
+custom_tree_classification,classification,location,Şıxov q.,9,,,,2,0.2222222222222222,0.8571428571428571,0.8571428571428571,0.8571428571428571,0.6428571428571429,1,1,1,6
+custom_tree_classification,classification,location,Əhmədli m.,181,,,,18,0.09944751381215469,0.7352941176470589,0.7352941176470589,0.7352941176470589,0.8974589835934373,138,9,9,25
+custom_tree_classification,classification,location,Əhmədli q.,68,,,,5,0.07352941176470588,0.7333333333333333,0.9166666666666666,0.8148148148148148,0.9434523809523809,52,4,1,11
+custom_tree_classification,classification,location,Ələt q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_tree_classification,classification,location,Əmircan q.,14,,,,0,0.0,1.0,1.0,1.0,1.0,13,0,0,1
+sklearn_tree_classification,classification,price,Expensive,856,,,,7,0.008177570093457943,1.0,0.991822429906542,0.9958944281524926,,0,0,7,849
+sklearn_tree_classification,classification,price,Other,7748,,,,603,0.07782653588022716,0.9110527850685332,0.9129164231443601,0.9119836520216027,0.9426354666292703,4021,305,298,3124
+sklearn_tree_classification,classification,representation,Frequent,7847,,,,538,0.06856123359245571,0.9333008763388511,0.9355783308931186,0.9344382159395564,0.9517603588059468,3475,274,264,3834
+sklearn_tree_classification,classification,representation,Sparse,757,,,,72,0.095112285336856,0.8176470588235294,0.7722222222222223,0.7942857142857143,0.8795012516849605,546,31,41,139
+sklearn_tree_classification,classification,location,2-ci mikrorayon q.,1,,,,1,1.0,0.0,0.0,0.0,,0,1,0,0
+sklearn_tree_classification,classification,location,20 Yanvar m.,184,,,,19,0.10326086956521739,0.8918918918918919,0.8571428571428571,0.8741721854304636,0.9482340089816725,99,8,11,66
+sklearn_tree_classification,classification,location,20-ci sahə q.,4,,,,1,0.25,1.0,0.6666666666666666,0.8,0.8333333333333334,1,0,1,2
+sklearn_tree_classification,classification,location,28 May m.,326,,,,9,0.027607361963190184,0.9885931558935361,0.9774436090225563,0.9829867674858223,0.9947055137844611,57,3,6,260
+sklearn_tree_classification,classification,location,3-cü mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_tree_classification,classification,location,4-cü mikrorayon q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_tree_classification,classification,location,6-cı mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_tree_classification,classification,location,7-ci mikrorayon q.,42,,,,2,0.047619047619047616,0.9230769230769231,0.9230769230769231,0.9230769230769231,0.9005305039787799,28,1,1,12
+sklearn_tree_classification,classification,location,8 Noyabr m.,247,,,,11,0.044534412955465584,0.9545454545454546,0.9895287958115183,0.9717223650385605,0.9849476439790575,47,9,2,189
+sklearn_tree_classification,classification,location,8-ci kilometr q.,28,,,,6,0.21428571428571427,0.5833333333333334,0.875,0.7,0.903125,15,5,1,7
+sklearn_tree_classification,classification,location,8-ci mikrorayon q.,35,,,,4,0.11428571428571428,0.9285714285714286,0.8125,0.8666666666666667,0.8207236842105263,18,1,3,13
+sklearn_tree_classification,classification,location,9-cu mikrorayon q.,39,,,,3,0.07692307692307693,1.0,0.75,0.8571428571428571,0.941358024691358,27,0,3,9
+sklearn_tree_classification,classification,location,Abşeron r.,33,,,,2,0.06060606060606061,0.3333333333333333,1.0,0.5,0.984375,30,2,0,1
+sklearn_tree_classification,classification,location,Albalılıq q.,7,,,,3,0.42857142857142855,0.3333333333333333,0.5,0.4,0.7,3,2,1,1
+sklearn_tree_classification,classification,location,Avtovağzal m.,32,,,,2,0.0625,0.8333333333333334,0.8333333333333334,0.8333333333333334,0.8461538461538461,25,1,1,5
+sklearn_tree_classification,classification,location,Azadlıq Prospekti m.,177,,,,14,0.07909604519774012,0.9130434782608695,0.8873239436619719,0.9,0.926720701567898,100,6,8,63
+sklearn_tree_classification,classification,location,Ağ şəhər q.,124,,,,2,0.016129032258064516,0.9918032786885246,0.9918032786885246,0.9918032786885246,0.5327868852459017,1,1,1,121
+sklearn_tree_classification,classification,location,Aşağı Güzdək q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_tree_classification,classification,location,Badamdar q.,125,,,,12,0.096,0.9479166666666666,0.9285714285714286,0.9381443298969072,0.8877551020408163,22,5,7,91
+sklearn_tree_classification,classification,location,Bakmil m.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_tree_classification,classification,location,Bakıxanov q.,131,,,,6,0.04580152671755725,0.9,0.9,0.9,0.9504950495049505,98,3,3,27
+sklearn_tree_classification,classification,location,Balaxanı q.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+sklearn_tree_classification,classification,location,Bayıl q.,56,,,,5,0.08928571428571429,0.9487179487179487,0.925,0.9367088607594937,0.9484375,14,2,3,37
+sklearn_tree_classification,classification,location,Bibi Heybət q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_tree_classification,classification,location,Bilgəh q.,13,,,,2,0.15384615384615385,1.0,0.75,0.8571428571428571,0.8875,5,0,2,6
+sklearn_tree_classification,classification,location,Biləcəri q.,83,,,,4,0.04819277108433735,0.75,0.75,0.75,0.875,73,2,2,6
+sklearn_tree_classification,classification,location,Binə q.,75,,,,2,0.02666666666666667,0.5,0.5,0.5,0.6575342465753424,72,1,1,1
+sklearn_tree_classification,classification,location,Binəqədi q.,46,,,,3,0.06521739130434782,0.3333333333333333,0.5,0.4,0.9602272727272727,42,2,1,1
+sklearn_tree_classification,classification,location,Binəqədi r.,71,,,,11,0.15492957746478872,0.7727272727272727,0.7391304347826086,0.7555555555555555,0.8573369565217391,43,5,6,17
+sklearn_tree_classification,classification,location,Buzovna q.,46,,,,9,0.1956521739130435,0.7727272727272727,0.8095238095238095,0.7906976744186046,0.7285714285714285,20,5,4,17
+sklearn_tree_classification,classification,location,Böyükşor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+sklearn_tree_classification,classification,location,Bülbülə q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_tree_classification,classification,location,Ceyranbatan q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_tree_classification,classification,location,Digah q.,4,,,,0,0.0,0.0,0.0,0.0,,4,0,0,0
+sklearn_tree_classification,classification,location,Dübəndi q.,2,,,,2,1.0,0.0,0.0,0.0,,0,0,2,0
+sklearn_tree_classification,classification,location,Dədə Qorqud q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_tree_classification,classification,location,Dərnəgül m.,22,,,,3,0.13636363636363635,1.0,0.625,0.7692307692307693,0.9375,14,0,3,5
+sklearn_tree_classification,classification,location,Elmlər Akademiyası m.,418,,,,32,0.07655502392344497,0.9331103678929766,0.9587628865979382,0.9457627118644067,0.9336796817923533,107,20,12,279
+sklearn_tree_classification,classification,location,Fatmayı q.,8,,,,1,0.125,0.0,0.0,0.0,1.0,7,0,1,0
+sklearn_tree_classification,classification,location,Görədil q.,15,,,,3,0.2,0.7142857142857143,0.8333333333333334,0.7692307692307693,0.7870370370370371,7,2,1,5
+sklearn_tree_classification,classification,location,Günəşli q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_tree_classification,classification,location,Gənclik m.,207,,,,16,0.07729468599033816,0.9117647058823529,0.96875,0.9393939393939394,0.9308247626582279,67,12,4,124
+sklearn_tree_classification,classification,location,Hökməli q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+sklearn_tree_classification,classification,location,Hövsan q.,104,,,,1,0.009615384615384616,0.5,1.0,0.6666666666666666,0.9951456310679612,102,1,0,1
+sklearn_tree_classification,classification,location,Həzi Aslanov m.,405,,,,27,0.06666666666666667,0.8691588785046729,0.8773584905660378,0.8732394366197183,0.9411718306304032,285,14,13,93
+sklearn_tree_classification,classification,location,Həzi Aslanov q.,71,,,,7,0.09859154929577464,0.8260869565217391,0.8636363636363636,0.8444444444444444,0.9522263450834879,45,4,3,19
+sklearn_tree_classification,classification,location,Keşlə q.,5,,,,1,0.2,0.5,1.0,0.6666666666666666,1.0,3,1,0,1
+sklearn_tree_classification,classification,location,Koroğlu m.,36,,,,3,0.08333333333333333,1.0,0.7857142857142857,0.88,0.9285714285714286,22,0,3,11
+sklearn_tree_classification,classification,location,Kubinka q.,3,,,,0,0.0,1.0,1.0,1.0,,0,0,0,3
+sklearn_tree_classification,classification,location,Köhnə Günəşli q.,31,,,,1,0.03225806451612903,0.75,1.0,0.8571428571428571,0.9821428571428571,27,1,0,3
+sklearn_tree_classification,classification,location,Kürdəxanı q.,2,,,,1,0.5,0.0,0.0,0.0,,1,1,0,0
+sklearn_tree_classification,classification,location,Lökbatan q.,13,,,,1,0.07692307692307693,0.0,0.0,0.0,,12,1,0,0
+sklearn_tree_classification,classification,location,M.Ə.Rəsulzadə q.,12,,,,2,0.16666666666666666,1.0,0.3333333333333333,0.5,0.7962962962962963,9,0,2,1
+sklearn_tree_classification,classification,location,Masazır q.,266,,,,3,0.011278195488721804,0.0,0.0,0.0,,263,3,0,0
+sklearn_tree_classification,classification,location,Massiv D q.,9,,,,0,0.0,0.0,0.0,0.0,,9,0,0,0
+sklearn_tree_classification,classification,location,Massiv V q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+sklearn_tree_classification,classification,location,Maştağa q.,22,,,,1,0.045454545454545456,0.0,0.0,0.0,0.3333333333333333,21,0,1,0
+sklearn_tree_classification,classification,location,Mehdiabad q.,17,,,,2,0.11764705882352941,1.0,0.5,0.6666666666666666,0.8269230769230769,13,0,2,2
+sklearn_tree_classification,classification,location,Memar Əcəmi m.,306,,,,11,0.03594771241830065,0.8955223880597015,0.9375,0.916030534351145,0.9711389462809917,235,7,4,60
+sklearn_tree_classification,classification,location,Müşfiqabad q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_tree_classification,classification,location,Məmmədli q.,20,,,,0,0.0,0.0,0.0,0.0,,20,0,0,0
+sklearn_tree_classification,classification,location,Mərdəkan q.,279,,,,24,0.08602150537634409,0.9585062240663901,0.9428571428571428,0.9506172839506173,0.9129651860744298,24,10,14,231
+sklearn_tree_classification,classification,location,NZS q.,11,,,,0,0.0,0.0,0.0,0.0,,11,0,0,0
+sklearn_tree_classification,classification,location,Nardaran q.,51,,,,6,0.11764705882352941,0.926829268292683,0.926829268292683,0.926829268292683,0.8207317073170731,7,3,3,38
+sklearn_tree_classification,classification,location,Neftçilər m.,170,,,,11,0.06470588235294118,0.8636363636363636,0.8837209302325582,0.8735632183908046,0.9211682841970336,121,6,5,38
+sklearn_tree_classification,classification,location,Nizami m.,223,,,,10,0.04484304932735426,0.9690721649484536,0.9791666666666666,0.9740932642487047,0.8939852150537635,25,6,4,188
+sklearn_tree_classification,classification,location,Nizami r.,38,,,,6,0.15789473684210525,0.8,0.8,0.8,0.9391304347826087,20,3,3,12
+sklearn_tree_classification,classification,location,Novxanı q.,53,,,,12,0.22641509433962265,0.8461538461538461,0.7333333333333333,0.7857142857142857,0.8347826086956521,19,4,8,22
+sklearn_tree_classification,classification,location,Nəriman Nərimanov m.,493,,,,30,0.060851926977687626,0.95,0.9613095238095238,0.9556213017751479,0.9326471034273582,140,17,13,323
+sklearn_tree_classification,classification,location,Nərimanov r.,303,,,,15,0.04950495049504951,0.9488372093023256,0.9807692307692307,0.9645390070921985,0.9491902834008097,84,11,4,204
+sklearn_tree_classification,classification,location,Nəsimi m.,96,,,,6,0.0625,0.9166666666666666,0.9565217391304348,0.9361702127659575,0.9465217391304348,46,4,2,44
+sklearn_tree_classification,classification,location,Nəsimi r.,387,,,,23,0.059431524547803614,0.9503311258278145,0.9728813559322034,0.9614740368509213,0.9682387619749447,77,15,8,287
+sklearn_tree_classification,classification,location,Pirallahı r.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+sklearn_tree_classification,classification,location,Pirşağı q.,5,,,,0,0.0,1.0,1.0,1.0,1.0,4,0,0,1
+sklearn_tree_classification,classification,location,Pirəkəşkül q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_tree_classification,classification,location,Qala q.,7,,,,2,0.2857142857142857,0.3333333333333333,1.0,0.5,0.9166666666666666,4,2,0,1
+sklearn_tree_classification,classification,location,Qara Qarayev m.,210,,,,12,0.05714285714285714,0.9540229885057471,0.9120879120879121,0.9325842696629213,0.9539200295502817,115,4,8,83
+sklearn_tree_classification,classification,location,Qaraçuxur q.,56,,,,5,0.08928571428571429,0.8235294117647058,0.875,0.8484848484848485,0.89375,37,3,2,14
+sklearn_tree_classification,classification,location,Qobu q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_tree_classification,classification,location,Qobustan q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+sklearn_tree_classification,classification,location,Ramana q.,12,,,,1,0.08333333333333333,0.0,0.0,0.0,0.3181818181818182,11,0,1,0
+sklearn_tree_classification,classification,location,Sabunçu q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+sklearn_tree_classification,classification,location,Sabunçu r.,19,,,,2,0.10526315789473684,1.0,0.7777777777777778,0.875,0.9055555555555556,10,0,2,7
+sklearn_tree_classification,classification,location,Sahil m.,69,,,,4,0.057971014492753624,1.0,0.9375,0.967741935483871,0.984375,5,0,4,60
+sklearn_tree_classification,classification,location,Sahil q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_tree_classification,classification,location,Saray q.,24,,,,0,0.0,0.0,0.0,0.0,,24,0,0,0
+sklearn_tree_classification,classification,location,Savalan q.,10,,,,0,0.0,1.0,1.0,1.0,1.0,8,0,0,2
+sklearn_tree_classification,classification,location,Sulutəpə q.,12,,,,1,0.08333333333333333,1.0,0.75,0.8571428571428571,0.78125,8,0,1,3
+sklearn_tree_classification,classification,location,Suraxanı q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+sklearn_tree_classification,classification,location,Suraxanı r.,12,,,,0,0.0,0.0,0.0,0.0,,12,0,0,0
+sklearn_tree_classification,classification,location,Səbail r.,51,,,,10,0.19607843137254902,0.9285714285714286,0.7647058823529411,0.8387096774193549,0.8961937716262975,15,2,8,26
+sklearn_tree_classification,classification,location,Türkan q.,5,,,,1,0.2,1.0,0.5,0.6666666666666666,0.5,3,0,1,1
+sklearn_tree_classification,classification,location,Xalqlar Dostluğu m.,151,,,,10,0.06622516556291391,0.8484848484848485,0.8484848484848485,0.8484848484848485,0.9146122239342578,113,5,5,28
+sklearn_tree_classification,classification,location,Xocəsən m.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+sklearn_tree_classification,classification,location,Xocəsən q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+sklearn_tree_classification,classification,location,Xutor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+sklearn_tree_classification,classification,location,Xətai r.,199,,,,7,0.035175879396984924,0.9605263157894737,0.948051948051948,0.954248366013072,0.9548115818607622,119,3,4,73
+sklearn_tree_classification,classification,location,Xəzər r.,8,,,,1,0.125,0.75,1.0,0.8571428571428571,0.8333333333333334,4,1,0,3
+sklearn_tree_classification,classification,location,Yasamal q.,34,,,,6,0.17647058823529413,0.8,0.8,0.8,0.8421052631578947,16,3,3,12
+sklearn_tree_classification,classification,location,Yasamal r.,116,,,,5,0.04310344827586207,0.9444444444444444,0.9622641509433962,0.9532710280373832,0.9754417490266547,60,3,2,51
+sklearn_tree_classification,classification,location,Yeni Günəşli q.,67,,,,4,0.05970149253731343,0.25,0.5,0.3333333333333333,0.9576923076923077,62,3,1,1
+sklearn_tree_classification,classification,location,Yeni Ramana q.,13,,,,0,0.0,1.0,1.0,1.0,1.0,12,0,0,1
+sklearn_tree_classification,classification,location,Yeni Suraxanı q.,4,,,,0,0.0,0.0,0.0,0.0,,4,0,0,0
+sklearn_tree_classification,classification,location,Yeni Yasamal q.,109,,,,9,0.08256880733944955,0.7222222222222222,0.7647058823529411,0.7428571428571429,0.8273657289002557,87,5,4,13
+sklearn_tree_classification,classification,location,Zabrat q.,20,,,,2,0.1,0.0,0.0,0.0,0.8888888888888888,18,0,2,0
+sklearn_tree_classification,classification,location,Zirə q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_tree_classification,classification,location,Zığ q.,15,,,,0,0.0,0.0,0.0,0.0,,15,0,0,0
+sklearn_tree_classification,classification,location,İnşaatçılar m.,428,,,,41,0.09579439252336448,0.9011627906976745,0.8659217877094972,0.8831908831908832,0.9333871800049359,232,17,24,155
+sklearn_tree_classification,classification,location,İçəri Şəhər m.,88,,,,10,0.11363636363636363,0.9402985074626866,0.9130434782608695,0.9264705882352942,0.8260869565217391,15,4,6,63
+sklearn_tree_classification,classification,location,Şah İsmayıl Xətai m.,366,,,,31,0.08469945355191257,0.9768211920529801,0.9247648902821317,0.9500805152979066,0.8759754552124325,40,7,24,295
+sklearn_tree_classification,classification,location,Şağan q.,9,,,,1,0.1111111111111111,0.8571428571428571,1.0,0.9230769230769231,0.9722222222222222,2,1,0,6
+sklearn_tree_classification,classification,location,Şimal DRES q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+sklearn_tree_classification,classification,location,Şüvəlan q.,123,,,,23,0.18699186991869918,0.8461538461538461,0.8953488372093024,0.8700564971751412,0.8915776241357637,23,14,9,77
+sklearn_tree_classification,classification,location,Şıxov q.,9,,,,2,0.2222222222222222,0.8571428571428571,0.8571428571428571,0.8571428571428571,0.6428571428571429,1,1,1,6
+sklearn_tree_classification,classification,location,Əhmədli m.,181,,,,19,0.10497237569060773,0.7142857142857143,0.7352941176470589,0.7246376811594203,0.8912565026010404,137,10,9,25
+sklearn_tree_classification,classification,location,Əhmədli q.,68,,,,5,0.07352941176470588,0.7333333333333333,0.9166666666666666,0.8148148148148148,0.9434523809523809,52,4,1,11
+sklearn_tree_classification,classification,location,Ələt q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_tree_classification,classification,location,Əmircan q.,14,,,,0,0.0,1.0,1.0,1.0,1.0,13,0,0,1
+custom_linear,classification,price,Expensive,856,,,,2,0.002336448598130841,1.0,0.9976635514018691,0.9988304093567252,,0,0,2,854
+custom_linear,classification,price,Other,7748,,,,1026,0.13242127000516263,0.8434633027522935,0.8597311513734658,0.851519536903039,0.9370488082200701,3780,546,480,2942
+custom_linear,classification,representation,Frequent,7847,,,,907,0.11558557410475341,0.8825221769359866,0.8982430453879942,0.8903132180432942,0.953169909893655,3259,490,417,3681
+custom_linear,classification,representation,Sparse,757,,,,121,0.15984147952443858,0.672514619883041,0.6388888888888888,0.6552706552706553,0.8802137492778741,521,56,65,115
+custom_linear,classification,location,2-ci mikrorayon q.,1,,,,1,1.0,0.0,0.0,0.0,,0,1,0,0
+custom_linear,classification,location,20 Yanvar m.,184,,,,27,0.14673913043478262,0.7604166666666666,0.948051948051948,0.8439306358381503,0.9433183638791115,84,23,4,73
+custom_linear,classification,location,20-ci sahə q.,4,,,,1,0.25,1.0,0.6666666666666666,0.8,1.0,1,0,1,2
+custom_linear,classification,location,28 May m.,326,,,,21,0.06441717791411043,0.9487179487179487,0.9736842105263158,0.961038961038961,0.9768796992481203,46,14,7,259
+custom_linear,classification,location,3-cü mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_linear,classification,location,4-cü mikrorayon q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_linear,classification,location,6-cı mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_linear,classification,location,7-ci mikrorayon q.,42,,,,5,0.11904761904761904,0.9,0.6923076923076923,0.782608695652174,0.9602122015915119,28,1,4,9
+custom_linear,classification,location,8 Noyabr m.,247,,,,37,0.14979757085020243,0.98125,0.8219895287958116,0.8945868945868946,0.9617614061331339,53,3,34,157
+custom_linear,classification,location,8-ci kilometr q.,28,,,,6,0.21428571428571427,0.5833333333333334,0.875,0.7,0.8875,15,5,1,7
+custom_linear,classification,location,8-ci mikrorayon q.,35,,,,9,0.2571428571428571,1.0,0.4375,0.6086956521739131,0.9572368421052632,19,0,9,7
+custom_linear,classification,location,9-cu mikrorayon q.,39,,,,6,0.15384615384615385,1.0,0.5,0.6666666666666666,0.8919753086419753,27,0,6,6
+custom_linear,classification,location,Abşeron r.,33,,,,1,0.030303030303030304,0.5,1.0,0.6666666666666666,0.96875,31,1,0,1
+custom_linear,classification,location,Albalılıq q.,7,,,,3,0.42857142857142855,0.3333333333333333,0.5,0.4,0.6,3,2,1,1
+custom_linear,classification,location,Avtovağzal m.,32,,,,5,0.15625,0.5714285714285714,0.6666666666666666,0.6153846153846154,0.8076923076923077,23,3,2,4
+custom_linear,classification,location,Azadlıq Prospekti m.,177,,,,23,0.12994350282485875,0.8076923076923077,0.8873239436619719,0.8456375838926175,0.9465851714057932,91,15,8,63
+custom_linear,classification,location,Ağ şəhər q.,124,,,,2,0.016129032258064516,0.9838709677419355,1.0,0.991869918699187,0.9672131147540983,0,2,0,122
+custom_linear,classification,location,Aşağı Güzdək q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_linear,classification,location,Badamdar q.,125,,,,14,0.112,0.9772727272727273,0.8775510204081632,0.9247311827956989,0.9584278155706727,25,2,12,86
+custom_linear,classification,location,Bakmil m.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_linear,classification,location,Bakıxanov q.,131,,,,12,0.0916030534351145,0.875,0.7,0.7777777777777778,0.9445544554455445,98,3,9,21
+custom_linear,classification,location,Balaxanı q.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+custom_linear,classification,location,Bayıl q.,56,,,,23,0.4107142857142857,1.0,0.425,0.5964912280701754,0.928125,16,0,23,17
+custom_linear,classification,location,Bibi Heybət q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_linear,classification,location,Bilgəh q.,13,,,,6,0.46153846153846156,0.75,0.375,0.5,0.775,4,1,5,3
+custom_linear,classification,location,Biləcəri q.,83,,,,4,0.04819277108433735,0.8333333333333334,0.625,0.7142857142857143,0.96,74,1,3,5
+custom_linear,classification,location,Binə q.,75,,,,1,0.013333333333333334,0.6666666666666666,1.0,0.8,1.0,72,1,0,2
+custom_linear,classification,location,Binəqədi q.,46,,,,4,0.08695652173913043,0.0,0.0,0.0,0.8977272727272727,42,2,2,0
+custom_linear,classification,location,Binəqədi r.,71,,,,10,0.14084507042253522,0.8421052631578947,0.6956521739130435,0.7619047619047619,0.9039855072463768,45,3,7,16
+custom_linear,classification,location,Buzovna q.,46,,,,14,0.30434782608695654,0.64,0.7619047619047619,0.6956521739130435,0.8438095238095238,16,9,5,16
+custom_linear,classification,location,Böyükşor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+custom_linear,classification,location,Bülbülə q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_linear,classification,location,Ceyranbatan q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_linear,classification,location,Digah q.,4,,,,0,0.0,0.0,0.0,0.0,,4,0,0,0
+custom_linear,classification,location,Dübəndi q.,2,,,,1,0.5,1.0,0.5,0.6666666666666666,,0,0,1,1
+custom_linear,classification,location,Dədə Qorqud q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_linear,classification,location,Dərnəgül m.,22,,,,6,0.2727272727272727,1.0,0.25,0.4,0.9017857142857143,14,0,6,2
+custom_linear,classification,location,Elmlər Akademiyası m.,418,,,,62,0.14832535885167464,0.8338192419825073,0.9828178694158075,0.9022082018927445,0.9594934653786833,70,57,5,286
+custom_linear,classification,location,Fatmayı q.,8,,,,4,0.5,0.0,0.0,0.0,0.5714285714285714,4,3,1,0
+custom_linear,classification,location,Görədil q.,15,,,,4,0.26666666666666666,0.625,0.8333333333333334,0.7142857142857143,0.7777777777777778,6,3,1,5
+custom_linear,classification,location,Günəşli q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_linear,classification,location,Gənclik m.,207,,,,23,0.1111111111111111,0.926829268292683,0.890625,0.9083665338645418,0.9721123417721519,70,9,14,114
+custom_linear,classification,location,Hökməli q.,6,,,,2,0.3333333333333333,0.0,0.0,0.0,,4,2,0,0
+custom_linear,classification,location,Hövsan q.,104,,,,1,0.009615384615384616,0.0,0.0,0.0,0.8058252427184466,103,0,1,0
+custom_linear,classification,location,Həzi Aslanov m.,405,,,,45,0.1111111111111111,0.7904761904761904,0.7830188679245284,0.7867298578199052,0.9508424307439894,277,22,23,83
+custom_linear,classification,location,Həzi Aslanov q.,71,,,,15,0.2112676056338028,0.5945945945945946,1.0,0.7457627118644068,0.9072356215213359,34,15,0,22
+custom_linear,classification,location,Keşlə q.,5,,,,1,0.2,0.5,1.0,0.6666666666666666,1.0,3,1,0,1
+custom_linear,classification,location,Koroğlu m.,36,,,,5,0.1388888888888889,1.0,0.6428571428571429,0.782608695652174,1.0,22,0,5,9
+custom_linear,classification,location,Kubinka q.,3,,,,2,0.6666666666666666,1.0,0.3333333333333333,0.5,,0,0,2,1
+custom_linear,classification,location,Köhnə Günəşli q.,31,,,,1,0.03225806451612903,0.75,1.0,0.8571428571428571,1.0,27,1,0,3
+custom_linear,classification,location,Kürdəxanı q.,2,,,,1,0.5,0.0,0.0,0.0,,1,1,0,0
+custom_linear,classification,location,Lökbatan q.,13,,,,0,0.0,0.0,0.0,0.0,,13,0,0,0
+custom_linear,classification,location,M.Ə.Rəsulzadə q.,12,,,,5,0.4166666666666667,0.25,0.3333333333333333,0.2857142857142857,0.5925925925925926,6,3,2,1
+custom_linear,classification,location,Masazır q.,266,,,,1,0.0037593984962406013,0.0,0.0,0.0,,265,1,0,0
+custom_linear,classification,location,Massiv D q.,9,,,,1,0.1111111111111111,0.0,0.0,0.0,,8,1,0,0
+custom_linear,classification,location,Massiv V q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+custom_linear,classification,location,Maştağa q.,22,,,,1,0.045454545454545456,0.5,1.0,0.6666666666666666,0.9523809523809523,20,1,0,1
+custom_linear,classification,location,Mehdiabad q.,17,,,,4,0.23529411764705882,0.5,1.0,0.6666666666666666,0.9038461538461539,9,4,0,4
+custom_linear,classification,location,Memar Əcəmi m.,306,,,,14,0.0457516339869281,0.8571428571428571,0.9375,0.8955223880597015,0.9826317148760331,232,10,4,60
+custom_linear,classification,location,Müşfiqabad q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_linear,classification,location,Məmmədli q.,20,,,,0,0.0,0.0,0.0,0.0,,20,0,0,0
+custom_linear,classification,location,Mərdəkan q.,279,,,,24,0.08602150537634409,0.9402390438247012,0.963265306122449,0.9516129032258065,0.915906362545018,19,15,9,236
+custom_linear,classification,location,NZS q.,11,,,,0,0.0,0.0,0.0,0.0,,11,0,0,0
+custom_linear,classification,location,Nardaran q.,51,,,,11,0.21568627450980393,0.8,0.975609756097561,0.8791208791208791,0.8317073170731707,0,10,1,40
+custom_linear,classification,location,Neftçilər m.,170,,,,19,0.11176470588235295,0.7608695652173914,0.813953488372093,0.7865168539325843,0.9467130562168101,116,11,8,35
+custom_linear,classification,location,Nizami m.,223,,,,23,0.1031390134529148,0.9828571428571429,0.8958333333333334,0.9373297002724795,0.9675739247311828,28,3,20,172
+custom_linear,classification,location,Nizami r.,38,,,,7,0.18421052631578946,0.8333333333333334,0.6666666666666666,0.7407407407407407,0.8782608695652174,21,2,5,10
+custom_linear,classification,location,Novxanı q.,53,,,,9,0.16981132075471697,0.7837837837837838,0.9666666666666667,0.8656716417910447,0.9347826086956522,15,8,1,29
+custom_linear,classification,location,Nəriman Nərimanov m.,493,,,,67,0.1359026369168357,0.9719298245614035,0.8244047619047619,0.8921095008051529,0.9611578707916287,149,8,59,277
+custom_linear,classification,location,Nərimanov r.,303,,,,32,0.10561056105610561,0.9036697247706422,0.9471153846153846,0.9248826291079812,0.9573886639676114,74,21,11,197
+custom_linear,classification,location,Nəsimi m.,96,,,,9,0.09375,0.8775510204081632,0.9347826086956522,0.9052631578947369,0.9630434782608696,44,6,3,43
+custom_linear,classification,location,Nəsimi r.,387,,,,36,0.09302325581395349,0.9137380191693291,0.9694915254237289,0.9407894736842105,0.9604642593957259,65,27,9,286
+custom_linear,classification,location,Pirallahı r.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+custom_linear,classification,location,Pirşağı q.,5,,,,1,0.2,0.0,0.0,0.0,1.0,4,0,1,0
+custom_linear,classification,location,Pirəkəşkül q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_linear,classification,location,Qala q.,7,,,,3,0.42857142857142855,0.25,1.0,0.4,1.0,3,3,0,1
+custom_linear,classification,location,Qara Qarayev m.,210,,,,16,0.0761904761904762,0.8947368421052632,0.9340659340659341,0.9139784946236559,0.9724813002123927,109,10,6,85
+custom_linear,classification,location,Qaraçuxur q.,56,,,,7,0.125,0.9090909090909091,0.625,0.7407407407407407,0.896875,39,1,6,10
+custom_linear,classification,location,Qobu q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_linear,classification,location,Qobustan q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+custom_linear,classification,location,Ramana q.,12,,,,2,0.16666666666666666,0.3333333333333333,1.0,0.5,1.0,9,2,0,1
+custom_linear,classification,location,Sabunçu q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+custom_linear,classification,location,Sabunçu r.,19,,,,4,0.21052631578947367,1.0,0.5555555555555556,0.7142857142857143,0.7222222222222222,10,0,4,5
+custom_linear,classification,location,Sahil m.,69,,,,14,0.2028985507246377,1.0,0.78125,0.8771929824561403,0.996875,5,0,14,50
+custom_linear,classification,location,Sahil q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_linear,classification,location,Saray q.,24,,,,1,0.041666666666666664,0.0,0.0,0.0,,23,1,0,0
+custom_linear,classification,location,Savalan q.,10,,,,1,0.1,0.6666666666666666,1.0,0.8,1.0,7,1,0,2
+custom_linear,classification,location,Sulutəpə q.,12,,,,2,0.16666666666666666,0.6666666666666666,1.0,0.8,0.9375,6,2,0,4
+custom_linear,classification,location,Suraxanı q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+custom_linear,classification,location,Suraxanı r.,12,,,,0,0.0,0.0,0.0,0.0,,12,0,0,0
+custom_linear,classification,location,Səbail r.,51,,,,12,0.23529411764705882,0.9583333333333334,0.6764705882352942,0.7931034482758621,0.9048442906574394,16,1,11,23
+custom_linear,classification,location,Türkan q.,5,,,,0,0.0,1.0,1.0,1.0,1.0,3,0,0,2
+custom_linear,classification,location,Xalqlar Dostluğu m.,151,,,,14,0.09271523178807947,0.7435897435897436,0.8787878787878788,0.8055555555555556,0.9756034925526451,108,10,4,29
+custom_linear,classification,location,Xocəsən m.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+custom_linear,classification,location,Xocəsən q.,6,,,,1,0.16666666666666666,0.0,0.0,0.0,,5,1,0,0
+custom_linear,classification,location,Xutor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+custom_linear,classification,location,Xətai r.,199,,,,17,0.08542713567839195,0.9411764705882353,0.8311688311688312,0.8827586206896552,0.9529486906536087,118,4,13,64
+custom_linear,classification,location,Xəzər r.,8,,,,4,0.5,0.0,0.0,0.0,0.6666666666666666,4,1,3,0
+custom_linear,classification,location,Yasamal q.,34,,,,8,0.23529411764705882,0.8181818181818182,0.6,0.6923076923076923,0.8140350877192982,17,2,6,9
+custom_linear,classification,location,Yasamal r.,116,,,,16,0.13793103448275862,0.7761194029850746,0.9811320754716981,0.8666666666666667,0.951182988918838,48,15,1,52
+custom_linear,classification,location,Yeni Günəşli q.,67,,,,2,0.029850746268656716,0.0,0.0,0.0,1.0,65,0,2,0
+custom_linear,classification,location,Yeni Ramana q.,13,,,,1,0.07692307692307693,0.5,1.0,0.6666666666666666,1.0,11,1,0,1
+custom_linear,classification,location,Yeni Suraxanı q.,4,,,,0,0.0,0.0,0.0,0.0,,4,0,0,0
+custom_linear,classification,location,Yeni Yasamal q.,109,,,,16,0.14678899082568808,0.6,0.17647058823529413,0.2727272727272727,0.9418158567774936,90,2,14,3
+custom_linear,classification,location,Zabrat q.,20,,,,1,0.05,0.6666666666666666,1.0,0.8,0.9444444444444444,17,1,0,2
+custom_linear,classification,location,Zirə q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_linear,classification,location,Zığ q.,15,,,,2,0.13333333333333333,0.0,0.0,0.0,,13,2,0,0
+custom_linear,classification,location,İnşaatçılar m.,428,,,,89,0.20794392523364486,0.6991150442477876,0.88268156424581,0.7802469135802469,0.9147876421888672,181,68,21,158
+custom_linear,classification,location,İçəri Şəhər m.,88,,,,8,0.09090909090909091,0.9692307692307692,0.9130434782608695,0.9402985074626866,0.9557589626239512,17,2,6,63
+custom_linear,classification,location,Şah İsmayıl Xətai m.,366,,,,39,0.10655737704918032,0.9545454545454546,0.9216300940438872,0.937799043062201,0.9086240245447875,33,14,25,294
+custom_linear,classification,location,Şağan q.,9,,,,3,0.3333333333333333,0.8,0.6666666666666666,0.7272727272727273,0.7222222222222222,2,1,2,4
+custom_linear,classification,location,Şimal DRES q.,1,,,,1,1.0,0.0,0.0,0.0,,0,0,1,0
+custom_linear,classification,location,Şüvəlan q.,123,,,,34,0.2764227642276423,0.7166666666666667,1.0,0.8349514563106796,0.8648648648648649,3,34,0,86
+custom_linear,classification,location,Şıxov q.,9,,,,1,0.1111111111111111,0.875,1.0,0.9333333333333333,1.0,1,1,0,7
+custom_linear,classification,location,Əhmədli m.,181,,,,29,0.16022099447513813,0.543859649122807,0.9117647058823529,0.6813186813186813,0.9507803121248499,121,26,3,31
+custom_linear,classification,location,Əhmədli q.,68,,,,6,0.08823529411764706,0.875,0.5833333333333334,0.7,0.9627976190476191,55,1,5,7
+custom_linear,classification,location,Ələt q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_linear,classification,location,Əmircan q.,14,,,,0,0.0,1.0,1.0,1.0,1.0,13,0,0,1
+custom_rff,classification,price,Expensive,856,,,,4,0.004672897196261682,1.0,0.9953271028037384,0.9976580796252927,,0,0,4,852
+custom_rff,classification,price,Other,7748,,,,1468,0.18946824987093444,0.7206413730803974,0.9324956165984805,0.8129936305732484,0.9211966882047117,3089,1237,231,3191
+custom_rff,classification,representation,Frequent,7847,,,,1336,0.17025614884669302,0.7748805732484076,0.949975597852611,0.8535408901556676,0.9351447355214685,2618,1131,205,3893
+custom_rff,classification,representation,Sparse,757,,,,136,0.17965653896961692,0.5859375,0.8333333333333334,0.6880733944954128,0.8842191411515502,471,106,30,150
+custom_rff,classification,location,2-ci mikrorayon q.,1,,,,1,1.0,0.0,0.0,0.0,,0,1,0,0
+custom_rff,classification,location,20 Yanvar m.,184,,,,36,0.1956521739130435,0.6846846846846847,0.987012987012987,0.8085106382978723,0.9207428085932758,72,35,1,76
+custom_rff,classification,location,20-ci sahə q.,4,,,,1,0.25,1.0,0.6666666666666666,0.8,1.0,1,0,1,2
+custom_rff,classification,location,28 May m.,326,,,,46,0.1411042944785276,0.8525641025641025,1.0,0.9204152249134948,0.931641604010025,14,46,0,266
+custom_rff,classification,location,3-cü mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_rff,classification,location,4-cü mikrorayon q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_rff,classification,location,6-cı mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_rff,classification,location,7-ci mikrorayon q.,42,,,,10,0.23809523809523808,1.0,0.23076923076923078,0.375,0.8806366047745358,29,0,10,3
+custom_rff,classification,location,8 Noyabr m.,247,,,,44,0.17813765182186234,0.8127659574468085,1.0,0.8967136150234741,0.949981301421092,12,44,0,191
+custom_rff,classification,location,8-ci kilometr q.,28,,,,8,0.2857142857142857,0.5,1.0,0.6666666666666666,0.825,12,8,0,8
+custom_rff,classification,location,8-ci mikrorayon q.,35,,,,6,0.17142857142857143,0.9166666666666666,0.6875,0.7857142857142857,0.9375,18,1,5,11
+custom_rff,classification,location,9-cu mikrorayon q.,39,,,,5,0.1282051282051282,0.8181818181818182,0.75,0.782608695652174,0.8209876543209876,25,2,3,9
+custom_rff,classification,location,Abşeron r.,33,,,,3,0.09090909090909091,0.25,1.0,0.4,0.96875,29,3,0,1
+custom_rff,classification,location,Albalılıq q.,7,,,,5,0.7142857142857143,0.2,0.5,0.2857142857142857,0.6,1,4,1,1
+custom_rff,classification,location,Avtovağzal m.,32,,,,5,0.15625,0.5555555555555556,0.8333333333333334,0.6666666666666666,0.8269230769230769,22,4,1,5
+custom_rff,classification,location,Azadlıq Prospekti m.,177,,,,23,0.12994350282485875,0.8243243243243243,0.8591549295774648,0.8413793103448276,0.9109752856763221,93,13,10,61
+custom_rff,classification,location,Ağ şəhər q.,124,,,,2,0.016129032258064516,0.9838709677419355,1.0,0.991869918699187,0.9057377049180327,0,2,0,122
+custom_rff,classification,location,Aşağı Güzdək q.,2,,,,1,0.5,0.0,0.0,0.0,,1,1,0,0
+custom_rff,classification,location,Badamdar q.,125,,,,25,0.2,0.8016528925619835,0.9897959183673469,0.8858447488584474,0.9671201814058957,3,24,1,97
+custom_rff,classification,location,Bakmil m.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_rff,classification,location,Bakıxanov q.,131,,,,15,0.11450381679389313,0.8,0.6666666666666666,0.7272727272727273,0.9435643564356435,96,5,10,20
+custom_rff,classification,location,Balaxanı q.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+custom_rff,classification,location,Bayıl q.,56,,,,16,0.2857142857142857,0.7142857142857143,1.0,0.8333333333333334,0.6609375,0,16,0,40
+custom_rff,classification,location,Bibi Heybət q.,2,,,,1,0.5,0.0,0.0,0.0,,1,1,0,0
+custom_rff,classification,location,Bilgəh q.,13,,,,2,0.15384615384615385,0.875,0.875,0.875,0.8,4,1,1,7
+custom_rff,classification,location,Biləcəri q.,83,,,,6,0.07228915662650602,0.75,0.375,0.5,0.8683333333333333,74,1,5,3
+custom_rff,classification,location,Binə q.,75,,,,2,0.02666666666666667,0.5,1.0,0.6666666666666666,0.9931506849315068,71,2,0,2
+custom_rff,classification,location,Binəqədi q.,46,,,,2,0.043478260869565216,0.0,0.0,0.0,0.875,44,0,2,0
+custom_rff,classification,location,Binəqədi r.,71,,,,26,0.36619718309859156,0.4,0.2608695652173913,0.3157894736842105,0.615036231884058,39,9,17,6
+custom_rff,classification,location,Buzovna q.,46,,,,20,0.43478260869565216,0.5454545454545454,0.2857142857142857,0.375,0.6247619047619047,20,5,15,6
+custom_rff,classification,location,Böyükşor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+custom_rff,classification,location,Bülbülə q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_rff,classification,location,Ceyranbatan q.,2,,,,1,0.5,0.0,0.0,0.0,,1,1,0,0
+custom_rff,classification,location,Digah q.,4,,,,1,0.25,0.0,0.0,0.0,,3,1,0,0
+custom_rff,classification,location,Dübəndi q.,2,,,,0,0.0,1.0,1.0,1.0,,0,0,0,2
+custom_rff,classification,location,Dədə Qorqud q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_rff,classification,location,Dərnəgül m.,22,,,,8,0.36363636363636365,0.5,0.875,0.6363636363636364,0.7678571428571429,7,7,1,7
+custom_rff,classification,location,Elmlər Akademiyası m.,418,,,,55,0.13157894736842105,0.8575757575757575,0.9725085910652921,0.9114331723027376,0.952350028411397,80,47,8,283
+custom_rff,classification,location,Fatmayı q.,8,,,,4,0.5,0.0,0.0,0.0,0.5714285714285714,4,3,1,0
+custom_rff,classification,location,Görədil q.,15,,,,2,0.13333333333333333,0.75,1.0,0.8571428571428571,0.8148148148148148,7,2,0,6
+custom_rff,classification,location,Günəşli q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_rff,classification,location,Gənclik m.,207,,,,40,0.1932367149758454,0.7682926829268293,0.984375,0.863013698630137,0.9378955696202531,41,38,2,126
+custom_rff,classification,location,Hökməli q.,6,,,,2,0.3333333333333333,0.0,0.0,0.0,,4,2,0,0
+custom_rff,classification,location,Hövsan q.,104,,,,2,0.019230769230769232,0.0,0.0,0.0,0.8932038834951457,102,1,1,0
+custom_rff,classification,location,Həzi Aslanov m.,405,,,,53,0.1308641975308642,0.6992481203007519,0.8773584905660378,0.7782426778242678,0.9284091626175301,259,40,13,93
+custom_rff,classification,location,Həzi Aslanov q.,71,,,,16,0.22535211267605634,0.65,0.5909090909090909,0.6190476190476191,0.8432282003710575,42,7,9,13
+custom_rff,classification,location,Keşlə q.,5,,,,1,0.2,0.5,1.0,0.6666666666666666,1.0,3,1,0,1
+custom_rff,classification,location,Koroğlu m.,36,,,,3,0.08333333333333333,0.9230769230769231,0.8571428571428571,0.8888888888888888,0.9902597402597403,21,1,2,12
+custom_rff,classification,location,Kubinka q.,3,,,,0,0.0,1.0,1.0,1.0,,0,0,0,3
+custom_rff,classification,location,Köhnə Günəşli q.,31,,,,4,0.12903225806451613,0.42857142857142855,1.0,0.6,1.0,24,4,0,3
+custom_rff,classification,location,Kürdəxanı q.,2,,,,1,0.5,0.0,0.0,0.0,,1,1,0,0
+custom_rff,classification,location,Lökbatan q.,13,,,,1,0.07692307692307693,0.0,0.0,0.0,,12,1,0,0
+custom_rff,classification,location,M.Ə.Rəsulzadə q.,12,,,,1,0.08333333333333333,0.75,1.0,0.8571428571428571,0.9259259259259259,8,1,0,3
+custom_rff,classification,location,Masazır q.,266,,,,2,0.007518796992481203,0.0,0.0,0.0,,264,2,0,0
+custom_rff,classification,location,Massiv D q.,9,,,,2,0.2222222222222222,0.0,0.0,0.0,,7,2,0,0
+custom_rff,classification,location,Massiv V q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+custom_rff,classification,location,Maştağa q.,22,,,,3,0.13636363636363635,0.25,1.0,0.4,1.0,18,3,0,1
+custom_rff,classification,location,Mehdiabad q.,17,,,,5,0.29411764705882354,0.4444444444444444,1.0,0.6153846153846154,0.9038461538461539,8,5,0,4
+custom_rff,classification,location,Memar Əcəmi m.,306,,,,24,0.0784313725490196,0.75,0.9375,0.8333333333333334,0.9706869834710744,222,20,4,60
+custom_rff,classification,location,Müşfiqabad q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+custom_rff,classification,location,Məmmədli q.,20,,,,1,0.05,0.0,0.0,0.0,,19,1,0,0
+custom_rff,classification,location,Mərdəkan q.,279,,,,32,0.11469534050179211,0.8844765342960289,1.0,0.9386973180076629,0.8995798319327731,2,32,0,245
+custom_rff,classification,location,NZS q.,11,,,,1,0.09090909090909091,0.0,0.0,0.0,,10,1,0,0
+custom_rff,classification,location,Nardaran q.,51,,,,10,0.19607843137254902,0.803921568627451,1.0,0.8913043478260869,0.25121951219512195,0,10,0,41
+custom_rff,classification,location,Neftçilər m.,170,,,,22,0.12941176470588237,0.7142857142857143,0.813953488372093,0.7608695652173914,0.9366416407251419,113,14,8,35
+custom_rff,classification,location,Nizami m.,223,,,,15,0.06726457399103139,0.927536231884058,1.0,0.9624060150375939,0.9606854838709677,16,15,0,192
+custom_rff,classification,location,Nizami r.,38,,,,9,0.23684210526315788,0.6875,0.7333333333333333,0.7096774193548387,0.8956521739130435,18,5,4,11
+custom_rff,classification,location,Novxanı q.,53,,,,13,0.24528301886792453,0.7931034482758621,0.7666666666666667,0.7796610169491526,0.7942028985507247,17,6,7,23
+custom_rff,classification,location,Nəriman Nərimanov m.,493,,,,92,0.18661257606490872,0.7975609756097561,0.9732142857142857,0.8766756032171582,0.9292349105247194,74,83,9,327
+custom_rff,classification,location,Nərimanov r.,303,,,,65,0.2145214521452145,0.7638376383763837,0.9951923076923077,0.8643006263048016,0.9263663967611336,31,64,1,207
+custom_rff,classification,location,Nəsimi m.,96,,,,25,0.2604166666666667,0.647887323943662,1.0,0.7863247863247863,0.9004347826086957,25,25,0,46
+custom_rff,classification,location,Nəsimi r.,387,,,,79,0.2041343669250646,0.7887700534759359,1.0,0.8819133034379671,0.9274134119380988,13,79,0,295
+custom_rff,classification,location,Pirallahı r.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+custom_rff,classification,location,Pirşağı q.,5,,,,0,0.0,1.0,1.0,1.0,1.0,4,0,0,1
+custom_rff,classification,location,Pirəkəşkül q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_rff,classification,location,Qala q.,7,,,,3,0.42857142857142855,0.25,1.0,0.4,1.0,3,3,0,1
+custom_rff,classification,location,Qara Qarayev m.,210,,,,69,0.32857142857142857,0.569620253164557,0.989010989010989,0.7228915662650602,0.955674577523317,51,68,1,90
+custom_rff,classification,location,Qaraçuxur q.,56,,,,18,0.32142857142857145,0.46875,0.9375,0.625,0.8234375,23,17,1,15
+custom_rff,classification,location,Qobu q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_rff,classification,location,Qobustan q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+custom_rff,classification,location,Ramana q.,12,,,,3,0.25,0.25,1.0,0.4,0.8181818181818182,8,3,0,1
+custom_rff,classification,location,Sabunçu q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+custom_rff,classification,location,Sabunçu r.,19,,,,6,0.3157894736842105,0.7142857142857143,0.5555555555555556,0.625,0.7777777777777778,8,2,4,5
+custom_rff,classification,location,Sahil m.,69,,,,5,0.07246376811594203,0.927536231884058,1.0,0.9624060150375939,0.9625,0,5,0,64
+custom_rff,classification,location,Sahil q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_rff,classification,location,Saray q.,24,,,,5,0.20833333333333334,0.0,0.0,0.0,,19,5,0,0
+custom_rff,classification,location,Savalan q.,10,,,,1,0.1,0.6666666666666666,1.0,0.8,1.0,7,1,0,2
+custom_rff,classification,location,Sulutəpə q.,12,,,,4,0.3333333333333333,0.5,1.0,0.6666666666666666,0.875,4,4,0,4
+custom_rff,classification,location,Suraxanı q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+custom_rff,classification,location,Suraxanı r.,12,,,,1,0.08333333333333333,0.0,0.0,0.0,,11,1,0,0
+custom_rff,classification,location,Səbail r.,51,,,,16,0.3137254901960784,0.68,1.0,0.8095238095238095,0.759515570934256,1,16,0,34
+custom_rff,classification,location,Türkan q.,5,,,,1,0.2,1.0,0.5,0.6666666666666666,0.8333333333333334,3,0,1,1
+custom_rff,classification,location,Xalqlar Dostluğu m.,151,,,,28,0.18543046357615894,0.5454545454545454,0.9090909090909091,0.6818181818181818,0.9347714432460195,93,25,3,30
+custom_rff,classification,location,Xocəsən m.,3,,,,2,0.6666666666666666,0.0,0.0,0.0,,1,2,0,0
+custom_rff,classification,location,Xocəsən q.,6,,,,3,0.5,0.0,0.0,0.0,,3,3,0,0
+custom_rff,classification,location,Xutor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+custom_rff,classification,location,Xətai r.,199,,,,25,0.12562814070351758,0.8333333333333334,0.8441558441558441,0.8387096774193549,0.9502874175005322,109,13,12,65
+custom_rff,classification,location,Xəzər r.,8,,,,2,0.25,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.6666666666666666,4,1,1,2
+custom_rff,classification,location,Yasamal q.,34,,,,6,0.17647058823529413,0.8,0.8,0.8,0.7719298245614035,16,3,3,12
+custom_rff,classification,location,Yasamal r.,116,,,,52,0.4482758620689655,0.5047619047619047,1.0,0.6708860759493671,0.9146451033243486,11,52,0,53
+custom_rff,classification,location,Yeni Günəşli q.,67,,,,5,0.07462686567164178,0.0,0.0,0.0,0.9307692307692308,62,3,2,0
+custom_rff,classification,location,Yeni Ramana q.,13,,,,1,0.07692307692307693,0.5,1.0,0.6666666666666666,1.0,11,1,0,1
+custom_rff,classification,location,Yeni Suraxanı q.,4,,,,1,0.25,0.0,0.0,0.0,,3,1,0,0
+custom_rff,classification,location,Yeni Yasamal q.,109,,,,16,0.14678899082568808,1.0,0.058823529411764705,0.1111111111111111,0.8414322250639387,92,0,16,1
+custom_rff,classification,location,Zabrat q.,20,,,,1,0.05,0.6666666666666666,1.0,0.8,0.9444444444444444,17,1,0,2
+custom_rff,classification,location,Zirə q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+custom_rff,classification,location,Zığ q.,15,,,,3,0.2,0.0,0.0,0.0,,12,3,0,0
+custom_rff,classification,location,İnşaatçılar m.,428,,,,148,0.34579439252336447,0.5482866043613707,0.9832402234636871,0.704,0.8965919544098181,104,145,3,176
+custom_rff,classification,location,İçəri Şəhər m.,88,,,,19,0.2159090909090909,0.7840909090909091,1.0,0.8789808917197452,0.9603356216628528,0,19,0,69
+custom_rff,classification,location,Şah İsmayıl Xətai m.,366,,,,47,0.1284153005464481,0.884180790960452,0.9811912225705329,0.9301634472511144,0.8679383712399119,6,41,6,313
+custom_rff,classification,location,Şağan q.,9,,,,1,0.1111111111111111,0.8571428571428571,1.0,0.9230769230769231,0.7222222222222222,2,1,0,6
+custom_rff,classification,location,Şimal DRES q.,1,,,,1,1.0,0.0,0.0,0.0,,0,0,1,0
+custom_rff,classification,location,Şüvəlan q.,123,,,,37,0.3008130081300813,0.6991869918699187,1.0,0.8229665071770335,0.8268384663733501,0,37,0,86
+custom_rff,classification,location,Şıxov q.,9,,,,1,0.1111111111111111,0.875,1.0,0.9333333333333333,1.0,1,1,0,7
+custom_rff,classification,location,Əhmədli m.,181,,,,20,0.11049723756906077,0.85,0.5,0.6296296296296297,0.9279711884753902,144,3,17,17
+custom_rff,classification,location,Əhmədli q.,68,,,,13,0.19117647058823528,0.3333333333333333,0.08333333333333333,0.13333333333333333,0.8601190476190477,54,2,11,1
+custom_rff,classification,location,Ələt q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+custom_rff,classification,location,Əmircan q.,14,,,,1,0.07142857142857142,0.5,1.0,0.6666666666666666,1.0,12,1,0,1
+sklearn_linear,classification,price,Expensive,856,,,,3,0.0035046728971962616,1.0,0.9964953271028038,0.9982445874780573,,0,0,3,853
+sklearn_linear,classification,price,Other,7748,,,,829,0.10699535363964895,0.8807635829662261,0.8763880771478667,0.8785703823055515,0.9545610680989697,3920,406,423,2999
+sklearn_linear,classification,representation,Frequent,7847,,,,719,0.09162737351854212,0.9125763125763126,0.9119082479258175,0.9122421579397046,0.9690873479714974,3391,358,361,3737
+sklearn_linear,classification,representation,Sparse,757,,,,113,0.14927344782034346,0.7055214723926381,0.6388888888888888,0.6705539358600583,0.8757943385326401,529,48,65,115
+sklearn_linear,classification,location,2-ci mikrorayon q.,1,,,,1,1.0,0.0,0.0,0.0,,0,1,0,0
+sklearn_linear,classification,location,20 Yanvar m.,184,,,,23,0.125,0.8214285714285714,0.8961038961038961,0.8571428571428571,0.9496298094428935,92,15,8,69
+sklearn_linear,classification,location,20-ci sahə q.,4,,,,1,0.25,1.0,0.6666666666666666,0.8,1.0,1,0,1,2
+sklearn_linear,classification,location,28 May m.,326,,,,18,0.05521472392638037,0.9592592592592593,0.9736842105263158,0.9664179104477612,0.9830200501253132,49,11,7,259
+sklearn_linear,classification,location,3-cü mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_linear,classification,location,4-cü mikrorayon q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_linear,classification,location,6-cı mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_linear,classification,location,7-ci mikrorayon q.,42,,,,3,0.07142857142857142,0.9166666666666666,0.8461538461538461,0.88,0.9655172413793104,28,1,2,11
+sklearn_linear,classification,location,8 Noyabr m.,247,,,,18,0.0728744939271255,0.9675675675675676,0.93717277486911,0.9521276595744681,0.9679319371727748,50,6,12,179
+sklearn_linear,classification,location,8-ci kilometr q.,28,,,,7,0.25,0.5384615384615384,0.875,0.6666666666666666,0.8875,14,6,1,7
+sklearn_linear,classification,location,8-ci mikrorayon q.,35,,,,6,0.17142857142857143,1.0,0.625,0.7692307692307693,0.9539473684210527,19,0,6,10
+sklearn_linear,classification,location,9-cu mikrorayon q.,39,,,,6,0.15384615384615385,1.0,0.5,0.6666666666666666,0.9166666666666666,27,0,6,6
+sklearn_linear,classification,location,Abşeron r.,33,,,,1,0.030303030303030304,0.5,1.0,0.6666666666666666,0.96875,31,1,0,1
+sklearn_linear,classification,location,Albalılıq q.,7,,,,2,0.2857142857142857,0.5,0.5,0.5,0.6,4,1,1,1
+sklearn_linear,classification,location,Avtovağzal m.,32,,,,5,0.15625,0.5714285714285714,0.6666666666666666,0.6153846153846154,0.7948717948717948,23,3,2,4
+sklearn_linear,classification,location,Azadlıq Prospekti m.,177,,,,19,0.10734463276836158,0.8513513513513513,0.8873239436619719,0.8689655172413793,0.9529630613871911,95,11,8,63
+sklearn_linear,classification,location,Ağ şəhər q.,124,,,,1,0.008064516129032258,0.991869918699187,1.0,0.9959183673469387,0.9631147540983607,1,1,0,122
+sklearn_linear,classification,location,Aşağı Güzdək q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_linear,classification,location,Badamdar q.,125,,,,9,0.072,0.9405940594059405,0.9693877551020408,0.9547738693467337,0.9565381708238851,21,6,3,95
+sklearn_linear,classification,location,Bakmil m.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_linear,classification,location,Bakıxanov q.,131,,,,15,0.11450381679389313,0.8,0.6666666666666666,0.7272727272727273,0.9425742574257425,96,5,10,20
+sklearn_linear,classification,location,Balaxanı q.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+sklearn_linear,classification,location,Bayıl q.,56,,,,9,0.16071428571428573,0.9428571428571428,0.825,0.88,0.928125,14,2,7,33
+sklearn_linear,classification,location,Bibi Heybət q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_linear,classification,location,Bilgəh q.,13,,,,7,0.5384615384615384,0.6666666666666666,0.25,0.36363636363636365,0.775,4,1,6,2
+sklearn_linear,classification,location,Biləcəri q.,83,,,,4,0.04819277108433735,0.75,0.75,0.75,0.9616666666666667,73,2,2,6
+sklearn_linear,classification,location,Binə q.,75,,,,1,0.013333333333333334,0.6666666666666666,1.0,0.8,1.0,72,1,0,2
+sklearn_linear,classification,location,Binəqədi q.,46,,,,4,0.08695652173913043,0.0,0.0,0.0,0.9204545454545454,42,2,2,0
+sklearn_linear,classification,location,Binəqədi r.,71,,,,11,0.15492957746478872,0.8333333333333334,0.6521739130434783,0.7317073170731707,0.8768115942028986,45,3,8,15
+sklearn_linear,classification,location,Buzovna q.,46,,,,14,0.30434782608695654,0.64,0.7619047619047619,0.6956521739130435,0.8323809523809523,16,9,5,16
+sklearn_linear,classification,location,Böyükşor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+sklearn_linear,classification,location,Bülbülə q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_linear,classification,location,Ceyranbatan q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_linear,classification,location,Digah q.,4,,,,0,0.0,0.0,0.0,0.0,,4,0,0,0
+sklearn_linear,classification,location,Dübəndi q.,2,,,,1,0.5,1.0,0.5,0.6666666666666666,,0,0,1,1
+sklearn_linear,classification,location,Dədə Qorqud q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_linear,classification,location,Dərnəgül m.,22,,,,4,0.18181818181818182,1.0,0.5,0.6666666666666666,0.9107142857142857,14,0,4,4
+sklearn_linear,classification,location,Elmlər Akademiyası m.,418,,,,44,0.10526315789473684,0.9102990033222591,0.9415807560137457,0.9256756756756757,0.9613605000405877,100,27,17,274
+sklearn_linear,classification,location,Fatmayı q.,8,,,,4,0.5,0.0,0.0,0.0,0.5714285714285714,4,3,1,0
+sklearn_linear,classification,location,Görədil q.,15,,,,5,0.3333333333333333,0.6,0.5,0.5454545454545454,0.7592592592592593,7,2,3,3
+sklearn_linear,classification,location,Günəşli q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_linear,classification,location,Gənclik m.,207,,,,19,0.09178743961352658,0.9097744360902256,0.9453125,0.9272030651340997,0.9771558544303798,67,12,7,121
+sklearn_linear,classification,location,Hökməli q.,6,,,,2,0.3333333333333333,0.0,0.0,0.0,,4,2,0,0
+sklearn_linear,classification,location,Hövsan q.,104,,,,1,0.009615384615384616,0.0,0.0,0.0,0.9029126213592233,103,0,1,0
+sklearn_linear,classification,location,Həzi Aslanov m.,405,,,,42,0.1037037037037037,0.8018867924528302,0.8018867924528302,0.8018867924528302,0.9592982898971414,278,21,21,85
+sklearn_linear,classification,location,Həzi Aslanov q.,71,,,,11,0.15492957746478872,0.7894736842105263,0.6818181818181818,0.7317073170731707,0.9313543599257885,45,4,7,15
+sklearn_linear,classification,location,Keşlə q.,5,,,,1,0.2,0.5,1.0,0.6666666666666666,1.0,3,1,0,1
+sklearn_linear,classification,location,Koroğlu m.,36,,,,5,0.1388888888888889,1.0,0.6428571428571429,0.782608695652174,1.0,22,0,5,9
+sklearn_linear,classification,location,Kubinka q.,3,,,,0,0.0,1.0,1.0,1.0,,0,0,0,3
+sklearn_linear,classification,location,Köhnə Günəşli q.,31,,,,1,0.03225806451612903,0.75,1.0,0.8571428571428571,1.0,27,1,0,3
+sklearn_linear,classification,location,Kürdəxanı q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_linear,classification,location,Lökbatan q.,13,,,,0,0.0,0.0,0.0,0.0,,13,0,0,0
+sklearn_linear,classification,location,M.Ə.Rəsulzadə q.,12,,,,6,0.5,0.0,0.0,0.0,0.5185185185185185,6,3,3,0
+sklearn_linear,classification,location,Masazır q.,266,,,,2,0.007518796992481203,0.0,0.0,0.0,,264,2,0,0
+sklearn_linear,classification,location,Massiv D q.,9,,,,0,0.0,0.0,0.0,0.0,,9,0,0,0
+sklearn_linear,classification,location,Massiv V q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+sklearn_linear,classification,location,Maştağa q.,22,,,,1,0.045454545454545456,0.5,1.0,0.6666666666666666,0.9523809523809523,20,1,0,1
+sklearn_linear,classification,location,Mehdiabad q.,17,,,,3,0.17647058823529413,0.6,0.75,0.6666666666666666,0.9038461538461539,11,2,1,3
+sklearn_linear,classification,location,Memar Əcəmi m.,306,,,,12,0.0392156862745098,0.8823529411764706,0.9375,0.9090909090909091,0.9857308884297521,234,8,4,60
+sklearn_linear,classification,location,Müşfiqabad q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_linear,classification,location,Məmmədli q.,20,,,,0,0.0,0.0,0.0,0.0,,20,0,0,0
+sklearn_linear,classification,location,Mərdəkan q.,279,,,,22,0.07885304659498207,0.9305019305019305,0.9836734693877551,0.9563492063492064,0.9142256902761104,16,18,4,241
+sklearn_linear,classification,location,NZS q.,11,,,,0,0.0,0.0,0.0,0.0,,11,0,0,0
+sklearn_linear,classification,location,Nardaran q.,51,,,,12,0.23529411764705882,0.9393939393939394,0.7560975609756098,0.8378378378378378,0.848780487804878,8,2,10,31
+sklearn_linear,classification,location,Neftçilər m.,170,,,,18,0.10588235294117647,0.8048780487804879,0.7674418604651163,0.7857142857142857,0.9575169382896905,119,8,10,33
+sklearn_linear,classification,location,Nizami m.,223,,,,7,0.03139013452914798,0.9743589743589743,0.9895833333333334,0.9819121447028424,0.9663978494623656,26,5,2,190
+sklearn_linear,classification,location,Nizami r.,38,,,,9,0.23684210526315788,0.7142857142857143,0.6666666666666666,0.6896551724137931,0.8840579710144928,19,4,5,10
+sklearn_linear,classification,location,Novxanı q.,53,,,,7,0.1320754716981132,0.9259259259259259,0.8333333333333334,0.8771929824561403,0.9376811594202898,21,2,5,25
+sklearn_linear,classification,location,Nəriman Nərimanov m.,493,,,,54,0.10953346855983773,0.9490445859872612,0.8869047619047619,0.916923076923077,0.9623142250530785,141,16,38,298
+sklearn_linear,classification,location,Nərimanov r.,303,,,,29,0.09570957095709572,0.9365853658536586,0.9230769230769231,0.9297820823244553,0.9667004048582996,82,13,16,192
+sklearn_linear,classification,location,Nəsimi m.,96,,,,9,0.09375,0.8775510204081632,0.9347826086956522,0.9052631578947369,0.967391304347826,44,6,3,43
+sklearn_linear,classification,location,Nəsimi r.,387,,,,33,0.08527131782945736,0.9253246753246753,0.9661016949152542,0.945273631840796,0.9642593957258658,69,23,10,285
+sklearn_linear,classification,location,Pirallahı r.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+sklearn_linear,classification,location,Pirşağı q.,5,,,,1,0.2,0.0,0.0,0.0,1.0,4,0,1,0
+sklearn_linear,classification,location,Pirəkəşkül q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_linear,classification,location,Qala q.,7,,,,3,0.42857142857142855,0.25,1.0,0.4,1.0,3,3,0,1
+sklearn_linear,classification,location,Qara Qarayev m.,210,,,,16,0.0761904761904762,0.9213483146067416,0.9010989010989011,0.9111111111111111,0.9771908763505402,112,7,9,82
+sklearn_linear,classification,location,Qaraçuxur q.,56,,,,7,0.125,0.9090909090909091,0.625,0.7407407407407407,0.884375,39,1,6,10
+sklearn_linear,classification,location,Qobu q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_linear,classification,location,Qobustan q.,1,,,,1,1.0,0.0,0.0,0.0,,0,0,1,0
+sklearn_linear,classification,location,Ramana q.,12,,,,2,0.16666666666666666,0.3333333333333333,1.0,0.5,1.0,9,2,0,1
+sklearn_linear,classification,location,Sabunçu q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+sklearn_linear,classification,location,Sabunçu r.,19,,,,5,0.2631578947368421,1.0,0.4444444444444444,0.6153846153846154,0.6888888888888889,10,0,5,4
+sklearn_linear,classification,location,Sahil m.,69,,,,4,0.057971014492753624,1.0,0.9375,0.967741935483871,0.990625,5,0,4,60
+sklearn_linear,classification,location,Sahil q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_linear,classification,location,Saray q.,24,,,,1,0.041666666666666664,0.0,0.0,0.0,,23,1,0,0
+sklearn_linear,classification,location,Savalan q.,10,,,,1,0.1,0.6666666666666666,1.0,0.8,1.0,7,1,0,2
+sklearn_linear,classification,location,Sulutəpə q.,12,,,,1,0.08333333333333333,0.8,1.0,0.8888888888888888,0.96875,7,1,0,4
+sklearn_linear,classification,location,Suraxanı q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+sklearn_linear,classification,location,Suraxanı r.,12,,,,0,0.0,0.0,0.0,0.0,,12,0,0,0
+sklearn_linear,classification,location,Səbail r.,51,,,,10,0.19607843137254902,0.8529411764705882,0.8529411764705882,0.8529411764705882,0.916955017301038,12,5,5,29
+sklearn_linear,classification,location,Türkan q.,5,,,,0,0.0,1.0,1.0,1.0,1.0,3,0,0,2
+sklearn_linear,classification,location,Xalqlar Dostluğu m.,151,,,,10,0.06622516556291391,0.8709677419354839,0.8181818181818182,0.84375,0.9758602978941961,114,4,6,27
+sklearn_linear,classification,location,Xocəsən m.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+sklearn_linear,classification,location,Xocəsən q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+sklearn_linear,classification,location,Xutor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+sklearn_linear,classification,location,Xətai r.,199,,,,17,0.08542713567839195,0.9166666666666666,0.8571428571428571,0.8859060402684564,0.9676389184585906,116,6,11,66
+sklearn_linear,classification,location,Xəzər r.,8,,,,4,0.5,0.0,0.0,0.0,0.6666666666666666,4,1,3,0
+sklearn_linear,classification,location,Yasamal q.,34,,,,6,0.17647058823529413,1.0,0.6,0.75,0.8631578947368421,19,0,6,9
+sklearn_linear,classification,location,Yasamal r.,116,,,,13,0.11206896551724138,0.8448275862068966,0.9245283018867925,0.8828828828828829,0.9583707696915245,54,9,4,49
+sklearn_linear,classification,location,Yeni Günəşli q.,67,,,,1,0.014925373134328358,1.0,0.5,0.6666666666666666,1.0,65,0,1,1
+sklearn_linear,classification,location,Yeni Ramana q.,13,,,,1,0.07692307692307693,0.5,1.0,0.6666666666666666,1.0,11,1,0,1
+sklearn_linear,classification,location,Yeni Suraxanı q.,4,,,,0,0.0,0.0,0.0,0.0,,4,0,0,0
+sklearn_linear,classification,location,Yeni Yasamal q.,109,,,,13,0.11926605504587157,0.625,0.5882352941176471,0.6060606060606061,0.9360613810741688,86,6,7,10
+sklearn_linear,classification,location,Zabrat q.,20,,,,1,0.05,0.6666666666666666,1.0,0.8,0.9444444444444444,17,1,0,2
+sklearn_linear,classification,location,Zirə q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_linear,classification,location,Zığ q.,15,,,,1,0.06666666666666667,0.0,0.0,0.0,,14,1,0,0
+sklearn_linear,classification,location,İnşaatçılar m.,428,,,,69,0.16121495327102803,0.8313253012048193,0.770949720670391,0.8,0.9271275044311323,221,28,41,138
+sklearn_linear,classification,location,İçəri Şəhər m.,88,,,,7,0.07954545454545454,0.9696969696969697,0.927536231884058,0.9481481481481482,0.9549961861174676,17,2,5,64
+sklearn_linear,classification,location,Şah İsmayıl Xətai m.,366,,,,37,0.10109289617486339,0.9298780487804879,0.9561128526645768,0.9428129829984544,0.9230974454745547,24,23,14,305
+sklearn_linear,classification,location,Şağan q.,9,,,,3,0.3333333333333333,0.8,0.6666666666666666,0.7272727272727273,0.7222222222222222,2,1,2,4
+sklearn_linear,classification,location,Şimal DRES q.,1,,,,1,1.0,0.0,0.0,0.0,,0,0,1,0
+sklearn_linear,classification,location,Şüvəlan q.,123,,,,22,0.17886178861788618,0.8333333333333334,0.9302325581395349,0.8791208791208791,0.8661219358893778,21,16,6,80
+sklearn_linear,classification,location,Şıxov q.,9,,,,1,0.1111111111111111,0.875,1.0,0.9333333333333333,1.0,1,1,0,7
+sklearn_linear,classification,location,Əhmədli m.,181,,,,16,0.08839779005524862,0.8214285714285714,0.6764705882352942,0.7419354838709677,0.9559823929571829,142,5,11,23
+sklearn_linear,classification,location,Əhmədli q.,68,,,,6,0.08823529411764706,0.7142857142857143,0.8333333333333334,0.7692307692307693,0.9717261904761905,52,4,2,10
+sklearn_linear,classification,location,Ələt q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_linear,classification,location,Əmircan q.,14,,,,0,0.0,1.0,1.0,1.0,1.0,13,0,0,1
+sklearn_rbf,classification,price,Expensive,856,,,,2,0.002336448598130841,1.0,0.9976635514018691,0.9988304093567252,,0,0,2,854
+sklearn_rbf,classification,price,Other,7748,,,,915,0.11809499225606608,0.8672721945502491,0.8649912331969608,0.8661302121433797,0.9563442188142159,3873,453,462,2960
+sklearn_rbf,classification,representation,Frequent,7847,,,,810,0.10322416210016566,0.8998054474708171,0.9028794533918985,0.9013398294762485,0.9675567624930989,3337,412,398,3700
+sklearn_rbf,classification,representation,Sparse,757,,,,107,0.14134742404227213,0.7354838709677419,0.6333333333333333,0.6805970149253732,0.9099364529173888,536,41,66,114
+sklearn_rbf,classification,location,2-ci mikrorayon q.,1,,,,1,1.0,0.0,0.0,0.0,,0,1,0,0
+sklearn_rbf,classification,location,20 Yanvar m.,184,,,,24,0.13043478260869565,0.8441558441558441,0.8441558441558441,0.8441558441558441,0.9440466075980095,95,12,12,65
+sklearn_rbf,classification,location,20-ci sahə q.,4,,,,1,0.25,1.0,0.6666666666666666,0.8,1.0,1,0,1,2
+sklearn_rbf,classification,location,28 May m.,326,,,,23,0.0705521472392638,0.9293286219081273,0.9887218045112782,0.9581056466302368,0.974624060150376,40,20,3,263
+sklearn_rbf,classification,location,3-cü mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_rbf,classification,location,4-cü mikrorayon q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_rbf,classification,location,6-cı mikrorayon q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_rbf,classification,location,7-ci mikrorayon q.,42,,,,11,0.2619047619047619,1.0,0.15384615384615385,0.26666666666666666,0.9496021220159151,29,0,11,2
+sklearn_rbf,classification,location,8 Noyabr m.,247,,,,20,0.08097165991902834,0.9621621621621622,0.9319371727748691,0.9468085106382979,0.9640987284966342,49,7,13,178
+sklearn_rbf,classification,location,8-ci kilometr q.,28,,,,7,0.25,0.5384615384615384,0.875,0.6666666666666666,0.86875,14,6,1,7
+sklearn_rbf,classification,location,8-ci mikrorayon q.,35,,,,6,0.17142857142857143,1.0,0.625,0.7692307692307693,0.9375,19,0,6,10
+sklearn_rbf,classification,location,9-cu mikrorayon q.,39,,,,5,0.1282051282051282,1.0,0.5833333333333334,0.7368421052631579,0.8919753086419753,27,0,5,7
+sklearn_rbf,classification,location,Abşeron r.,33,,,,1,0.030303030303030304,0.5,1.0,0.6666666666666666,0.96875,31,1,0,1
+sklearn_rbf,classification,location,Albalılıq q.,7,,,,2,0.2857142857142857,0.5,0.5,0.5,0.8,4,1,1,1
+sklearn_rbf,classification,location,Avtovağzal m.,32,,,,4,0.125,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.8269230769230769,24,2,2,4
+sklearn_rbf,classification,location,Azadlıq Prospekti m.,177,,,,21,0.11864406779661017,0.8378378378378378,0.8732394366197183,0.8551724137931035,0.9654530959340951,94,12,9,62
+sklearn_rbf,classification,location,Ağ şəhər q.,124,,,,2,0.016129032258064516,0.9838709677419355,1.0,0.991869918699187,0.9918032786885246,0,2,0,122
+sklearn_rbf,classification,location,Aşağı Güzdək q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_rbf,classification,location,Badamdar q.,125,,,,11,0.088,0.9306930693069307,0.9591836734693877,0.9447236180904522,0.9644746787603931,20,7,4,94
+sklearn_rbf,classification,location,Bakmil m.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_rbf,classification,location,Bakıxanov q.,131,,,,12,0.0916030534351145,0.95,0.6333333333333333,0.76,0.9643564356435643,100,1,11,19
+sklearn_rbf,classification,location,Balaxanı q.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+sklearn_rbf,classification,location,Bayıl q.,56,,,,13,0.23214285714285715,0.9655172413793104,0.7,0.8115942028985508,0.9328125,15,1,12,28
+sklearn_rbf,classification,location,Bibi Heybət q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_rbf,classification,location,Bilgəh q.,13,,,,5,0.38461538461538464,0.8,0.5,0.6153846153846154,0.775,4,1,4,4
+sklearn_rbf,classification,location,Biləcəri q.,83,,,,5,0.060240963855421686,1.0,0.375,0.5454545454545454,0.9683333333333334,75,0,5,3
+sklearn_rbf,classification,location,Binə q.,75,,,,0,0.0,1.0,1.0,1.0,1.0,73,0,0,2
+sklearn_rbf,classification,location,Binəqədi q.,46,,,,2,0.043478260869565216,0.0,0.0,0.0,0.9090909090909091,44,0,2,0
+sklearn_rbf,classification,location,Binəqədi r.,71,,,,19,0.2676056338028169,1.0,0.17391304347826086,0.2962962962962963,0.8976449275362319,48,0,19,4
+sklearn_rbf,classification,location,Buzovna q.,46,,,,13,0.2826086956521739,0.8333333333333334,0.47619047619047616,0.6060606060606061,0.8685714285714285,23,2,11,10
+sklearn_rbf,classification,location,Böyükşor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+sklearn_rbf,classification,location,Bülbülə q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_rbf,classification,location,Ceyranbatan q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_rbf,classification,location,Digah q.,4,,,,0,0.0,0.0,0.0,0.0,,4,0,0,0
+sklearn_rbf,classification,location,Dübəndi q.,2,,,,1,0.5,1.0,0.5,0.6666666666666666,,0,0,1,1
+sklearn_rbf,classification,location,Dədə Qorqud q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_rbf,classification,location,Dərnəgül m.,22,,,,5,0.22727272727272727,1.0,0.375,0.5454545454545454,0.8660714285714286,14,0,5,3
+sklearn_rbf,classification,location,Elmlər Akademiyası m.,418,,,,42,0.10047846889952153,0.9003215434083601,0.9621993127147767,0.9302325581395349,0.9625510728684687,96,31,11,280
+sklearn_rbf,classification,location,Fatmayı q.,8,,,,3,0.375,0.0,0.0,0.0,0.5714285714285714,5,2,1,0
+sklearn_rbf,classification,location,Görədil q.,15,,,,7,0.4666666666666667,0.3333333333333333,0.16666666666666666,0.2222222222222222,0.7592592592592593,7,2,5,1
+sklearn_rbf,classification,location,Günəşli q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_rbf,classification,location,Gənclik m.,207,,,,24,0.11594202898550725,0.8823529411764706,0.9375,0.9090909090909091,0.9736946202531646,63,16,8,120
+sklearn_rbf,classification,location,Hökməli q.,6,,,,1,0.16666666666666666,0.0,0.0,0.0,,5,1,0,0
+sklearn_rbf,classification,location,Hövsan q.,104,,,,1,0.009615384615384616,0.0,0.0,0.0,0.8640776699029126,103,0,1,0
+sklearn_rbf,classification,location,Həzi Aslanov m.,405,,,,39,0.0962962962962963,0.845360824742268,0.7735849056603774,0.8078817733990148,0.9544393260554048,284,15,24,82
+sklearn_rbf,classification,location,Həzi Aslanov q.,71,,,,12,0.16901408450704225,0.9166666666666666,0.5,0.6470588235294118,0.9276437847866419,48,1,11,11
+sklearn_rbf,classification,location,Keşlə q.,5,,,,1,0.2,0.5,1.0,0.6666666666666666,0.75,3,1,0,1
+sklearn_rbf,classification,location,Koroğlu m.,36,,,,5,0.1388888888888889,1.0,0.6428571428571429,0.782608695652174,1.0,22,0,5,9
+sklearn_rbf,classification,location,Kubinka q.,3,,,,1,0.3333333333333333,1.0,0.6666666666666666,0.8,,0,0,1,2
+sklearn_rbf,classification,location,Köhnə Günəşli q.,31,,,,1,0.03225806451612903,0.75,1.0,0.8571428571428571,1.0,27,1,0,3
+sklearn_rbf,classification,location,Kürdəxanı q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_rbf,classification,location,Lökbatan q.,13,,,,0,0.0,0.0,0.0,0.0,,13,0,0,0
+sklearn_rbf,classification,location,M.Ə.Rəsulzadə q.,12,,,,3,0.25,0.5,0.3333333333333333,0.4,0.6296296296296297,8,1,2,1
+sklearn_rbf,classification,location,Masazır q.,266,,,,1,0.0037593984962406013,0.0,0.0,0.0,,265,1,0,0
+sklearn_rbf,classification,location,Massiv D q.,9,,,,1,0.1111111111111111,0.0,0.0,0.0,,8,1,0,0
+sklearn_rbf,classification,location,Massiv V q.,6,,,,0,0.0,0.0,0.0,0.0,,6,0,0,0
+sklearn_rbf,classification,location,Maştağa q.,22,,,,1,0.045454545454545456,0.5,1.0,0.6666666666666666,1.0,20,1,0,1
+sklearn_rbf,classification,location,Mehdiabad q.,17,,,,2,0.11764705882352941,0.75,0.75,0.75,0.9230769230769231,12,1,1,3
+sklearn_rbf,classification,location,Memar Əcəmi m.,306,,,,16,0.05228758169934641,0.8529411764705882,0.90625,0.8787878787878788,0.9791451446280992,232,10,6,58
+sklearn_rbf,classification,location,Müşfiqabad q.,2,,,,0,0.0,0.0,0.0,0.0,,2,0,0,0
+sklearn_rbf,classification,location,Məmmədli q.,20,,,,0,0.0,0.0,0.0,0.0,,20,0,0,0
+sklearn_rbf,classification,location,Mərdəkan q.,279,,,,24,0.08602150537634409,0.9107806691449815,1.0,0.953307392996109,0.9256302521008404,10,24,0,245
+sklearn_rbf,classification,location,NZS q.,11,,,,0,0.0,0.0,0.0,0.0,,11,0,0,0
+sklearn_rbf,classification,location,Nardaran q.,51,,,,10,0.19607843137254902,0.803921568627451,1.0,0.8913043478260869,0.7975609756097561,0,10,0,41
+sklearn_rbf,classification,location,Neftçilər m.,170,,,,16,0.09411764705882353,0.813953488372093,0.813953488372093,0.813953488372093,0.959164988097418,119,8,8,35
+sklearn_rbf,classification,location,Nizami m.,223,,,,12,0.053811659192825115,0.9787234042553191,0.9583333333333334,0.968421052631579,0.9731182795698925,27,4,8,184
+sklearn_rbf,classification,location,Nizami r.,38,,,,6,0.15789473684210525,0.9090909090909091,0.6666666666666666,0.7692307692307693,0.9014492753623189,22,1,5,10
+sklearn_rbf,classification,location,Novxanı q.,53,,,,8,0.1509433962264151,0.8928571428571429,0.8333333333333334,0.8620689655172413,0.9420289855072463,20,3,5,25
+sklearn_rbf,classification,location,Nəriman Nərimanov m.,493,,,,65,0.13184584178498987,0.9356913183279743,0.8660714285714286,0.8995363214837713,0.9536889596602972,137,20,45,291
+sklearn_rbf,classification,location,Nərimanov r.,303,,,,32,0.10561056105610561,0.94,0.9038461538461539,0.9215686274509803,0.9596153846153846,83,12,20,188
+sklearn_rbf,classification,location,Nəsimi m.,96,,,,9,0.09375,0.8775510204081632,0.9347826086956522,0.9052631578947369,0.971304347826087,44,6,3,43
+sklearn_rbf,classification,location,Nəsimi r.,387,,,,40,0.10335917312661498,0.9047619047619048,0.9661016949152542,0.9344262295081968,0.9626381724392041,62,30,10,285
+sklearn_rbf,classification,location,Pirallahı r.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+sklearn_rbf,classification,location,Pirşağı q.,5,,,,1,0.2,0.0,0.0,0.0,1.0,4,0,1,0
+sklearn_rbf,classification,location,Pirəkəşkül q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_rbf,classification,location,Qala q.,7,,,,3,0.42857142857142855,0.25,1.0,0.4,1.0,3,3,0,1
+sklearn_rbf,classification,location,Qara Qarayev m.,210,,,,19,0.09047619047619047,0.8829787234042553,0.9120879120879121,0.8972972972972973,0.976544463939422,108,11,8,83
+sklearn_rbf,classification,location,Qaraçuxur q.,56,,,,6,0.10714285714285714,0.9166666666666666,0.6875,0.7857142857142857,0.9390625,39,1,5,11
+sklearn_rbf,classification,location,Qobu q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_rbf,classification,location,Qobustan q.,1,,,,1,1.0,0.0,0.0,0.0,,0,0,1,0
+sklearn_rbf,classification,location,Ramana q.,12,,,,1,0.08333333333333333,0.5,1.0,0.6666666666666666,1.0,10,1,0,1
+sklearn_rbf,classification,location,Sabunçu q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+sklearn_rbf,classification,location,Sabunçu r.,19,,,,4,0.21052631578947367,1.0,0.5555555555555556,0.7142857142857143,0.7666666666666667,10,0,4,5
+sklearn_rbf,classification,location,Sahil m.,69,,,,2,0.028985507246376812,0.984375,0.984375,0.984375,0.9875,4,1,1,63
+sklearn_rbf,classification,location,Sahil q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_rbf,classification,location,Saray q.,24,,,,1,0.041666666666666664,0.0,0.0,0.0,,23,1,0,0
+sklearn_rbf,classification,location,Savalan q.,10,,,,1,0.1,0.6666666666666666,1.0,0.8,1.0,7,1,0,2
+sklearn_rbf,classification,location,Sulutəpə q.,12,,,,1,0.08333333333333333,1.0,0.75,0.8571428571428571,0.96875,8,0,1,3
+sklearn_rbf,classification,location,Suraxanı q.,3,,,,0,0.0,0.0,0.0,0.0,,3,0,0,0
+sklearn_rbf,classification,location,Suraxanı r.,12,,,,0,0.0,0.0,0.0,0.0,,12,0,0,0
+sklearn_rbf,classification,location,Səbail r.,51,,,,10,0.19607843137254902,0.7727272727272727,1.0,0.8717948717948718,0.8858131487889274,7,10,0,34
+sklearn_rbf,classification,location,Türkan q.,5,,,,1,0.2,1.0,0.5,0.6666666666666666,1.0,3,0,1,1
+sklearn_rbf,classification,location,Xalqlar Dostluğu m.,151,,,,13,0.08609271523178808,0.8125,0.7878787878787878,0.8,0.9712378017462763,112,6,7,26
+sklearn_rbf,classification,location,Xocəsən m.,3,,,,1,0.3333333333333333,0.0,0.0,0.0,,2,1,0,0
+sklearn_rbf,classification,location,Xocəsən q.,6,,,,2,0.3333333333333333,0.0,0.0,0.0,,4,2,0,0
+sklearn_rbf,classification,location,Xutor q.,1,,,,0,0.0,1.0,1.0,1.0,,0,0,0,1
+sklearn_rbf,classification,location,Xətai r.,199,,,,18,0.09045226130653267,0.9402985074626866,0.8181818181818182,0.875,0.9712582499467746,118,4,14,63
+sklearn_rbf,classification,location,Xəzər r.,8,,,,3,0.375,0.5,0.3333333333333333,0.4,0.6666666666666666,4,1,2,1
+sklearn_rbf,classification,location,Yasamal q.,34,,,,8,0.23529411764705882,0.8181818181818182,0.6,0.6923076923076923,0.8070175438596491,17,2,6,9
+sklearn_rbf,classification,location,Yasamal r.,116,,,,13,0.11206896551724138,0.8448275862068966,0.9245283018867925,0.8828828828828829,0.9514824797843666,54,9,4,49
+sklearn_rbf,classification,location,Yeni Günəşli q.,67,,,,2,0.029850746268656716,0.0,0.0,0.0,0.9846153846153847,65,0,2,0
+sklearn_rbf,classification,location,Yeni Ramana q.,13,,,,0,0.0,1.0,1.0,1.0,1.0,12,0,0,1
+sklearn_rbf,classification,location,Yeni Suraxanı q.,4,,,,0,0.0,0.0,0.0,0.0,,4,0,0,0
+sklearn_rbf,classification,location,Yeni Yasamal q.,109,,,,15,0.13761467889908258,0.75,0.17647058823529413,0.2857142857142857,0.94693094629156,91,1,14,3
+sklearn_rbf,classification,location,Zabrat q.,20,,,,2,0.1,0.5,0.5,0.5,0.9444444444444444,17,1,1,1
+sklearn_rbf,classification,location,Zirə q.,2,,,,0,0.0,1.0,1.0,1.0,1.0,1,0,0,1
+sklearn_rbf,classification,location,Zığ q.,15,,,,1,0.06666666666666667,0.0,0.0,0.0,,14,1,0,0
+sklearn_rbf,classification,location,İnşaatçılar m.,428,,,,78,0.1822429906542056,0.7700534759358288,0.8044692737430168,0.7868852459016393,0.9138453254358215,206,43,35,144
+sklearn_rbf,classification,location,İçəri Şəhər m.,88,,,,11,0.125,0.9264705882352942,0.9130434782608695,0.9197080291970803,0.9549961861174676,14,5,6,63
+sklearn_rbf,classification,location,Şah İsmayıl Xətai m.,366,,,,39,0.10655737704918032,0.9093567251461988,0.9749216300940439,0.9409984871406959,0.9131594744213967,16,31,8,311
+sklearn_rbf,classification,location,Şağan q.,9,,,,3,0.3333333333333333,0.8,0.6666666666666666,0.7272727272727273,0.7777777777777778,2,1,2,4
+sklearn_rbf,classification,location,Şimal DRES q.,1,,,,1,1.0,0.0,0.0,0.0,,0,0,1,0
+sklearn_rbf,classification,location,Şüvəlan q.,123,,,,33,0.2682926829268293,0.7264957264957265,0.9883720930232558,0.8374384236453202,0.8821495914519171,5,32,1,85
+sklearn_rbf,classification,location,Şıxov q.,9,,,,1,0.1111111111111111,0.875,1.0,0.9333333333333333,1.0,1,1,0,7
+sklearn_rbf,classification,location,Əhmədli m.,181,,,,15,0.08287292817679558,0.9130434782608695,0.6176470588235294,0.7368421052631579,0.9515806322529011,145,2,13,21
+sklearn_rbf,classification,location,Əhmədli q.,68,,,,9,0.1323529411764706,0.8,0.3333333333333333,0.47058823529411764,0.96875,55,1,8,4
+sklearn_rbf,classification,location,Ələt q.,1,,,,0,0.0,0.0,0.0,0.0,,1,0,0,0
+sklearn_rbf,classification,location,Əmircan q.,14,,,,0,0.0,1.0,1.0,1.0,1.0,13,0,0,1
