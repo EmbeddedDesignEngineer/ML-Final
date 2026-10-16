@@ -1,4 +1,4 @@
-"""Deterministic numeric decision tree implemented with NumPy only.
+"""NumPy decision tree for classification and regression.
 
 Splits use X[:, feature] <= threshold. Tied gains retain the first feature
 and lowest threshold; tied class counts choose the first sorted class.
@@ -9,7 +9,7 @@ import numpy as np
 
 
 class Node:
-    """A split, or a leaf with a prediction and class frequencies."""
+    """Split or leaf with a prediction and class frequencies."""
 
     def __init__(self):
         self.feature = None
@@ -27,11 +27,11 @@ class Node:
 
 
 class DecisionTree:
-    """Exhaustive CART-style tree for finite, preprocessed numeric features.
+    """CART-style tree for finite numeric features.
 
     ``min_impurity_decrease`` uses gain weighted by node/training sample
-    count, as in sklearn. ``max_depth=0`` deliberately permits a stump.
-    No random feature sampling is used, so random_state is API-only.
+    count, as in sklearn. ``max_depth=0`` creates a single leaf.
+    Search is deterministic; random_state has no effect.
     """
     def __init__(self, task="classification", criterion="gini", max_depth=None,
                  min_samples_split=2, min_samples_leaf=1,
@@ -42,7 +42,6 @@ class DecisionTree:
         self.min_samples_split = min_samples_split
         self.min_samples_leaf = min_samples_leaf
         self.min_impurity_decrease = min_impurity_decrease
-        # Exhaustive search is deterministic; retained for the shared API.
         self.random_state = random_state
         self.root = None
 
@@ -69,7 +68,7 @@ class DecisionTree:
                 continue
             left_n, right_n = positions, n - positions
             if self.task == "regression":
-                # Center before accumulating squares: real prices may be large.
+                # Center large prices to reduce cancellation.
                 centered = targets - np.mean(targets)
                 sums = np.cumsum(centered)
                 squares = np.cumsum(centered * centered)
@@ -79,7 +78,7 @@ class DecisionTree:
                 right_sse = squares[-1] - squares[positions - 1] - right_s * right_s / right_n
                 child_impurity = (np.maximum(left_sse, 0) + np.maximum(right_sse, 0)) / n
             else:
-                # Prefix class counts evaluate all valid thresholds in one pass.
+                # Reuse cumulative counts across thresholds.
                 counts = np.eye(len(self.classes_), dtype=np.int64)[targets].cumsum(axis=0)
                 left_counts = counts[positions - 1]
                 right_counts = counts[-1] - left_counts
@@ -105,7 +104,7 @@ class DecisionTree:
         return best
 
     def _make_node(self, X, y, depth):
-        """Create a leaf or choose a split, leaving child construction to _grow."""
+        """Set the prediction and choose a split if allowed."""
         node = Node()
         node.n_samples = len(y)
         node.impurity = self._impurity(y)
@@ -132,8 +131,7 @@ class DecisionTree:
         node, left = self._make_node(X, y, depth)
         if left is None:
             return node
-        # Preserve the recursive construction, but use an explicit continuation
-        # stack for pathological deep trees without changing Python's global limit.
+        # Use a stack for deep trees to avoid Python's recursion limit.
         if depth >= 128:
             pending = [(node, X, y, left, depth)]
             while pending:
