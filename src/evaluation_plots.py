@@ -1,11 +1,9 @@
-"""Simple plots and regression error summaries. All inputs share row order."""
-
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-from .evaluate import _check_arrays, confusion_matrix, mae, rmse
+from .evaluate import _check_arrays, confusion_matrix, mae, rmse, precision_recall_f1, roc_auc
 
 
 def _save(fig, output_path):
@@ -53,11 +51,8 @@ def plot_actual_vs_predicted(y_true, y_pred, output_path, title="Price predictio
 
 
 def summarize_errors_by_group(y_true, y_pred, groups):
-    """Return count, MAE, RMSE and bias (predicted minus actual) per group.
 
-Use original location names. Replace missing names with 'Unknown' first.
-R-squared is omitted because a group can contain only one observation.
-"""
+
     y_true, y_pred = _check_arrays(y_true, y_pred)
     groups = np.asarray(groups)
     if groups.ndim != 1 or len(groups) != len(y_true):
@@ -78,7 +73,7 @@ R-squared is omitted because a group can contain only one observation.
 
 
 def summarize_price_errors(y_true, y_pred, expensive_threshold):
-    """Supply a threshold chosen from TRAIN prices before test evaluation."""
+
     y_true, y_pred = _check_arrays(y_true, y_pred)
     if not isinstance(expensive_threshold, (int, float, np.integer, np.floating)):
         raise ValueError("expensive_threshold must be a finite number.")
@@ -88,12 +83,45 @@ def summarize_price_errors(y_true, y_pred, expensive_threshold):
     return summarize_errors_by_group(y_true, y_pred, groups)
 
 
-def plot_feature_values(feature_names, values, output_path, title="Feature importance", xlabel="Importance", top_n=10):
-    """Plot tree importances or LINEAR SVM weights, ranked by absolute value.
+def location_groups(train_locations, test_locations, minimum_count=200):
+    train_locations = np.asarray(train_locations, dtype=str)
+    test_locations = np.asarray(test_locations, dtype=str)
+    if train_locations.ndim != 1 or test_locations.ndim != 1 or train_locations.size == 0:
+        raise ValueError("Locations must be one-dimensional; training locations cannot be empty.")
+    if isinstance(minimum_count, bool) or not isinstance(minimum_count, (int, np.integer)) or minimum_count < 1:
+        raise ValueError("minimum_count must be a positive integer.")
+    names, counts = np.unique(train_locations, return_counts=True)
+    training_counts = dict(zip(names, counts))
+    return np.array(["Sparse" if training_counts.get(name, 0) < minimum_count else "Frequent"
+                     for name in test_locations])
 
-For SVM use training-standardized features. RFF weights refer to transformed
-features and must not be labelled with original feature names.
-"""
+
+def summarize_classification_by_group(y_true, y_pred, scores, groups):
+    confusion_matrix(y_true, y_pred)
+    y_true, scores = _check_arrays(y_true, scores)
+    y_pred = np.asarray(y_pred)
+    groups = np.asarray(groups)
+    if groups.ndim != 1 or len(groups) != len(y_true):
+        raise ValueError("groups must have one entry per observation.")
+    if any(value is None or str(value).strip().lower() in ("", "nan", "<na>") for value in groups):
+        raise ValueError("Replace missing group names with 'Unknown' first.")
+    groups = groups.astype(str)
+    results = []
+    for name in np.unique(groups):
+        mask = groups == name
+        precision, recall, f1 = precision_recall_f1(y_true[mask], y_pred[mask])
+        tn, fp, fn, tp = confusion_matrix(y_true[mask], y_pred[mask]).ravel()
+        auc = roc_auc(y_true[mask], scores[mask]) if len(np.unique(y_true[mask])) == 2 else None
+        results.append({"group": str(name), "count": int(mask.sum()),
+                        "errors": int(fp + fn), "error_rate": float((fp + fn) / mask.sum()),
+                        "precision": precision, "recall": recall, "f1": f1, "roc_auc": auc,
+                        "tn": int(tn), "fp": int(fp), "fn": int(fn), "tp": int(tp)})
+    return results
+
+
+def plot_feature_values(feature_names, values, output_path, title="Feature importance", xlabel="Importance", top_n=10):
+
+
     values, _ = _check_arrays(values, values)
     names = np.asarray(feature_names)
     if names.ndim != 1 or len(names) != len(values):
