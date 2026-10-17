@@ -1,0 +1,319 @@
+% MLE-AI-201 Final Project slides.
+% Figures:  python -m report.make_figures   (from the repo root)
+% Build:    tectonic slides.tex             (from presentation/)
+\documentclass[aspectratio=169,11pt]{beamer}
+\usepackage{iftex}
+\iftutex
+  \usepackage{fontspec}
+  \setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,
+    BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \DeclareUnicodeCharacter{0259}{\rotatebox[origin=c]{180}{e}}
+\fi
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\graphicspath{{../report/figures/}}
+
+\usetheme{default}
+\definecolor{ink}{HTML}{1F2933}
+\definecolor{accent}{HTML}{2A6FDB}
+\definecolor{muted}{HTML}{616E7C}
+\setbeamercolor{frametitle}{fg=accent}
+\setbeamercolor{title}{fg=accent}
+\setbeamercolor{normal text}{fg=ink}
+\setbeamercolor{itemize item}{fg=accent}
+\setbeamercolor{itemize subitem}{fg=muted}
+\setbeamercolor{enumerate item}{fg=accent}
+\setbeamerfont{frametitle}{series=\bfseries,size=\Large}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\hfill\color{muted}\scriptsize\insertframenumber\,/\,\inserttotalframenumber\hspace{1.2em}\vspace{0.8em}}
+\newcommand{\hi}[1]{\textcolor{accent}{\textbf{#1}}}
+\newcommand{\aside}[1]{{\color{muted}\small #1}}
+\newcommand{\DavudSurname}{Vahidov}
+
+\title{Decision Trees and Pegasos SVMs from Scratch}
+\subtitle{Price and price-tier prediction on bina.az listings}
+\author{Bailar Bayramov \and Davud \DavudSurname \and Sanan Hajiyev \and Sabuhi Khamiyev \and Farid Samedov}
+\institute{MLE-AI-201 Machine Learning --- AI Academy, Cohort II}
+\date{Final project demo}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{Problem and dataset}
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \textbf{bina.az sale listings} (Kaggle dump)
+    \begin{itemize}
+      \item 100,775 raw rows, 51 columns, Azerbaijani names, text numbers
+      \item After cleaning: \hi{57,363} Baku residential listings, 65 features
+      \item Split 70/15/15, seed 42: 40,155 / 8,604 / 8,604
+    \end{itemize}
+    \vspace{0.6em}
+    \textbf{Two tasks, one dataset}
+    \begin{itemize}
+      \item \hi{Task A} --- regression: price in AZN\\
+        \aside{RMSE, MAE, $R^2$}
+      \item \hi{Task B} --- premium vs standard\\
+        threshold = train median \hi{209,000 AZN}\\
+        \aside{precision, recall, F1, ROC-AUC}
+    \end{itemize}
+    \column{0.5\textwidth}
+    \includegraphics[width=\linewidth]{price_distribution.png}\\
+    \aside{Heavy right tail: a few listings cost up to 5M AZN; log(price) is near-symmetric.}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{Cleaning, features and leakage}
+  \begin{columns}[T]
+    \column{0.52\textwidth}
+    \textbf{Fixed rules, no data statistics}
+    \begin{enumerate}\small
+      \item Dedupe listing URLs: 100,775 $\to$ 64,454
+      \item Residential + Baku only: 58,257
+      \item Parse \emph{Sahə}, \emph{Mərtəbə} ``7 / 9'', land; yes/no $\to$ 0/1
+      \item Structural fills; drop missing essentials: 57,587
+      \item Domain outliers (price 10k--5M, area 15--1000 m², \ldots): \hi{57,363}
+    \end{enumerate}
+    \textbf{Features (encoder fitted on train only)}\\
+    \small 14 numeric + distance to centre + floor ratio + 3 category + 45 districts + \texttt{loc\_other}
+    \column{0.45\textwidth}
+    \begin{block}{Removed: target leakage}
+      \texttt{unit\_price} = price / m²\\
+      \texttt{total\_price} = price (99.99\%)
+    \end{block}
+    \begin{block}{Removed: not available / not general}
+      \texttt{views}, \texttt{updated} (post-listing)\\
+      owner \& shop names, URLs, address, IDs
+    \end{block}
+    \aside{Tier threshold, district vocabulary and scaler: training split only.}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{Our decision tree (NumPy)}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+    \textbf{Split search}
+    \begin{itemize}
+      \item Sort each feature; thresholds between distinct neighbours
+      \item Prefix counts / sums $\Rightarrow$ every threshold in $O(n)$
+      \item Pick the largest gain\\[0.2em]
+        $\Delta I = I(\text{parent}) - \sum_c \frac{N_c}{N} I(c)$
+    \end{itemize}
+    \textbf{Impurities}\\[0.2em]
+    \small
+    \begin{tabular}{@{}ll@{}}
+      Gini & $1-\sum_k p_k^2$\\
+      Entropy & $-\sum_k p_k\log_2 p_k$\\
+      MSE (regression) & $\frac1N\sum_i(y_i-\bar y)^2$
+    \end{tabular}
+    \column{0.42\textwidth}
+    \textbf{Stopping controls} (each tested)
+    \begin{itemize}\small
+      \item \texttt{max\_depth}, \texttt{min\_samples\_split}
+      \item \texttt{min\_samples\_leaf}, \texttt{min\_impurity\_decrease}
+    \end{itemize}
+    \textbf{Leaves}: majority class / mean;\\ \texttt{predict\_proba} = leaf frequencies\\[0.4em]
+    \textbf{Checks}: matches sklearn's splits on a tiny, fully determined example; impurity-decrease importances
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{Our SVM: Pegasos sub-gradient + random Fourier features}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+    \textbf{Objective} (hinge primal, no QP solver)
+    \[
+      J(\mathbf w,b)=\tfrac{\lambda}{2}\lVert\mathbf w\rVert^2+\tfrac1n\sum_i\max\bigl(0,1-y_i(\mathbf w^\top\mathbf x_i+b)\bigr)
+    \]
+    \textbf{Update} for a random row $i$, $\eta_t=\frac{1}{\lambda t}$ or constant:
+    \[
+      \mathbf w\leftarrow(1-\eta_t\lambda)\mathbf w+\eta_t y_i\mathbf x_i\cdot\mathbf 1[y_i f(\mathbf x_i)<1]
+    \]
+    \aside{Unregularised bias, projection onto $\lVert\mathbf w\rVert\le1/\sqrt\lambda$, standardised inputs.}
+    \column{0.42\textwidth}
+    \textbf{Diagnostics}
+    \begin{itemize}\small
+      \item Objective logged at 51 checkpoints
+      \item $\mathbf w$, margin width $2/\lVert\mathbf w\rVert$
+      \item Support vectors: $y_i f(\mathbf x_i)\le 1$
+    \end{itemize}
+    \textbf{Non-linearity: RFF}
+    \[ z(\mathbf x)=\sqrt{2/D}\cos(\mathbf xW+\mathbf c),\ W\sim\mathcal N(0,2\gamma) \]
+    \aside{Same linear solver; fixed cost $D$ instead of $O(n)$ kernel sums per step.}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{Experimental setup}
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \textbf{Selection on validation only}
+    \begin{itemize}\small
+      \item Tree: depth $\{2,4,8,12\}\times$ leaf $\{1,5,20\}$, Gini vs entropy
+      \item SVM: 33 predeclared configs ($\lambda$, schedule, $T$, $\gamma$, $D$)
+      \item Ridge (bonus): $\alpha\in\{0.1,\dots,1000\}$
+      \item Test split scored \hi{once} with frozen settings
+    \end{itemize}
+    \textbf{Uncertainty}\\
+    \small 5-fold CV on train+val (test excluded), refitting encoder, scaler and tier threshold per fold; mean $\pm$ std
+    \column{0.47\textwidth}
+    \textbf{Matched sklearn baselines}
+    \begin{itemize}\small
+      \item sklearn decision trees: same grid and criteria
+      \item \texttt{SVC} linear / RBF in a \texttt{Pipeline} with \texttt{StandardScaler}
+      \item Our loss averages the hinge, SVC sums it:\\
+        $C = 1/(n_\text{train}\lambda)$
+    \end{itemize}
+    \textbf{Reproducibility}\\
+    \small \texttt{python -m src.run\_all} rebuilds every number and figure; seeds fixed, deps pinned, data and source hashes in the manifest; 348 tests pass
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{Tuning: bias--variance and convergence}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+    \includegraphics[width=\linewidth]{tree_curves.png}
+    \small
+    \begin{itemize}
+      \item Leaf 1: validation RMSE \hi{rises} after depth 8 $\Rightarrow$ overfitting
+      \item Leaf 5 + depth 12 selected (val RMSE 124.7k)
+      \item Gini $>$ entropy at every depth $\ge$4 (F1 0.929)
+    \end{itemize}
+    \column{0.43\textwidth}
+    \includegraphics[width=\linewidth]{svm_objective.png}
+    \small
+    \begin{itemize}
+      \item Constant $\eta$: objective 1.0 $\to$ 0.31
+      \item $1/(\lambda t)$ at $\lambda{=}10^{-4}$: huge first steps, not converged after 20k updates
+      \item Larger $\lambda$: wider margin (0.45 $\to$ 0.71) but lower F1 (0.887 $\to$ 0.871)
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{Results (test split, 5-fold CV mean $\pm$ std)}
+  \small
+  \begin{columns}[T]
+    \column{0.47\textwidth}
+    \textbf{Task A --- price (AZN)}\\[0.3em]
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{@{}lrrr@{}}
+      \toprule
+      Model & RMSE & $R^2$ & CV RMSE\\
+      \midrule
+      \hi{Ours: tree} & \hi{109,164} & \hi{0.760} & 119.7k $\pm$ 3.0k\\
+      sklearn tree & 119,376 & 0.712 & 123.5k $\pm$ 3.0k\\
+      Ours: Ridge & 128,441 & 0.667 & 136.8k $\pm$ 5.5k\\
+      sklearn Ridge & 128,441 & 0.667 & 136.8k $\pm$ 5.5k\\
+      \bottomrule
+    \end{tabular}}\\[0.6em]
+    \aside{sklearn's search picked depth 8, ours depth 12. At matched settings the trees agree; Ridge matches to numerical precision.}
+    \column{0.5\textwidth}
+    \textbf{Task B --- premium tier}\\[0.3em]
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{@{}lrrr@{}}
+      \toprule
+      Model & F1 & CV F1 & Fit (s)\\
+      \midrule
+      \hi{Ours: tree} & \hi{0.929} & 0.925 $\pm$ .003 & 2.8\\
+      sklearn tree & 0.929 & 0.925 $\pm$ .003 & 0.3\\
+      Ours: linear SVM & 0.881 & 0.885 $\pm$ .005 & \hi{0.3}\\
+      Ours: RFF SVM & 0.846 & 0.836 $\pm$ .009 & 1.2\\
+      SVC linear & 0.903 & 0.906 $\pm$ .002 & 43.1\\
+      SVC RBF & 0.893 & 0.893 $\pm$ .001 & 54.2\\
+      \bottomrule
+    \end{tabular}}\\[0.6em]
+    \aside{SVC solves the same objective exactly; our 20k updates are half an epoch, but train 140$\times$ faster.}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{What the models learn and where they fail}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \includegraphics[width=\linewidth]{tree_reg_importance.png}
+    \aside{Tree importance: area 0.63, distance to centre 0.16. SVM weights agree: area +3.6, house $-$1.0, distance $-$0.85.}
+    \column{0.5\textwidth}
+    \textbf{Luxury outliers}
+    \begin{itemize}\small
+      \item Above train P90 (455k AZN): MAE \hi{177k} vs 31k for the rest; underpredicted
+      \item Worst 1\% of rows $\Rightarrow$ 70--74\% of squared error
+      \item Villas in Bilgəh, Badamdar, Səbail: view, finish, exact address are not in the data
+    \end{itemize}
+    \textbf{Sparse districts} (\texttt{loc\_other})
+    \begin{itemize}\small
+      \item MAE 54.7k vs 44.7k; SVM error rate 16\% vs 12\%
+    \end{itemize}
+    \textbf{Tier errors} sit near the 209k threshold\\
+    \small only 7 of 856 expensive listings misclassified by the tree
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{After the benchmark: improvements on validation only}
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \textbf{SVM: optimisation, not the model}
+    \begin{itemize}\small
+      \item 20 epochs + iterate averaging
+      \item Linear F1 0.887 $\to$ \hi{0.907} (SVC: 0.908)
+      \item RFF ($\lambda{=}10^{-5}$) F1 0.841 $\to$ \hi{0.898}
+    \end{itemize}
+    \textbf{Price: bagging our own trees (bonus)}
+    \begin{itemize}\small
+      \item 48 trees, depth 32, target $\log(\text{price}/\text{area})$
+      \item Val RMSE 124.7k $\to$ \hi{97.2k}, MAE 48.3k $\to$ 34.0k, $R^2$ 0.82
+      \item Val MAE keeps falling as trees are added
+    \end{itemize}
+    \column{0.47\textwidth}
+    \textbf{Honest limitations}
+    \begin{itemize}\small
+      \item Asking prices, Baku residential only
+      \item Test split already seen $\Rightarrow$ improvements reported on validation, not test
+      \item CV = variability of frozen settings, not nested selection
+      \item 446 exact duplicate feature rows remain (effect $<$1\% MAE)
+      \item Single-run timings on one laptop
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{Who did what and next steps}
+  \begin{columns}[T]
+    \column{0.6\textwidth}
+    \small
+    \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.3\linewidth}>{\raggedright\arraybackslash}p{0.66\linewidth}@{}}
+      \toprule
+      Member & Main contribution\\
+      \midrule
+      Davud \DavudSurname & Cleaning, encoding, leakage audit; quality \& price studies\\
+      Sanan Hajiyev & Decision tree, sweeps, sklearn parity tests\\
+      Farid Samedov & Pegasos SVM, RFF, 33-config SVM study\\
+      Sabuhi Khamiyev & Metrics, evaluation, plots, subgroup errors\\
+      Bailar Bayramov & Ridge bonus, \texttt{run\_all}, integration tests\\
+      \bottomrule
+    \end{tabular}
+    \column{0.36\textwidth}
+    \textbf{Next}
+    \begin{itemize}\small
+      \item Location \& quality features (address, view, renovation)
+      \item Deduplicate by content, not URL
+      \item Fresh untouched test set for the ensemble
+    \end{itemize}
+  \end{columns}
+  \vspace{1em}
+  \centering\aside{Code: \texttt{github.com/EmbeddedDesignEngineer/ML-Final} (tag \texttt{v1.0-final})}
+\end{frame}
+
+\end{document}

@@ -83,6 +83,20 @@ cannot be resumed; choose a new output directory in that case.
 the complete experiment evidence. Install `requirements-dev.txt` and run
 `python -m pytest -q` for all checks.
 
+## Report and slides
+
+`report/report.pdf` (IEEE two-column) and `presentation/slides.pdf` are built
+from `report/report.tex` and `presentation/slides.tex`. Their figures are
+generated from the committed full-run evidence:
+
+```bash
+python -m report.make_figures --results experiments/artifacts/final
+cd report && tectonic report.tex
+cd ../presentation && tectonic slides.tex
+```
+
+Pass `--results results/final` to use a fresh `src.run_all` output instead.
+
 ## Decision tree module
 
 The NumPy tree supports Gini/entropy classification and MSE regression.
