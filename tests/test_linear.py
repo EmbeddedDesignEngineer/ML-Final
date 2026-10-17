@@ -62,3 +62,12 @@ def test_prediction_validation():
         model.predict([[1, 2]])
     with pytest.raises(ValueError):
         model.predict([[float("nan")]])
+
+
+@pytest.mark.parametrize('scale,alpha', [(1e8,1.),(1.,1e-20)])
+def test_collinear_positive_ridge_remains_solvable(scale,alpha):
+    X=scale*np.array([[-1.,-1.],[0.,0.],[1.,1.]])
+    y=np.array([-2.,0.,2.])
+    model=RidgeRegression(alpha=alpha).fit(X,y)
+    reference=Ridge(alpha=alpha,solver='svd').fit(X,y)
+    np.testing.assert_allclose(model.predict(X),reference.predict(X),atol=1e-10)
