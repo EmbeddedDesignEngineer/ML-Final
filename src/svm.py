@@ -104,6 +104,8 @@ class PegasosSVM:
     n_components=None selects a linear SVM; a positive integer enables RFF
     with that many features and the supplied RBF gamma. Its margin and weight
     norm then describe the RFF space, not distances in the original input.
+    average=True returns the mean of the final half of updates. Recorded
+    objectives use that running mean once averaging starts.
     """
 
     def __init__(
@@ -118,6 +120,7 @@ class PegasosSVM:
         loss_interval: int | None = None,
         n_components: int | None = None,
         gamma: float = 1.0,
+        average: bool = False,
     ):
         self.lambda_ = lambda_
         self.n_iters = n_iters
@@ -128,6 +131,7 @@ class PegasosSVM:
         self.loss_interval = loss_interval
         self.n_components = n_components
         self.gamma = gamma
+        self.average = average
         self.w = None              # weight vector
         self.b = 0.0               # bias
         self.rff_ = None
@@ -143,6 +147,8 @@ class PegasosSVM:
         return 2.0 * y.astype(float) - 1.0
 
     def _validate_parameters(self):
+        if not isinstance(self.average, (bool, np.bool_)):
+            raise ValueError("average must be boolean")
         _positive_number(self.lambda_, "lambda_")
         _positive_number(self.n_iters, "n_iters", integer=True)
         _positive_number(self.eta0, "eta0")
@@ -180,6 +186,7 @@ class PegasosSVM:
         losses = [1.0]  # At w=0, b=0, every sample has hinge loss 1.
         iterations = [0]
         radius = 1.0 / np.sqrt(self.lambda_)
+        sum_w, sum_b, averaged = np.zeros(n_features), 0.0, 0
 
         # Fail explicitly on overflow instead of returning NaN predictions.
         with np.errstate(over="raise", invalid="raise", divide="raise"):
@@ -201,12 +208,20 @@ class PegasosSVM:
                     raise FloatingPointError("Weight norm overflow; check feature scaling and lambda_.")
                 if norm > radius:
                     w *= radius / norm
+                if self.average and t > n_steps // 2:
+                    sum_w += w
+                    sum_b += b
+                    averaged += 1
 
                 if t % interval == 0 or t == n_steps:
-                    hinge = np.maximum(0.0, 1.0 - y_pm1 * (features @ w + b))
-                    losses.append(float(0.5 * self.lambda_ * (w @ w) + hinge.mean()))
+                    eval_w = sum_w / averaged if averaged else w
+                    eval_b = sum_b / averaged if averaged else b
+                    hinge = np.maximum(0.0, 1.0 - y_pm1 * (features @ eval_w + eval_b))
+                    losses.append(float(0.5 * self.lambda_ * (eval_w @ eval_w) + hinge.mean()))
                     iterations.append(t)
 
+            if averaged:
+                w, b = sum_w / averaged, sum_b / averaged
             margins = y_pm1 * (features @ w + b)
         if not np.isfinite(b) or not np.all(np.isfinite(w)) or not np.all(np.isfinite(losses)):
             raise FloatingPointError("Non-finite SVM state; check feature scaling and hyperparameters.")
@@ -216,6 +231,7 @@ class PegasosSVM:
         self.classes_ = np.array([0, 1])
         self.n_features_in_ = X.shape[1]
         self.n_iter_ = n_steps
+        self.n_averaged_ = averaged
         self.loss_history_ = losses
         self.loss_iterations_ = iterations
         # These are margin-active points, NOT coefficients of a dual solution.
