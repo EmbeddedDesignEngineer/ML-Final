@@ -29,8 +29,9 @@ class RidgeRegression:
         if self.alpha == 0:
             self.coef_ = np.linalg.lstsq(centered_X, centered_y, rcond=None)[0]
         else:
-            matrix = centered_X.T @ centered_X + self.alpha * np.eye(X.shape[1])
-            self.coef_ = np.linalg.solve(matrix, centered_X.T @ centered_y)
+            u, singular, vt = np.linalg.svd(centered_X, full_matrices=False)
+            weights = singular / (singular * singular + self.alpha)
+            self.coef_ = vt.T @ (weights * (u.T @ centered_y))
         self.intercept_ = float(mean_y - mean_X @ self.coef_)
         return self
 

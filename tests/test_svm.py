@@ -412,3 +412,24 @@ def test_nonlinear_agreement_with_independent_sklearn_baseline():
     baseline.fit(X_train, y_train)
     assert np.mean(ours.predict(X_test) == baseline.predict(X_test)) >= 0.95
     assert np.mean(ours.predict(X_test) == y_test) >= 0.97
+
+
+def test_tail_average_matches_manual_updates(fixed_draws):
+    fixed_draws([0,0,1])
+    model=PegasosSVM(lambda_=1.,n_iters=3,average=True).fit([[2.],[-2.]],[1,0])
+    assert_allclose(model.w,[.75])
+    assert model.b==pytest.approx(5/6)
+    assert model.loss_history_[-1]==pytest.approx(model.objective([[2.],[-2.]],[1,0]))
+    assert model.n_averaged_==2
+
+
+def test_tail_average_is_seeded_and_reports_final_margin_state(toy):
+    params=dict(lambda_=.01,n_epochs=10,average=True,random_state=7)
+    first=PegasosSVM(**params).fit(*toy)
+    second=PegasosSVM(**params).fit(*toy)
+    assert_allclose(first.w,second.w)
+    assert first.b==second.b
+    margins=(2*toy[1]-1)*first.decision_function(toy[0])
+    assert_array_equal(first.margin_active_indices_,np.flatnonzero(margins<=1))
+    with pytest.raises(ValueError):
+        PegasosSVM(average='yes').fit(*toy)
