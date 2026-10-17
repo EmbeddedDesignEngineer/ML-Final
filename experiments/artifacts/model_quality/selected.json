@@ -1,0 +1,56 @@
+{
+  "regression": {
+    "name": "bagged_tree",
+    "kind": "bagging",
+    "params": {
+      "n_estimators": 24,
+      "max_depth": 16,
+      "min_samples_leaf": 5,
+      "max_samples": 0.8,
+      "max_features": 0.8,
+      "random_state": 42
+    },
+    "validation": {
+      "rmse": 105709.8569150723,
+      "mae": 40217.06553046828,
+      "r2": 0.7897785536388976
+    },
+    "seconds": 65.82707729999674
+  },
+  "linear_svm": {
+    "name": "linear_pegasos_20_averaged",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.0001,
+      "learning_rate": "pegasos",
+      "n_epochs": 20,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.9071203822398322,
+      "auc": 0.9633106973564943,
+      "train_objective": 0.2806679603083841,
+      "updates": 803100
+    },
+    "seconds": 4.121138200018322
+  },
+  "rff_svm": {
+    "name": "rff_lambda1e-05_gamma0.01",
+    "kind": "svm",
+    "params": {
+      "lambda_": 1e-05,
+      "n_components": 512,
+      "gamma": 0.01,
+      "learning_rate": "pegasos",
+      "n_epochs": 20,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.8979210464844662,
+      "auc": 0.9644101385040803,
+      "train_objective": 0.2656006078898518,
+      "updates": 803100
+    },
+    "seconds": 5.521465300000273
+  }
+}

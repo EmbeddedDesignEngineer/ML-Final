@@ -1,0 +1,302 @@
+[
+  {
+    "name": "tree_previous",
+    "kind": "tree",
+    "params": {
+      "max_depth": 12,
+      "min_samples_leaf": 5
+    },
+    "validation": {
+      "rmse": 124741.2832757964,
+      "mae": 48344.891445847315,
+      "r2": 0.7072705175483736
+    },
+    "seconds": 1.890164199983701
+  },
+  {
+    "name": "tree_deeper",
+    "kind": "tree",
+    "params": {
+      "max_depth": 16,
+      "min_samples_leaf": 10
+    },
+    "validation": {
+      "rmse": 118296.19697092669,
+      "mae": 45583.39390799653,
+      "r2": 0.7367383397615954
+    },
+    "seconds": 3.0909590999945067
+  },
+  {
+    "name": "bagged_tree",
+    "kind": "bagging",
+    "params": {
+      "n_estimators": 24,
+      "max_depth": 16,
+      "min_samples_leaf": 5,
+      "max_samples": 0.8,
+      "max_features": 0.8,
+      "random_state": 42
+    },
+    "validation": {
+      "rmse": 105709.8569150723,
+      "mae": 40217.06553046828,
+      "r2": 0.7897785536388976
+    },
+    "seconds": 65.82707729999674
+  },
+  {
+    "name": "linear_previous",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.0001,
+      "learning_rate": "constant",
+      "n_iters": 20000
+    },
+    "validation": {
+      "f1": 0.886890349360083,
+      "auc": 0.9515078748613676,
+      "train_objective": 0.3093665396677407,
+      "updates": 20000
+    },
+    "seconds": 0.13363710002158768
+  },
+  {
+    "name": "linear_constant_5_averaged",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.0001,
+      "learning_rate": "constant",
+      "n_epochs": 5,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.9061405556852673,
+      "auc": 0.9631642637048524,
+      "train_objective": 0.2726510637911472,
+      "updates": 200775
+    },
+    "seconds": 1.0549506999959704
+  },
+  {
+    "name": "linear_pegasos_5_averaged",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.0001,
+      "learning_rate": "pegasos",
+      "n_epochs": 5,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.9066043249561659,
+      "auc": 0.962961093767519,
+      "train_objective": 0.3872205953179405,
+      "updates": 200775
+    },
+    "seconds": 1.0346829000045545
+  },
+  {
+    "name": "linear_constant_20_averaged",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.0001,
+      "learning_rate": "constant",
+      "n_epochs": 20,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.9070987294556475,
+      "auc": 0.9633691627480355,
+      "train_objective": 0.2718058843196071,
+      "updates": 803100
+    },
+    "seconds": 4.135630900011165
+  },
+  {
+    "name": "linear_pegasos_20_averaged",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.0001,
+      "learning_rate": "pegasos",
+      "n_epochs": 20,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.9071203822398322,
+      "auc": 0.9633106973564943,
+      "train_objective": 0.2806679603083841,
+      "updates": 803100
+    },
+    "seconds": 4.121138200018322
+  },
+  {
+    "name": "rff_previous",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.001,
+      "n_components": 512,
+      "gamma": 0.01,
+      "learning_rate": "pegasos",
+      "n_iters": 20000
+    },
+    "validation": {
+      "f1": 0.8406821963394343,
+      "auc": 0.9341871513926732,
+      "train_objective": 0.5138665814384225,
+      "updates": 20000
+    },
+    "seconds": 1.005219999991823
+  },
+  {
+    "name": "rff_constant_5_averaged",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.001,
+      "n_components": 512,
+      "gamma": 0.01,
+      "learning_rate": "constant",
+      "n_epochs": 5,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.8377880184331797,
+      "auc": 0.9312307045971251,
+      "train_objective": 0.4561162856437453,
+      "updates": 200775
+    },
+    "seconds": 2.1318483000213746
+  },
+  {
+    "name": "rff_pegasos_5_averaged",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.001,
+      "n_components": 512,
+      "gamma": 0.01,
+      "learning_rate": "pegasos",
+      "n_epochs": 5,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.8398938012235946,
+      "auc": 0.9343521729321987,
+      "train_objective": 0.4556013311515465,
+      "updates": 200775
+    },
+    "seconds": 2.1611229999980424
+  },
+  {
+    "name": "rff_constant_20_averaged",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.001,
+      "n_components": 512,
+      "gamma": 0.01,
+      "learning_rate": "constant",
+      "n_epochs": 20,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.8400508141817762,
+      "auc": 0.9342058473496725,
+      "train_objective": 0.45534803311963756,
+      "updates": 803100
+    },
+    "seconds": 5.756890699994983
+  },
+  {
+    "name": "rff_pegasos_20_averaged",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.001,
+      "n_components": 512,
+      "gamma": 0.01,
+      "learning_rate": "pegasos",
+      "n_epochs": 20,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.839930755914599,
+      "auc": 0.9339746875113979,
+      "train_objective": 0.45528246759261093,
+      "updates": 803100
+    },
+    "seconds": 5.8135882999922615
+  },
+  {
+    "name": "rff_lambda0.0001_gamma0.01",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.0001,
+      "n_components": 512,
+      "gamma": 0.01,
+      "learning_rate": "pegasos",
+      "n_epochs": 20,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.8814935064935064,
+      "auc": 0.9570907794079704,
+      "train_objective": 0.32931569703488006,
+      "updates": 803100
+    },
+    "seconds": 5.679276399983792
+  },
+  {
+    "name": "rff_lambda0.0001_gamma0.1",
+    "kind": "svm",
+    "params": {
+      "lambda_": 0.0001,
+      "n_components": 512,
+      "gamma": 0.1,
+      "learning_rate": "pegasos",
+      "n_epochs": 20,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.7915194346289752,
+      "auc": 0.868850887585155,
+      "train_objective": 0.5018700254991224,
+      "updates": 803100
+    },
+    "seconds": 5.834175099997083
+  },
+  {
+    "name": "rff_lambda1e-05_gamma0.01",
+    "kind": "svm",
+    "params": {
+      "lambda_": 1e-05,
+      "n_components": 512,
+      "gamma": 0.01,
+      "learning_rate": "pegasos",
+      "n_epochs": 20,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.8979210464844662,
+      "auc": 0.9644101385040803,
+      "train_objective": 0.2656006078898518,
+      "updates": 803100
+    },
+    "seconds": 5.521465300000273
+  },
+  {
+    "name": "rff_lambda1e-05_gamma0.1",
+    "kind": "svm",
+    "params": {
+      "lambda_": 1e-05,
+      "n_components": 512,
+      "gamma": 0.1,
+      "learning_rate": "pegasos",
+      "n_epochs": 20,
+      "average": true
+    },
+    "validation": {
+      "f1": 0.7998129092609916,
+      "auc": 0.8732448697564528,
+      "train_objective": 0.47168783188785185,
+      "updates": 803100
+    },
+    "seconds": 5.663576200022362
+  }
+]

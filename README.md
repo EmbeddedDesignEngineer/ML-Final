@@ -112,13 +112,35 @@ are in `evaluation/REPORT_NOTES.md`. This evaluation is integrated into Bailar's
 
 ## Ridge and shared experiments
 
-`src/linear.py` implements Ridge with NumPy normal equations and an unpenalized
+`src/linear.py` implements Ridge with a NumPy SVD solve and an unpenalized
 intercept. Ridge is the optional regression bonus; custom and sklearn versions
 use training-fitted scaling and the same alpha grid. `src/run_all.py` is the
 shared entry point and `experiments/pipeline.py` connects the team's modules.
 See `experiments/PIPELINE_REPORT_NOTES.md` for results, reproduction details and
 timing/uncertainty limits. Committed evidence is under
 `experiments/artifacts/final/`; local prepared CSV/NPZ files remain ignored.
+
+## Regression and SVM quality study
+
+Run `python -m src.run_all --quality-study --output results/quality-new` with
+the raw CSV at `data/house_sale.csv` (or pass `--raw`). Use a new output directory.
+This compares the old settings with deeper trees, our bootstrap tree ensemble,
+and longer averaged SVM training. RFF candidates also vary regularization and gamma.
+The study fits preprocessing on train and selects configurations on validation.
+It never scores the historic test partition. `selected.json` records the best
+searched configuration in each family; `validation.json` contains every candidate.
+The manifest records source/data hashes, sizes and completion status. Partial
+results from an interrupted run are not a complete comparison.
+
+The original full-pipeline command preserves the historical experiment settings.
+See `experiments/MODEL_QUALITY_REPORT.md` for measured improvements and limits.
+
+For deeper regression comparisons, run
+`python -m src.run_all --price-study --clean data/house_sale_clean.csv --output results/price-new`.
+This uses the cleaned CSV from preprocessing, compares raw and log-price-per-area
+targets, and reports median/90th-percentile error, relative accuracy, and price bands.
+Custom residual boosting is included as a candidate, not assumed to outperform bagging.
+The selected model can differ for RMSE and MAE; see `experiments/PRICE_ERROR_REPORT.md`.
 
 This completes the experiment code path. The team must still assemble and
 review its final report PDF, presentation PDF and named contribution report

@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "protocol": "Outlier, overfitting and feature diagnostics for the price models.\n\nModel choices are made on inner splits of the deduplicated official train part;\nthe official validation split is used only for the error audit of the selected\nmodel. The test split is never scored. Every fit is independent and seeded, so\nthe parallel run gives the same numbers as a serial one.",
+  "workers": 12,
+  "clean_sha256": "ec31dd5e9cf6dc1f8f8e14c0b6827b0998ed51761f33ccc1f6d9f6fb8f4d2197",
+  "source_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data_prep.py": "8676b0ab2b016b1744e280d309190a59c14608ffbd4405ce586b4fa18472a7c4",
+    "decision_tree.py": "fc45b842d42c79360049407de551888fd904d6f85f621717731761be0aa22f5c",
+    "ensemble.py": "c0433a3093e353624facf41e75960c375e99e8e0f513b6ad7c8b73136152b06e",
+    "evaluate.py": "0de64301c3ee7add465400d466d0f6ea23e3d696d23c9424a613280be455b9de",
+    "evaluation_plots.py": "424913606cad20c21e13d45bf205f70e0dab00ddfcc598b637f3370aa6e115b2",
+    "linear.py": "cb7b1398895fbeeff342b7a78cb849a37513772932b085be68ec9d2713d87177",
+    "price_models.py": "8068a2acc49d8b4c9e61512f2dd6fffa2d181b270c874589a60dc7b60d08efd6",
+    "run_all.py": "c222bb4bf50f0ed63b1106317a6f3309b4d6b52380aa383e81c6a60e786715dd",
+    "svm.py": "41c9de8bfb99e0459fb5c87855bdf7d7ea80a1ef674932ad9e8551389dafcb15",
+    "neighbour_feature.py": "e9ca5e9258aebd9e959eb4ecdb6753594ee2638ad052f523ee286dfabb4198d6",
+    "study.py": "9fe41085265668e6b428aba5eadc7cadc1bbae2ebb281b7359791c2f31113ba5",
+    "price_quality.py": "d46adac9020f72019daa36d4aeee7ac5419d5084f73171d180a4a8239b94be08"
+  },
+  "duplicates": {
+    "all_rows": 446,
+    "official_train": 221
+  }
+}
