@@ -1,5 +1,5 @@
 \section{Ridge Baseline and Reproducibility}
-Our optional NumPy Ridge model minimizes squared error plus an $\alpha\lVert w\rVert_2^2$ penalty. Training-centered normal equations are solved with \texttt{numpy.linalg.solve}; the intercept is not penalized. Both custom and sklearn versions use training-fitted scaling. The validation grid is $\{0.1,1,10,100,1000\}$; both select $\alpha=1000$ by minimum validation RMSE. This is the best searched setting, not a global-optimum claim.
+Our optional NumPy Ridge model minimizes squared error plus an $\alpha\lVert w\rVert_2^2$ penalty. The original experiment solved training-centered normal equations with \texttt{numpy.linalg.solve}; the implementation now uses an equivalent SVD solve to improve numerical stability. The intercept is not penalized. Both custom and sklearn versions use training-fitted scaling. The validation grid is $\{0.1,1,10,100,1000\}$; both select $\alpha=1000$ by minimum validation RMSE. This is the best searched setting, not a global-optimum claim.
 
 \begin{table}[ht]
 \centering\scriptsize
