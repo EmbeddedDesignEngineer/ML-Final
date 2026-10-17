@@ -1,0 +1,207 @@
+{
+  "protocol": "Train/validation only; historic test already observed.",
+  "seed": 42,
+  "configurations": [
+    {
+      "name": "tree_previous",
+      "kind": "tree",
+      "params": {
+        "max_depth": 12,
+        "min_samples_leaf": 5
+      }
+    },
+    {
+      "name": "tree_deeper",
+      "kind": "tree",
+      "params": {
+        "max_depth": 16,
+        "min_samples_leaf": 10
+      }
+    },
+    {
+      "name": "bagged_tree",
+      "kind": "bagging",
+      "params": {
+        "n_estimators": 24,
+        "max_depth": 16,
+        "min_samples_leaf": 5,
+        "max_samples": 0.8,
+        "max_features": 0.8,
+        "random_state": 42
+      }
+    },
+    {
+      "name": "linear_previous",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.0001,
+        "learning_rate": "constant",
+        "n_iters": 20000
+      }
+    },
+    {
+      "name": "linear_constant_5_averaged",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.0001,
+        "learning_rate": "constant",
+        "n_epochs": 5,
+        "average": true
+      }
+    },
+    {
+      "name": "linear_pegasos_5_averaged",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.0001,
+        "learning_rate": "pegasos",
+        "n_epochs": 5,
+        "average": true
+      }
+    },
+    {
+      "name": "linear_constant_20_averaged",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.0001,
+        "learning_rate": "constant",
+        "n_epochs": 20,
+        "average": true
+      }
+    },
+    {
+      "name": "linear_pegasos_20_averaged",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.0001,
+        "learning_rate": "pegasos",
+        "n_epochs": 20,
+        "average": true
+      }
+    },
+    {
+      "name": "rff_previous",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.001,
+        "n_components": 512,
+        "gamma": 0.01,
+        "learning_rate": "pegasos",
+        "n_iters": 20000
+      }
+    },
+    {
+      "name": "rff_constant_5_averaged",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.001,
+        "n_components": 512,
+        "gamma": 0.01,
+        "learning_rate": "constant",
+        "n_epochs": 5,
+        "average": true
+      }
+    },
+    {
+      "name": "rff_pegasos_5_averaged",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.001,
+        "n_components": 512,
+        "gamma": 0.01,
+        "learning_rate": "pegasos",
+        "n_epochs": 5,
+        "average": true
+      }
+    },
+    {
+      "name": "rff_constant_20_averaged",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.001,
+        "n_components": 512,
+        "gamma": 0.01,
+        "learning_rate": "constant",
+        "n_epochs": 20,
+        "average": true
+      }
+    },
+    {
+      "name": "rff_pegasos_20_averaged",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.001,
+        "n_components": 512,
+        "gamma": 0.01,
+        "learning_rate": "pegasos",
+        "n_epochs": 20,
+        "average": true
+      }
+    },
+    {
+      "name": "rff_lambda0.0001_gamma0.01",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.0001,
+        "n_components": 512,
+        "gamma": 0.01,
+        "learning_rate": "pegasos",
+        "n_epochs": 20,
+        "average": true
+      }
+    },
+    {
+      "name": "rff_lambda0.0001_gamma0.1",
+      "kind": "svm",
+      "params": {
+        "lambda_": 0.0001,
+        "n_components": 512,
+        "gamma": 0.1,
+        "learning_rate": "pegasos",
+        "n_epochs": 20,
+        "average": true
+      }
+    },
+    {
+      "name": "rff_lambda1e-05_gamma0.01",
+      "kind": "svm",
+      "params": {
+        "lambda_": 1e-05,
+        "n_components": 512,
+        "gamma": 0.01,
+        "learning_rate": "pegasos",
+        "n_epochs": 20,
+        "average": true
+      }
+    },
+    {
+      "name": "rff_lambda1e-05_gamma0.1",
+      "kind": "svm",
+      "params": {
+        "lambda_": 1e-05,
+        "n_components": 512,
+        "gamma": 0.1,
+        "learning_rate": "pegasos",
+        "n_epochs": 20,
+        "average": true
+      }
+    }
+  ],
+  "raw_sha256": "b6a4c67e0d3c712de31b9db53db53688792bc03099a213c1994c43114758aec2",
+  "python": "3.14.0",
+  "status": "complete",
+  "source_sha256": {
+    "data_prep.py": "41593e5d425fa333ee41f6ffe685cd11a64bd9389470f4ae8d7befb5b77db1c1",
+    "decision_tree.py": "065725902d132f5f042e91efcb3b3b2e63575ebe2f77041a0533cae9181fa2f9",
+    "ensemble.py": "b3fe0dfe57e1f8d884234313bab1860f15f33eb2fb78d5e197afb509d01fd87c",
+    "evaluate.py": "33e810e5f6c63952dcd70fd635be269bb029b1fb7d278d584c5c8ea0e01e5c01",
+    "evaluation_plots.py": "2bedd5921a1ff2ba950801f4f628ee54e6590e236fb00537222106b9f1a4b34d",
+    "linear.py": "81ab3fe5da965f9f2702d5eb5d14a9ffd868d8e784886fa4d52a4f9d05060850",
+    "run_all.py": "1aa4e9e5827a1c407bbd16dfedbbd47ee8ceade78a2cd013dfe73e0880f6fe25",
+    "svm.py": "592120e1c3b5954fcda28479f8d77496a0e514765e5dff89eef4160748ea05fd",
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "model_quality.py": "24e1ec1d90576d07fa34da76cfc1104d26d2f52af4852c80555b8b4e12bd7845"
+  },
+  "train_rows": 40155,
+  "validation_rows": 8604
+}

@@ -1,0 +1,342 @@
+{
+  "report": {
+    "overall": {
+      "count": 8604,
+      "rmse": 97157.00148019115,
+      "mae": 33967.779115902216,
+      "median_ae": 12739.501949548445,
+      "r2": 0.8224199166204198,
+      "p90_ae": 70833.62295860301,
+      "median_ape": 0.06408632537521552,
+      "within10": 0.6431892143189214,
+      "within20": 0.8444909344490934
+    },
+    "price_bands": {
+      "0-100000": {
+        "count": 814,
+        "rmse": 28885.18239236923,
+        "mae": 14770.513259965583,
+        "median_ae": 7225.386351945526,
+        "r2": -1.4335078440726026,
+        "p90_ae": 32792.30334579668,
+        "median_ape": 0.10365776207930907,
+        "within10": 0.4877149877149877,
+        "within20": 0.7039312039312039
+      },
+      "100000-200000": {
+        "count": 3301,
+        "rmse": 34042.6963630355,
+        "mae": 14356.954139997828,
+        "median_ae": 7788.17642245497,
+        "r2": -0.6198237853413913,
+        "p90_ae": 30785.620824590034,
+        "median_ape": 0.053324110044964144,
+        "within10": 0.7040290820963344,
+        "within20": 0.8906392002423508
+      },
+      "200000-500000": {
+        "count": 3804,
+        "rmse": 56344.66034284377,
+        "mae": 31471.714073184216,
+        "median_ae": 17858.77181946693,
+        "r2": 0.4565996052154113,
+        "p90_ae": 73775.55056139997,
+        "median_ape": 0.06042920027869851,
+        "within10": 0.6614090431125131,
+        "within20": 0.8654048370136698
+      },
+      "500000-inf": {
+        "count": 685,
+        "rmse": 307179.2161221109,
+        "mae": 165145.79236362793,
+        "median_ae": 84363.21735003346,
+        "r2": 0.5832947222195084,
+        "p90_ae": 398053.2972622192,
+        "median_ape": 0.12188818286312648,
+        "within10": 0.4335766423357664,
+        "within20": 0.672992700729927
+      }
+    },
+    "top_one_percent_squared_error_share": 0.7372237324710456
+  },
+  "duplicate_twins": {
+    "count": 139,
+    "with_twin": {
+      "count": 139,
+      "rmse": 31685.41105644598,
+      "mae": 19704.595228761154,
+      "median_ae": 9304.418627964216,
+      "r2": 0.9509171551322435,
+      "p90_ae": 54516.8673260171,
+      "median_ape": 0.03738046629572181,
+      "within10": 0.7482014388489209,
+      "within20": 0.920863309352518
+    },
+    "without_twin": {
+      "count": 8465,
+      "rmse": 97867.25101010926,
+      "mae": 34201.98851463968,
+      "median_ae": 12787.452824809297,
+      "r2": 0.8216148430045234,
+      "p90_ae": 71166.66839308848,
+      "median_ape": 0.06441326502394247,
+      "within10": 0.6414648552864737,
+      "within20": 0.8432368576491436
+    }
+  },
+  "calibration": [
+    {
+      "bin": "(18340.0, 142754.149]",
+      "count": 2151,
+      "median_ratio": 0.9992772546544916,
+      "mean_ratio": 1.02210140032809
+    },
+    {
+      "bin": "(142754.149, 208036.046]",
+      "count": 2151,
+      "median_ratio": 0.9991644091108514,
+      "mean_ratio": 1.0082164353203737
+    },
+    {
+      "bin": "(208036.046, 312608.09]",
+      "count": 2151,
+      "median_ratio": 0.9983039252284615,
+      "mean_ratio": 1.0050378545108547
+    },
+    {
+      "bin": "(312608.09, 450298.853]",
+      "count": 1290,
+      "median_ratio": 1.0021104306585906,
+      "mean_ratio": 1.022314211861253
+    },
+    {
+      "bin": "(450298.853, 681649.29]",
+      "count": 602,
+      "median_ratio": 1.0033567615283996,
+      "mean_ratio": 1.0186826508109266
+    },
+    {
+      "bin": "(681649.29, 4195037.827]",
+      "count": 259,
+      "median_ratio": 0.99209922403679,
+      "mean_ratio": 1.0349622818306654
+    }
+  ],
+  "extreme_ppm": {
+    "validation_count": 19,
+    "in_worst_30": 4
+  },
+  "worst_30": [
+    {
+      "price": 4200000.0,
+      "prediction": 1481680,
+      "category": "house",
+      "area_m2": 900.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 3600000.0,
+      "prediction": 1533292,
+      "category": "new_build",
+      "area_m2": 784.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 3790000.0,
+      "prediction": 1835983,
+      "category": "house",
+      "area_m2": 565.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 3000000.0,
+      "prediction": 1062392,
+      "category": "house",
+      "area_m2": 350.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 2000000.0,
+      "prediction": 391014,
+      "category": "house",
+      "area_m2": 400.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 2252000.0,
+      "prediction": 676163,
+      "category": "new_build",
+      "area_m2": 281.5,
+      "extreme_ppm": false
+    },
+    {
+      "price": 1800000.0,
+      "prediction": 402682,
+      "category": "house",
+      "area_m2": 330.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 159000.0,
+      "prediction": 1396041,
+      "category": "old_build",
+      "area_m2": 600.0,
+      "extreme_ppm": true
+    },
+    {
+      "price": 2500000.0,
+      "prediction": 1278605,
+      "category": "house",
+      "area_m2": 650.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 2500000.0,
+      "prediction": 1314236,
+      "category": "house",
+      "area_m2": 820.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 2500000.0,
+      "prediction": 1353767,
+      "category": "house",
+      "area_m2": 819.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 350000.0,
+      "prediction": 1455035,
+      "category": "old_build",
+      "area_m2": 450.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 3000000.0,
+      "prediction": 1989708,
+      "category": "house",
+      "area_m2": 700.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 660000.0,
+      "prediction": 1658900,
+      "category": "new_build",
+      "area_m2": 540.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 3200000.0,
+      "prediction": 2215741,
+      "category": "new_build",
+      "area_m2": 465.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 2000000.0,
+      "prediction": 1038037,
+      "category": "house",
+      "area_m2": 370.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 1650000.0,
+      "prediction": 737580,
+      "category": "new_build",
+      "area_m2": 288.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 1700000.0,
+      "prediction": 787793,
+      "category": "house",
+      "area_m2": 420.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 1350000.0,
+      "prediction": 453457,
+      "category": "house",
+      "area_m2": 290.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 396000.0,
+      "prediction": 1290189,
+      "category": "house",
+      "area_m2": 750.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 2000000.0,
+      "prediction": 1160262,
+      "category": "house",
+      "area_m2": 950.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 1800000.0,
+      "prediction": 984008,
+      "category": "house",
+      "area_m2": 800.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 1750000.0,
+      "prediction": 941638,
+      "category": "house",
+      "area_m2": 400.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 1500000.0,
+      "prediction": 2272227,
+      "category": "house",
+      "area_m2": 750.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 2816900.0,
+      "prediction": 2053767,
+      "category": "new_build",
+      "area_m2": 259.0,
+      "extreme_ppm": true
+    },
+    {
+      "price": 1350000.0,
+      "prediction": 588026,
+      "category": "old_build",
+      "area_m2": 181.0,
+      "extreme_ppm": true
+    },
+    {
+      "price": 1400000.0,
+      "prediction": 653588,
+      "category": "house",
+      "area_m2": 700.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 1400000.0,
+      "prediction": 666598,
+      "category": "house",
+      "area_m2": 500.0,
+      "extreme_ppm": false
+    },
+    {
+      "price": 910000.0,
+      "prediction": 180220,
+      "category": "old_build",
+      "area_m2": 68.0,
+      "extreme_ppm": true
+    },
+    {
+      "price": 1170000.0,
+      "prediction": 450196,
+      "category": "house",
+      "area_m2": 300.0,
+      "extreme_ppm": false
+    }
+  ],
+  "note": "Listing identifiers, locations and coordinates removed; regenerate with --price-diagnostics."
+}

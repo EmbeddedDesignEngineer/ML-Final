@@ -1,0 +1,93 @@
+{
+  "status": "complete",
+  "clean_sha256": "ec31dd5e9cf6dc1f8f8e14c0b6827b0998ed51761f33ccc1f6d9f6fb8f4d2197",
+  "configurations": [
+    {
+      "name": "previous_bagging",
+      "kind": "bagging",
+      "target": "price",
+      "params": {
+        "max_features": 0.8
+      }
+    },
+    {
+      "name": "all_features_bagging",
+      "kind": "bagging",
+      "target": "price",
+      "params": {
+        "max_features": 1.0
+      }
+    },
+    {
+      "name": "log_area_bagging",
+      "kind": "bagging",
+      "target": "log_price_per_area",
+      "params": {
+        "max_features": 1.0
+      }
+    },
+    {
+      "name": "residual_boosting",
+      "kind": "boosting",
+      "target": "price",
+      "params": {
+        "n_estimators": 100,
+        "max_depth": 5
+      }
+    },
+    {
+      "name": "log_area_boosting",
+      "kind": "boosting",
+      "target": "log_price_per_area",
+      "params": {
+        "n_estimators": 100,
+        "max_depth": 5
+      }
+    },
+    {
+      "name": "deep_bagging",
+      "kind": "bagging",
+      "target": "price",
+      "params": {
+        "max_features": 1.0,
+        "max_depth": 24,
+        "min_samples_leaf": 1
+      }
+    },
+    {
+      "name": "deep_log_area_bagging",
+      "kind": "bagging",
+      "target": "log_price_per_area",
+      "params": {
+        "max_features": 1.0,
+        "max_depth": 24,
+        "min_samples_leaf": 1
+      }
+    },
+    {
+      "name": "deep48_log_area_bagging",
+      "kind": "bagging",
+      "target": "log_price_per_area",
+      "params": {
+        "n_estimators": 48,
+        "max_features": 1.0,
+        "max_depth": 32,
+        "min_samples_leaf": 1
+      }
+    }
+  ],
+  "protocol": "Seed 42; fit train only, evaluate validation only; historic test not scored.",
+  "source_sha256": {
+    "data_prep.py": "41593e5d425fa333ee41f6ffe685cd11a64bd9389470f4ae8d7befb5b77db1c1",
+    "decision_tree.py": "065725902d132f5f042e91efcb3b3b2e63575ebe2f77041a0533cae9181fa2f9",
+    "ensemble.py": "b3fe0dfe57e1f8d884234313bab1860f15f33eb2fb78d5e197afb509d01fd87c",
+    "evaluate.py": "33e810e5f6c63952dcd70fd635be269bb029b1fb7d278d584c5c8ea0e01e5c01",
+    "evaluation_plots.py": "2bedd5921a1ff2ba950801f4f628ee54e6590e236fb00537222106b9f1a4b34d",
+    "linear.py": "81ab3fe5da965f9f2702d5eb5d14a9ffd868d8e784886fa4d52a4f9d05060850",
+    "price_models.py": "9321a7b719e7a4bff93e10eecbbda71377e77a1b4afcf7de6705eff377d26e12",
+    "run_all.py": "e27323f1f4930d15e5bdcda3114470703d15b8e8932127a828cd30568816b8bd",
+    "svm.py": "592120e1c3b5954fcda28479f8d77496a0e514765e5dff89eef4160748ea05fd",
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "price_quality.py": "360cb0e59335f4dfc5b270a7849bb06334f25f1c73967ffa861528b3b069e85a"
+  }
+}

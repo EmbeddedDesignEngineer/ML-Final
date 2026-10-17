@@ -1,0 +1,5 @@
+{
+  "rmse": "deep48_log_area_bagging",
+  "mae": "deep48_log_area_bagging",
+  "median_ape": "deep48_log_area_bagging"
+}
