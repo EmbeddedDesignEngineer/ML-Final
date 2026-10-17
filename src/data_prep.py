@@ -70,7 +70,7 @@ def _parse_number(s: pd.Series) -> pd.Series:
     """'145 m²' -> 145.0, '1.3 sot' -> 1.3, '3 450' -> 3450.0."""
     num = (s.astype("string")
              .str.replace(" ", "", regex=False)
-             .str.extract(r"([\d\s]+(?:[.,]\d+)?)")[0]
+             .str.extract(r"([-+]?\d[\d\s]*(?:[.,]\d+)?)")[0]
              .str.replace(r"\s", "", regex=True)
              .str.replace(",", ".", regex=False))
     return pd.to_numeric(num, errors="coerce")
@@ -108,9 +108,16 @@ def clean(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
         return frame
 
     df = step("raw", df.copy())
+    for column in ("currency_x", "currency_y"):
+        if column in df:
+            currencies = df[column].dropna().astype(str).str.strip().str.upper()
+            if not currencies.isin(["AZN", "₼", ""]).all():
+                raise ValueError(f"Unsupported currency in {column}; prices must be AZN")
 
     # 1. duplicates: the same listing URL appears on several scraped pages
-    df = df.sort_values("datetime_scrape_x").drop_duplicates("estate_rel_url_x", keep="last")
+    df = df.sort_values("datetime_scrape_x")
+    has_url = df["estate_rel_url_x"].notna() & df["estate_rel_url_x"].astype(str).str.strip().ne("")
+    df = df[~has_url | ~df.duplicated("estate_rel_url_x", keep="last")]
     df = step("drop duplicate listings", df)
 
     # 2. residential only
@@ -139,8 +146,8 @@ def clean(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
     out["is_vip"] = df["vip"].notna().astype(int)
     out["is_featured"] = df["featured"].notna().astype(int)
     out["location"] = df["location"].astype("string").str.strip()
-    out["lat"] = df["lat"]
-    out["lng"] = df["lng"]
+    out["lat"] = pd.to_numeric(df["lat"], errors="coerce")
+    out["lng"] = pd.to_numeric(df["lng"], errors="coerce")
 
     # Structural fills (not statistics -> no leakage):
     #   houses have no floor in a building -> floor 0, total_floors 1 (own building)
@@ -167,7 +174,7 @@ def clean(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
     df = step(f"price per m² in {PPM2_RANGE}", df)
     df = df[df["rooms"].between(1, MAX_ROOMS)]
     df = step(f"rooms in [1, {MAX_ROOMS}]", df)
-    df = df[df["land_sot"] <= MAX_LAND_SOT]
+    df = df[df["land_sot"].between(0, MAX_LAND_SOT)]
     df = step(f"land <= {MAX_LAND_SOT} sot", df)
     df = df[(df["floor"] <= df["total_floors"]) & (df["floor"] >= 0)]
     df = step("0 <= floor <= total_floors", df)
@@ -277,8 +284,12 @@ def make_tier_label(y_price, threshold=None):
     Return (y_tier int ndarray, threshold float).
     """
     y_price = np.asarray(y_price, dtype=float)
+    if y_price.ndim != 1 or not len(y_price) or not np.isfinite(y_price).all() or np.any(y_price <= 0):
+        raise ValueError("Prices must be a non-empty 1-D array of finite positive values")
     if threshold is None:
         threshold = float(np.median(y_price))
+    if not np.isfinite(threshold) or threshold <= 0:
+        raise ValueError("Tier threshold must be finite and positive")
     return (y_price > threshold).astype(int), float(threshold)
 
 
@@ -291,6 +302,11 @@ def _split_indices(y, val_size=0.15, test_size=0.15, seed=SEED):
     goes to; no feature, label or scaling statistic comes from val/test.
     """
     y = np.asarray(y, dtype=float)
+    if y.ndim != 1 or not len(y) or not np.isfinite(y).all():
+        raise ValueError("Split targets must be a non-empty finite 1-D array")
+    if (not np.isfinite([val_size, test_size]).all() or min(val_size, test_size) < 0
+            or val_size + test_size >= 1):
+        raise ValueError("Split sizes must be non-negative and sum to less than one")
     rng = np.random.default_rng(seed)
     edges = np.quantile(y, np.linspace(0, 1, 11)[1:-1])
     strata = np.searchsorted(edges, y, side="right")
