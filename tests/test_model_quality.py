@@ -27,3 +27,23 @@ def test_grid_preserves_baselines_and_has_unique_names():
     old = [c for c in configs if c['name'].endswith('_previous')]
     assert len(old) == 3
     assert all(not c['params'].get('average', False) for c in old)
+
+
+def test_cli_routes_quality_study_without_full_pipeline(monkeypatch, tmp_path):
+    from src import run_all
+    from experiments import model_quality
+    calls = []
+    monkeypatch.setattr('sys.argv', ['run_all', '--quality-study', '--output', str(tmp_path)])
+    monkeypatch.setattr(model_quality, 'run_quality_study', lambda raw, output: calls.append((raw, output)))
+    monkeypatch.setattr(run_all, 'run_pipeline', lambda *a, **kw: (_ for _ in ()).throw(AssertionError()))
+    run_all.main()
+    assert calls == [(run_all.Path('data/house_sale.csv'), tmp_path)]
+
+
+def test_study_preserves_existing_evidence(tmp_path):
+    from experiments.model_quality import run_quality_study
+    evidence = tmp_path / 'validation.json'
+    evidence.write_text('previous result')
+    with pytest.raises(ValueError, match='empty output'):
+        run_quality_study('missing.csv', tmp_path)
+    assert evidence.read_text() == 'previous result'

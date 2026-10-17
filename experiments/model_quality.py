@@ -65,6 +65,8 @@ def compare(splits, configs, on_result=None):
 
 def run_quality_study(raw_path, output):
     raw_path, output = Path(raw_path), Path(output)
+    if output.exists() and any(output.iterdir()):
+        raise ValueError('Quality study requires a new or empty output directory')
     output.mkdir(parents=True, exist_ok=True)
     configs = configurations()
     with raw_path.open('rb') as handle:
@@ -72,7 +74,7 @@ def run_quality_study(raw_path, output):
     manifest = dict(protocol='Train/validation only; historic test already observed.',
                     seed=42, configurations=configs,
                     raw_sha256=raw_hash)
-    sources = list(Path('src').glob('*.py')) + [Path(__file__)]
+    sources = list((Path(__file__).resolve().parents[1] / 'src').glob('*.py')) + [Path(__file__)]
     manifest['source_sha256'] = {p.name: hashlib.sha256(p.read_text().encode()).hexdigest()
                                  for p in sources}
     (output / 'manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
