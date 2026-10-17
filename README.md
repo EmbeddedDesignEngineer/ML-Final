@@ -135,6 +135,13 @@ results from an interrupted run are not a complete comparison.
 The original full-pipeline command preserves the historical experiment settings.
 See `experiments/MODEL_QUALITY_REPORT.md` for measured improvements and limits.
 
+For deeper regression comparisons, run
+`python -m src.run_all --price-study --clean data/house_sale_clean.csv --output results/price-new`.
+This uses the cleaned CSV from preprocessing, compares raw and log-price-per-area
+targets, and reports median/90th-percentile error, relative accuracy, and price bands.
+Custom residual boosting is included as a candidate, not assumed to outperform bagging.
+The selected model can differ for RMSE and MAE; see `experiments/PRICE_ERROR_REPORT.md`.
+
 This completes the experiment code path. The team must still assemble and
 review its final report PDF, presentation PDF and named contribution report
 before tagging the submission `v1.0-final`.
