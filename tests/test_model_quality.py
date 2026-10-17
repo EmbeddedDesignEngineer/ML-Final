@@ -47,3 +47,18 @@ def test_study_preserves_existing_evidence(tmp_path):
     with pytest.raises(ValueError, match='empty output'):
         run_quality_study('missing.csv', tmp_path)
     assert evidence.read_text() == 'previous result'
+
+
+def test_failed_study_is_marked_failed(monkeypatch, tmp_path):
+    import json
+    from experiments import model_quality
+    raw = tmp_path / 'raw.csv'
+    raw.write_text('bad,data\n1,2\n')
+    output = tmp_path / 'study'
+    def fail(frame):
+        raise ValueError('invalid raw schema')
+    monkeypatch.setattr(model_quality.data_prep, 'clean', fail)
+    with pytest.raises(ValueError, match='invalid raw schema'):
+        model_quality.run_quality_study(raw, output)
+    assert json.loads((output / 'manifest.json').read_text())['status'] == 'failed'
+    assert not (output / 'selected.json').exists()

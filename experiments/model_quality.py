@@ -2,6 +2,7 @@
 import hashlib
 import json
 import time
+import platform
 from pathlib import Path
 import pandas as pd
 
@@ -27,6 +28,11 @@ def configurations():
             for rate in ('constant', 'pegasos'):
                 configs.append(dict(name=f'{mode}_{rate}_{epochs}_averaged', kind='svm',
                     params=dict(**extra, learning_rate=rate, n_epochs=epochs, average=True)))
+    for regularization in (1e-4, 1e-5):
+        for gamma in (.01, .1):
+            configs.append(dict(name=f'rff_lambda{regularization}_gamma{gamma}', kind='svm',
+                params=dict(lambda_=regularization, n_components=512, gamma=gamma,
+                            learning_rate='pegasos', n_epochs=20, average=True)))
     return configs
 
 
@@ -73,17 +79,35 @@ def run_quality_study(raw_path, output):
         raw_hash = hashlib.file_digest(handle, 'sha256').hexdigest()
     manifest = dict(protocol='Train/validation only; historic test already observed.',
                     seed=42, configurations=configs,
-                    raw_sha256=raw_hash)
+                    raw_sha256=raw_hash, python=platform.python_version(),
+                    status='running')
     sources = list((Path(__file__).resolve().parents[1] / 'src').glob('*.py')) + [Path(__file__)]
     manifest['source_sha256'] = {p.name: hashlib.sha256(p.read_text().encode()).hexdigest()
                                  for p in sources}
     (output / 'manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
-    clean = output / 'clean.csv'
-    data_prep.clean(pd.read_csv(raw_path)).to_csv(clean, index=False)
-    splits = data_prep.get_splits(path=str(clean), seed=42)
-
     def save(rows):
         (output / 'validation.json').write_text(json.dumps(rows, indent=2), encoding='utf-8')
         print(json.dumps(rows[-1]), flush=True)
 
-    return compare(splits, configs, on_result=save)
+    try:
+        clean = output / 'clean.csv'
+        data_prep.clean(pd.read_csv(raw_path)).to_csv(clean, index=False)
+        splits = data_prep.get_splits(path=str(clean), seed=42)
+        manifest['train_rows'] = len(splits['y_tr'])
+        manifest['validation_rows'] = len(splits['y_val'])
+        rows = compare(splits, configs, on_result=save)
+        selected = {}
+        for family, candidates, metric, reverse in (
+            ('regression', [r for r in rows if r['kind'] != 'svm'], 'rmse', False),
+            ('linear_svm', [r for r in rows if r['kind'] == 'svm' and 'n_components' not in r['params']], 'f1', True),
+            ('rff_svm', [r for r in rows if r['kind'] == 'svm' and 'n_components' in r['params']], 'f1', True),
+        ):
+            selected[family] = sorted(candidates, key=lambda r: r['validation'][metric], reverse=reverse)[0]
+        (output / 'selected.json').write_text(json.dumps(selected, indent=2), encoding='utf-8')
+        manifest['status'] = 'complete'
+        return rows
+    except Exception:
+        manifest['status'] = 'failed'
+        raise
+    finally:
+        (output / 'manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
